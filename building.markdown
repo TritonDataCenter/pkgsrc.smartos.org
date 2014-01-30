@@ -51,6 +51,14 @@ If you want to be particularly adventurous, you could checkout
 very fast-moving target and you may run into unexpected breakages, and you will
 certainly end up rebuilding packages very often.
 
+If you're only planning to build packages and don't need the extensive git history
+of the repository, you can drastically speed up the clone by excluding it:
+
+```console
+$ cd /content
+$ git clone --depth 1 --b joyent/release/2013Q4 git://github.com/joyent/pkgsrc.git
+```
+
 ## Fetch pkgsrc-wip
 
 [pkgsrc-wip](http://pkgsrc-wip.sourceforge.net/) is a set of additional
