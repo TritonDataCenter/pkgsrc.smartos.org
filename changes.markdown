@@ -4,6 +4,22 @@ With 13,000+ packages being constantly updated and changed, producing a full
 ChangeLog would be an exercise in futility and not very helpful.  So instead we
 try to summarise the most important changes in each quarterly release.
 
+## Major changes in pkgsrc-2014Q1
+
+Here are the major changes in the pkgsrc-2014Q1 release:
+
+### OpenSSL update
+
+Everyone has heard of the Heartbleed attacks by now.  2014Q1 of course includes
+the latest OpenSSL (1.0.1g) to fix this issue.
+
+### Go 1.3beta1 for illumos 64-bit
+
+Thanks to great work by [Aram Hăvărneanu](https://twitter.com/aramh) Go 1.3
+will support illumos systems, and we've included the 1.3beta1 package in our
+SmartOS x86_64 repository.  Please give it a spin and provide feedback so the
+main 1.3 release can be great!
+
 ## Major changes in pkgsrc-2013Q4
 
 Here are the major changes in the pkgsrc-2013Q4 release:

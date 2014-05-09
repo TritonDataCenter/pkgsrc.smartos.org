@@ -1,7 +1,7 @@
 # Introduction
 
-This guide documents the package management functions provided by Joyent's
-packages, available for SmartOS/illumos and OSX.
+__This guide documents the package management functions provided by Joyent's
+packages, available for SmartOS/illumos, Linux, and OSX.__
 
 Packages are built using [pkgsrc](http://www.pkgsrc.org/), a portable
 cross-platform package manager containing 13,000+ packages for over 20
