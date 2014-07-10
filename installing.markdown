@@ -63,7 +63,7 @@ $ curl -s http://pkgsrc.joyent.com/packages/Darwin/bootstrap/bootstrap-2014Q1-i3
 
 : Packages are kept under /usr/pkg, add to $PATH and $MANPATH
 $ PATH=/usr/pkg/sbin:/usr/pkg/bin:$PATH
-$ MANPATH=/usr/pkg/man:$PATH
+$ MANPATH=/usr/pkg/man:$MANPATH
 ```
 
 ## Installing on Linux
