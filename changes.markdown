@@ -1,8 +1,15 @@
 # Changes
 
-With 13,000+ packages being constantly updated and changed, producing a full
+With 14,000+ packages being constantly updated and changed, producing a full
 ChangeLog would be an exercise in futility and not very helpful.  So instead we
 try to summarise the most important changes in each quarterly release.
+
+## Major changes in pkgsrc-2014Q2
+
+* 244 packages have been added
+* 2 packages have been renamed
+* 18 packages removed, 1 with a successor
+* 1085 packages updated
 
 ## Major changes in pkgsrc-2014Q1
 

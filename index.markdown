@@ -4,7 +4,7 @@ __This guide documents the package management functions provided by Joyent's
 packages, available for SmartOS/illumos, Linux, and OSX.__
 
 Packages are built using [pkgsrc](http://www.pkgsrc.org/), a portable
-cross-platform package manager containing 13,000+ packages for over 20
+cross-platform package manager containing 14,000+ packages for over 20
 different operating systems.
 
 ## What is pkgsrc?
@@ -23,9 +23,9 @@ For more information, see the pkgsrc homepage at
 
 ## How many packages are available?
 
-As of the most recent `2013Q4` branch, there are:
+As of the most recent `2014Q2` branch, there are:
 
-* 11,400+ for 32-bit illumos
-* 11,200+ for 64-bit illumos
-* 9,300+ for multiarch illumos
-* 10,000+ for 32-bit OS X
+* 12,982 packages for 32-bit SmartOS/illumos
+* 12,958 packages for 64-bit SmartOS/illumos
+* 13,154 packages for 64-bit Linux
+* 11,202 packages for 32-bit OS X
