@@ -16,7 +16,7 @@ along with any dependencies it requires.
 
 In addition to building from source, binary packages can be produced and then
 installed across multiple systems.  Joyent build and provide binary packages
-for SmartOS/illumos and OSX based on quarterly stable pkgsrc branches.
+for SmartOS/illumos, Linux, and OSX based on quarterly stable pkgsrc branches.
 
 For more information, see the pkgsrc homepage at
 [www.pkgsrc.org](http://www.pkgsrc.org/)
@@ -27,5 +27,5 @@ As of the most recent `2014Q2` branch, there are:
 
 * 12,982 packages for 32-bit SmartOS/illumos
 * 12,958 packages for 64-bit SmartOS/illumos
-* 13,154 packages for 64-bit Linux
+* 13,154 packages for 64-bit EL6 Linux
 * 11,202 packages for 32-bit OS X
