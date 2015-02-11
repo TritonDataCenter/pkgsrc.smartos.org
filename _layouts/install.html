@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>{{ page.title }}</title>
+                <link rel="stylesheet" href="{{site.url}}/css/bootstrap.min.css">
+                <link rel="stylesheet" href="{{site.url}}/css/screen.css">
+                <link rel="stylesheet" href="{{site.url}}/css/solarized.css">
+		<link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono|Ubuntu:300,700' rel='stylesheet' type='text/css'>
+	</head>
+	<body role="document">
+		<nav class="navbar navbar-default navbar-inverse navbar-fixed-top" role="navigation">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#pkgsrc-collapsed-navbar">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+                                        <a class="navbar-brand" href="{{site.url}}/"><img src="{{site.url}}/img/pkgsrc-long-inv.png" style="max-width:100px; margin-top: -7px;"></a>
+				</div>
+				<div class="collapse navbar-right navbar-collapse" id="pkgsrc-collapsed-navbar">
+					<ul class="nav navbar-nav">
+						<li><a href="{{site.url}}/">Home</a></li>
+						<li><a href="{{site.url}}/changes/">Changes</a></li>
+						<li><a href="{{site.url}}/docs/">Documentation</a></li>
+						<li><a href="https://github.com/joyent/pkgsrc/">GitHub</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3">
+					<img src="{{site.url}}/img/pkgsrc.png" class="img-responsive">
+				</div>
+				<div class="col-md-9">
+					<h2>Portable Package Management</h2>
+					<p class="lead">
+					pkgsrc is a framework for building over 14,000 open source software packages.  It is the
+					native package manager on SmartOS, NetBSD, and Minix, and is portable across 22
+					different operating systems.  Use one package manager across all of your systems!
+					</p>
+					<p class="lead">
+					Joyent provide binary packages for SmartOS/illumos, Mac OS X, and Linux.
+					</p>
+				</div>
+			</div>
+                        <hr>
+		</div>
+		{{ content }}
+		<div class="container">
+			<hr>
+			 <h2 class="text-center">Post-Install Steps</h2>
+                          <p class="lead text-center">
+                           Now that you're ready to go, here are some common commands you may want to run.
+                            </p>
+                            <div class="row">
+				<div class="col-md-6">
+                                  <h3>Use pkgin to install packages</h3>
+                                  <p><code>pkgin</code> is the front-end to the binary packages, and lets you search for, install, upgrade, and remove packages.  It also provides some basic functionality for querying both local and remote packages.  If you have used <code>apt-get</code> or <code>yum</code> you should find it to be very familiar.</p>
+				</div>
+				<div class="col-md-6">
+                                  <h3>Use pkg_* tools to manage packages</h3>
+                                  <p>The underlying packaging tools are <code>pkg_add</code>, <code>pkg_admin</code>, <code>pkg_create</code>, <code>pkg_delete</code>, and <code>pkg_info</code>.  If <code>pkgin</code> is equivalent to <code>apt-get</code> or <code>yum</code>, then these are the equivalent of <code>dpkg</code> or <code>rpm</code>.  Here are some useful commands to get you started.</p>
+				</div>
+			</div>
+                            <div class="row">
+				<div class="col-md-6">
+{% highlight console %}
+: Search for a package.  Regular expressions are supported.
+$ pkgin search "^ffmpeg[12]*$"
+ffmpeg2-2.3.3nb1     Decoding, encoding and streaming software (v2.x)
+ffmpeg1-1.2.8        Decoding, encoding and streaming software (v1.x)
+
+: Install a package without prompting
+$ pkgin -y install ffmpeg2
+
+: List all available packages
+$ pkgin avail
+
+: Refresh the pkgin database with the latest version
+$ pkgin update
+
+: Upgrade all out-of-date packages
+$ pkgin full-upgrade
+
+: Remove a package
+$ pkgin remove ffmpeg2
+
+: Automatically remove orphaned dependencies
+$ pkgin autoremove
+{% endhighlight %}
+			  </div>
+				<div class="col-md-6">
+{% highlight console %}
+: See what packages are installed.
+$ pkg_info
+
+: See what package a file belongs to.
+$ pkg_info -Fe {{page.prefix}}/bin/node
+nodejs-0.10.32
+
+: List the contents of a package.
+$ pkg_info -qL nodejs
+{{page.prefix}}/bin/node
+{{page.prefix}}/bin/npm
+[...]
+
+: Perform an audit of all currently installed packages.
+$ pkg_admin fetch-pkg-vulnerabilities
+$ pkg_admin audit
+Package openssl-1.0.1i has a multiple-vulnerabilities vulnerability, see https://www.openssl.org/news/secadv_20141015.txt
+Package python27-2.7.8 has a arbitrary-code-execution vulnerability, see http://bugs.python.org/issue22885
+[...]
+
+: Create a binary package from some metadata files and package directory.
+$ pkg_create -B build-info -c comment -d description -f packlist -I {{page.prefix}} -p files/ -U foo-1.0.tgz
+{% endhighlight %}
+			  </div>
+                        <hr>
+		</div>
+		<div class="container col-md-8 col-md-offset-2">
+			<hr>
+			<footer class="footer">
+				<p class="text-center small">pkgsrc is a registered trademark of The NetBSD Foundation, Inc.  Copyright &copy; 2015 Joyent, Inc.</p>
+			</footer>
+		</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+                <script src="{{site.url}}/js/bootstrap.min.js"></script>
+	</body>
+</html>

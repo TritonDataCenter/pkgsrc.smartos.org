@@ -51,7 +51,24 @@
 			</div>
                         <hr>
 		</div>
-		{{ content }}
+		<div class="container">
+			<div class="row">
+				<div class="col-md-9">
+					{{ content }}
+				</div>
+				<div class="col-md-3">
+					<nav class="well sidebar-nav sidebar-nav-fixed">
+						<ul class="nav">
+							{% for p in site.pages %}
+							{% if p.doc %}
+							<li><a href="{{site.url}}{{p.url|remove:'index.html'}}">{{p.title}}</a></li>
+							{% endif %}
+							{% endfor %}
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
 		<div class="container col-md-8 col-md-offset-2">
 			<hr>
 			<footer class="footer">
