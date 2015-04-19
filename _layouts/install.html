@@ -77,22 +77,22 @@ ffmpeg2-2.3.3nb1     Decoding, encoding and streaming software (v2.x)
 ffmpeg1-1.2.8        Decoding, encoding and streaming software (v1.x)
 
 : Install a package without prompting
-$ pkgin -y install ffmpeg2
+$ sudo pkgin -y install ffmpeg2
 
 : List all available packages
 $ pkgin avail
 
 : Refresh the pkgin database with the latest version
-$ pkgin update
+$ sudo pkgin -y update
 
 : Upgrade all out-of-date packages
-$ pkgin full-upgrade
+$ sudo pkgin -y full-upgrade
 
 : Remove a package
-$ pkgin remove ffmpeg2
+$ sudo pkgin -y remove ffmpeg2
 
 : Automatically remove orphaned dependencies
-$ pkgin autoremove
+$ sudo pkgin -y autoremove
 {% endhighlight %}
 			  </div>
 				<div class="col-md-6">
@@ -111,7 +111,7 @@ $ pkg_info -qL nodejs
 [...]
 
 : Perform an audit of all currently installed packages.
-$ pkg_admin fetch-pkg-vulnerabilities
+$ sudo pkg_admin fetch-pkg-vulnerabilities
 $ pkg_admin audit
 Package openssl-1.0.1i has a multiple-vulnerabilities vulnerability, see https://www.openssl.org/news/secadv_20141015.txt
 Package python27-2.7.8 has a arbitrary-code-execution vulnerability, see http://bugs.python.org/issue22885
