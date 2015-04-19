@@ -29,36 +29,60 @@ prefix: /usr/pkg
 	<div class="row">
 		<div class="col-md-6">
 {% highlight console %}
-: Download, check, and install bootstrap kit to {{ page.prefix }}.
-$ curl -Os http://pkgsrc.joyent.com/packages/Darwin/bootstrap/bootstrap-2014Q4-i386.tar.gz
-$ shasum bootstrap-2014Q4-i386.tar.gz 
-a11fd0f98f5c80295a24dd5c2dec5bd3d19b703c	bootstrap-2014Q4-i386.tar.gz
-$ sudo tar -zxpf bootstrap-2014Q4-i386.tar.gz -C /
+: Download 32-bit bootstrap kit
+$ curl -Os http://pkgsrc.joyent.com/packages/Darwin/bootstrap/bootstrap-2015Q1-i386.tar.gz
+
+: Verify SHA1 checksum
+$ shasum bootstrap-2015Q1-i386.tar.gz
+57fd810c9900d51b0f49f5501286e2c2db0a28c8  bootstrap-2015Q1-i386.tar.gz
+
+: Verify PGP signature
+$ curl -Os http://pkgsrc.joyent.com/packages/Darwin/bootstrap/bootstrap-2015Q1-i386.tar.gz.asc
+$ gpg --recv-keys 0xDE817B8E
+$ gpg --verify bootstrap-2015Q1-i386.tar.gz{.asc,}
+
+: Install bootstrap kit to {{ page.prefix }}
+$ sudo tar -zxpf bootstrap-2015Q1-i386.tar.gz -C /
 
 : Add paths
 $ PATH={{ page.prefix }}/sbin:{{ page.prefix }}/bin:$PATH
 $ MANPATH={{ page.prefix }}/man:$MANPATH
 
+: Fetch package repository information
+$ sudo pkgin -y update
+
 : Number of packages available
 $ pkgin avail | wc -l
-  11695
+  11375
 {% endhighlight %}
 		</div>
 		<div class="col-md-6">
 {% highlight console %}
-: Download, check, and install bootstrap kit to {{ page.prefix }}.
-$ curl -Os http://pkgsrc.joyent.com/packages/Darwin/bootstrap/bootstrap-2014Q4-x86_64.tar.gz
-$ shasum bootstrap-2014Q4-x86_64.tar.gz
-1ba17cc922304aa4508d1cb8765e936af5a9f5ff	bootstrap-2014Q4-x86_64.tar.gz
-$ sudo tar -zxpf bootstrap-2014Q4-x86_64.tar.gz -C /
+: Download 64-bit bootstrap kit
+$ curl -Os http://pkgsrc.joyent.com/packages/Darwin/bootstrap/bootstrap-2015Q1-x86_64.tar.gz
+
+: Verify SHA1 checksum
+$ shasum bootstrap-2015Q1-x86_64.tar.gz
+2d2f8dda3743dcd323c306828e9dbdc63b09bff2  bootstrap-2015Q1-x86_64.tar.gz
+
+: Verify PGP signature
+$ curl -Os http://pkgsrc.joyent.com/packages/Darwin/bootstrap/bootstrap-2015Q1-x86_64.tar.gz.asc
+$ gpg --recv-keys 0xDE817B8E
+$ gpg --verify bootstrap-2015Q1-x86_64.tar.gz{.asc,}
+
+: Install bootstrap kit to {{ page.prefix }}
+$ sudo tar -zxpf bootstrap-2015Q1-x86_64.tar.gz -C /
 
 : Add paths
 $ PATH={{ page.prefix }}/sbin:{{ page.prefix }}/bin:$PATH
 $ MANPATH={{ page.prefix }}/man:$MANPATH
 
+: Fetch package repository information
+$ sudo pkgin -y update
+
 : Number of packages available
 $ pkgin avail | wc -l
-   11487
+   11240
 {% endhighlight %}
 		</div>
 	</div>
