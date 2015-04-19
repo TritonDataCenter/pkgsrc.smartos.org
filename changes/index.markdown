@@ -9,17 +9,33 @@ With 14,000+ packages being constantly updated and changed, producing a full
 ChangeLog would be an exercise in futility and not very helpful.  So instead we
 try to summarise the most important changes in each quarterly release.
 
+## Major changes in pkgsrc-2015Q1
+
+* OS X packages are now PGP signed and verified by default.
+* OS X bootstraps now include the pkgsrc-gnupg-keys package for signature
+  verification of the pkg-vulnerabilities file.
+* PostgreSQL 9.4 has been added, PHP 5.3 has been removed.
+* 216 packages have been added
+* 2 packages have been renamed
+* 46 packages removed, 11 with a successor
+* 2007 packages updated
+
+The main pkgsrc-2015Q1 announcement is [here](http://mail-index.netbsd.org/pkgsrc-users/2015/04/14/msg021358.html).
+
 ## Major changes in pkgsrc-2014Q4
 
+* This release introduces Long Term Support, PGP signed packages, and some
+  other enhancements to our SmartOS sets.  See [this blog
+  post](http://www.perkin.org.uk/posts/pkgsrc-2014Q4-lts-signed-packages-and-more.html)
+  for more details.
 * This release sees the first set of 64-bit OS X packages, built on OS X
   Mavericks using clang, in addition to our existing 32-bit set.
-* SmartOS packages are now PGP signed and verified during install.
 * 156 packages have been added
 * 4 packages have been renamed
 * 48 packages removed, 9 with a successor
 * 1575 packages updated
 
-The main pkgsrc-2014Q4 announcement is [here](https://mail-index.netbsd.org/pkgsrc-users/2015/01/02/msg020854.html).
+The main pkgsrc-2014Q4 announcement is [here](http://mail-index.netbsd.org/pkgsrc-users/2015/01/02/msg020854.html).
 
 ## Major changes in pkgsrc-2014Q3
 
