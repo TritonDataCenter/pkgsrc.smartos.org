@@ -24,19 +24,19 @@ prefix: /opt/local
 		<div class="col-md-4">
 {% highlight console %}
 : Download 32-bit bootstrap kit
-$ curl -Os http://pkgsrc.joyent.com/packages/SmartOS/bootstrap/bootstrap-2014Q4-i386.tar.gz
+$ curl -Os http://pkgsrc.joyent.com/packages/SmartOS/bootstrap/bootstrap-2015Q1-i386.tar.gz
 
 : Verify SHA1 checksum
-$ /bin/digest -a sha1 bootstrap-2014Q4-i386.tar.gz
-(bootstrap-2014Q4-i386.tar.gz) = b231ae555aae1af81c95bdb4ddfa583e3b64c77b
+$ /bin/digest -a sha1 bootstrap-2015Q1-i386.tar.gz
+(bootstrap-2015Q1-i386.tar.gz) = d898cc359119f7f85bf155e3f807015821a2c9b9
 
 : Verify PGP signature
-$ curl -Os http://pkgsrc.joyent.com/packages/SmartOS/bootstrap/bootstrap-2014Q4-i386.tar.gz.asc
+$ curl -Os http://pkgsrc.joyent.com/packages/SmartOS/bootstrap/bootstrap-2015Q1-i386.tar.gz.asc
 $ gpg --recv-keys 0xDE817B8E
-$ gpg --verify bootstrap-2014Q4-i386.tar.gz.asc bootstrap-2014Q4-i386.tar.gz
+$ gpg --verify bootstrap-2015Q1-i386.tar.gz{.asc,}
 
 : Install bootstrap kit to {{ page.prefix }}
-$ sudo tar -zxpf bootstrap-2014Q4-i386.tar.gz -C /
+$ sudo tar -zxpf bootstrap-2015Q1-i386.tar.gz -C /
 
 : Add to PATH/MANPATH
 $ PATH={{ page.prefix }}/sbin:{{ page.prefix }}/bin:$PATH
@@ -46,19 +46,19 @@ $ MANPATH={{ page.prefix }}/man:$MANPATH
 		<div class="col-md-4">
 {% highlight console %}
 : Download 64-bit bootstrap kit
-$ curl -Os http://pkgsrc.joyent.com/packages/SmartOS/bootstrap/bootstrap-2014Q4-x86_64.tar.gz
+$ curl -Os http://pkgsrc.joyent.com/packages/SmartOS/bootstrap/bootstrap-2015Q1-x86_64.tar.gz
 
 : Verify SHA1 checksum
-$ /bin/digest -a sha1 bootstrap-2014Q4-x86_64.tar.gz
-(bootstrap-2014Q4-x86_64.tar.gz) = 6104143756dc9a39eb75df35c8c747e720f8286c
+$ /bin/digest -a sha1 bootstrap-2015Q1-x86_64.tar.gz
+(bootstrap-2015Q1-x86_64.tar.gz) = cc75dcb03e1083d36701a8ac19be85bc367bfa6c
 
 : Verify PGP signature
-$ curl -Os http://pkgsrc.joyent.com/packages/SmartOS/bootstrap/bootstrap-2014Q4-x86_64.tar.gz.asc
+$ curl -Os http://pkgsrc.joyent.com/packages/SmartOS/bootstrap/bootstrap-2015Q1-x86_64.tar.gz.asc
 $ gpg --recv-keys 0xDE817B8E
-$ gpg --verify bootstrap-2014Q4-x86_64.tar.gz.asc bootstrap-2014Q4-x86_64.tar.gz
+$ gpg --verify bootstrap-2015Q1-x86_64.tar.gz{.asc,}
 
 : Install bootstrap kit to {{ page.prefix }}
-$ sudo tar -zxpf bootstrap-2014Q4-x86_64.tar.gz -C /
+$ sudo tar -zxpf bootstrap-2015Q1-x86_64.tar.gz -C /
 
 : Add to PATH/MANPATH
 $ PATH={{ page.prefix }}/sbin:{{ page.prefix }}/bin:$PATH
@@ -68,19 +68,19 @@ $ MANPATH={{ page.prefix }}/man:$MANPATH
 		<div class="col-md-4">
 {% highlight console %}
 : Download multiarch bootstrap kit
-$ curl -Os http://pkgsrc.joyent.com/packages/SmartOS/bootstrap/bootstrap-2014Q4-multiarch.tar.gz
+$ curl -Os http://pkgsrc.joyent.com/packages/SmartOS/bootstrap/bootstrap-2015Q1-multiarch.tar.gz
 
 : Verify SHA1 checksum
-$ /bin/digest -a sha1 bootstrap-2014Q4-multiarch.tar.gz
-(bootstrap-2014Q4-multiarch.tar.gz) = 92b0b98dc9b7c831d4519092e6a972437701668b
+$ /bin/digest -a sha1 bootstrap-2015Q1-multiarch.tar.gz
+(bootstrap-2015Q1-multiarch.tar.gz) = 4ec639ad5655c2e5fd6a7d5d80a0ae2b3d5a1522
 
 : Verify PGP signature
-$ curl -Os http://pkgsrc.joyent.com/packages/SmartOS/bootstrap/bootstrap-2014Q4-multiarch.tar.gz.asc
+$ curl -Os http://pkgsrc.joyent.com/packages/SmartOS/bootstrap/bootstrap-2015Q1-multiarch.tar.gz.asc
 $ gpg --recv-keys 0xDE817B8E
-$ gpg --verify bootstrap-2014Q4-multiarch.tar.gz.asc bootstrap-2014Q4-multiarch.tar.gz
+$ gpg --verify bootstrap-2015Q1-multiarch.tar.gz{.asc,}
 
 : Install bootstrap kit to {{ page.prefix }}
-$ sudo tar -zxpf bootstrap-2014Q4-multiarch.tar.gz -C /
+$ sudo tar -zxpf bootstrap-2015Q1-multiarch.tar.gz -C /
 
 : Add to PATH/MANPATH
 $ PATH={{ page.prefix }}/sbin:{{ page.prefix }}/bin:$PATH
