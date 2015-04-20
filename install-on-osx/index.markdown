@@ -36,7 +36,7 @@ $ curl -Os http://pkgsrc.joyent.com/packages/Darwin/bootstrap/bootstrap-2015Q1-i
 $ shasum bootstrap-2015Q1-i386.tar.gz
 57fd810c9900d51b0f49f5501286e2c2db0a28c8  bootstrap-2015Q1-i386.tar.gz
 
-: Verify PGP signature
+: Verify PGP signature (optional, requires gpg to be installed)
 $ curl -Os http://pkgsrc.joyent.com/packages/Darwin/bootstrap/bootstrap-2015Q1-i386.tar.gz.asc
 $ gpg --recv-keys 0xDE817B8E
 $ gpg --verify bootstrap-2015Q1-i386.tar.gz{.asc,}
@@ -65,7 +65,7 @@ $ curl -Os http://pkgsrc.joyent.com/packages/Darwin/bootstrap/bootstrap-2015Q1-x
 $ shasum bootstrap-2015Q1-x86_64.tar.gz
 2d2f8dda3743dcd323c306828e9dbdc63b09bff2  bootstrap-2015Q1-x86_64.tar.gz
 
-: Verify PGP signature
+: Verify PGP signature (optional, requires gpg to be installed)
 $ curl -Os http://pkgsrc.joyent.com/packages/Darwin/bootstrap/bootstrap-2015Q1-x86_64.tar.gz.asc
 $ gpg --recv-keys 0xDE817B8E
 $ gpg --verify bootstrap-2015Q1-x86_64.tar.gz{.asc,}
