@@ -1,5 +1,5 @@
 ---
-layout: changes
+layout: single
 title:  "Quarterly Changes"
 ---
 
