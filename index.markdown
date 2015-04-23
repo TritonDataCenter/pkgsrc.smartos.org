@@ -34,7 +34,7 @@ title:  "Joyent Packages Documentation - Home"
 		<div class="col-md-4">
 {% highlight console %}
 # pkgin search nodejs
-nodejs-0.12.2        V8 JavaScript for clients and servers
+nodejs-0.12.2    V8 JavaScript runtime
 # pkgin -y install nodejs
 # node -e 'console.log("hello!")'
 hello!
