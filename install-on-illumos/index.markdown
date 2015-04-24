@@ -9,7 +9,7 @@ prefix: /opt/local
 	<div class="row">
 		<div class="col-md-4">
 			<h3 class="text-center">32-bit</h3>
-			<p>32-bit binary packages useful for most environments.  32-bit binaries can often be faster, and this set offers the most packages.</p>
+			<p>32-bit binary packages useful for most environments.  32-bit binaries will use less memory, and this set offers the most packages.</p>
 		</div>
 		<div class="col-md-4">
 			<h3 class="text-center">64-bit</h3>
