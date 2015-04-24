@@ -28,9 +28,9 @@ $ curl -Os http://pkgsrc.joyent.com/packages/SmartOS/bootstrap/bootstrap-2015Q1-
 
 : Verify SHA1 checksum
 $ /bin/digest -a sha1 bootstrap-2015Q1-i386.tar.gz
-(bootstrap-2015Q1-i386.tar.gz) = d898cc359119f7f85bf155e3f807015821a2c9b9
+(bootstrap-2015Q1-i386.tar.gz) = 4539ad245abf1bc9911ba8065bfb72e15a9cf811
 
-: Verify PGP signature
+: Verify PGP signature (optional, requires gpg)
 $ curl -Os http://pkgsrc.joyent.com/packages/SmartOS/bootstrap/bootstrap-2015Q1-i386.tar.gz.asc
 $ gpg --recv-keys 0xDE817B8E
 $ gpg --verify bootstrap-2015Q1-i386.tar.gz{.asc,}
@@ -50,9 +50,9 @@ $ curl -Os http://pkgsrc.joyent.com/packages/SmartOS/bootstrap/bootstrap-2015Q1-
 
 : Verify SHA1 checksum
 $ /bin/digest -a sha1 bootstrap-2015Q1-x86_64.tar.gz
-(bootstrap-2015Q1-x86_64.tar.gz) = cc75dcb03e1083d36701a8ac19be85bc367bfa6c
+(bootstrap-2015Q1-x86_64.tar.gz) = 1a91dcd49e7da2c0603e0985d2136c7dc0c709e7
 
-: Verify PGP signature
+: Verify PGP signature (optional, requires gpg)
 $ curl -Os http://pkgsrc.joyent.com/packages/SmartOS/bootstrap/bootstrap-2015Q1-x86_64.tar.gz.asc
 $ gpg --recv-keys 0xDE817B8E
 $ gpg --verify bootstrap-2015Q1-x86_64.tar.gz{.asc,}
@@ -72,9 +72,9 @@ $ curl -Os http://pkgsrc.joyent.com/packages/SmartOS/bootstrap/bootstrap-2015Q1-
 
 : Verify SHA1 checksum
 $ /bin/digest -a sha1 bootstrap-2015Q1-multiarch.tar.gz
-(bootstrap-2015Q1-multiarch.tar.gz) = 4ec639ad5655c2e5fd6a7d5d80a0ae2b3d5a1522
+(bootstrap-2015Q1-multiarch.tar.gz) = 3858dfafb3290ecef8bb343107379bf6b519a54c
 
-: Verify PGP signature
+: Verify PGP signature (optional, requires gpg)
 $ curl -Os http://pkgsrc.joyent.com/packages/SmartOS/bootstrap/bootstrap-2015Q1-multiarch.tar.gz.asc
 $ gpg --recv-keys 0xDE817B8E
 $ gpg --verify bootstrap-2015Q1-multiarch.tar.gz{.asc,}
