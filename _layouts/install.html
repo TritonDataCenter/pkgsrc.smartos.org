@@ -5,9 +5,9 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>{{ page.title }}</title>
-                <link rel="stylesheet" href="{{site.url}}/css/bootstrap.min.css">
-                <link rel="stylesheet" href="{{site.url}}/css/screen.css">
-                <link rel="stylesheet" href="{{site.url}}/css/solarized.css">
+		<link rel="stylesheet" href="{{site.url}}/css/bootstrap.min.css">
+		<link rel="stylesheet" href="{{site.url}}/css/screen.css">
+		<link rel="stylesheet" href="{{site.url}}/css/solarized.css">
 		<link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono|Ubuntu:300,700' rel='stylesheet' type='text/css'>
 	</head>
 	<body role="document">
@@ -20,7 +20,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-                                        <a class="navbar-brand" href="{{site.url}}/"><img src="{{site.url}}/img/pkgsrc-long-inv.png" style="max-width:100px; margin-top: -7px;"></a>
+					<a class="navbar-brand" href="{{site.url}}/"><img src="{{site.url}}/img/pkgsrc-long-inv.png" style="max-width:100px; margin-top: -7px;"></a>
 				</div>
 				<div class="collapse navbar-right navbar-collapse" id="pkgsrc-collapsed-navbar">
 					<ul class="nav navbar-nav">
@@ -49,25 +49,25 @@
 					</p>
 				</div>
 			</div>
-                        <hr>
+			<hr>
 		</div>
 		{{ content }}
 		<div class="container">
-			 <h2 class="text-center">Post-Install Steps</h2>
-                          <p class="lead text-center">
-                           Now that you're ready to go, here are some common commands you may want to run.
-                            </p>
-                            <div class="row">
+			<h2 class="text-center">Post-Install Steps</h2>
+			<p class="lead text-center">
+				Now that you're ready to go, here are some common commands you may want to run.
+			</p>
+			<div class="row">
 				<div class="col-md-6">
-                                  <h3>Use pkgin to install packages</h3>
-                                  <p><code>pkgin</code> is the front-end to the binary packages, and lets you search for, install, upgrade, and remove packages.  It also provides some basic functionality for querying both local and remote packages.  If you have used <code>apt-get</code> or <code>yum</code> you should find it to be very familiar.</p>
+					<h3>Use pkgin to install packages</h3>
+					<p><code>pkgin</code> is the front-end to the binary packages, and lets you search for, install, upgrade, and remove packages.  It also provides some basic functionality for querying both local and remote packages.  If you have used <code>apt-get</code> or <code>yum</code> you should find it to be very familiar.</p>
 				</div>
 				<div class="col-md-6">
-                                  <h3>Use pkg_* tools to manage packages</h3>
-                                  <p>The underlying packaging tools are <code>pkg_add</code>, <code>pkg_admin</code>, <code>pkg_create</code>, <code>pkg_delete</code>, and <code>pkg_info</code>.  If <code>pkgin</code> is equivalent to <code>apt-get</code> or <code>yum</code>, then these are the equivalent of <code>dpkg</code> or <code>rpm</code>.  Here are some useful commands to get you started.</p>
+					<h3>Use pkg_* tools to manage packages</h3>
+					<p>The underlying packaging tools are <code>pkg_add</code>, <code>pkg_admin</code>, <code>pkg_create</code>, <code>pkg_delete</code>, and <code>pkg_info</code>.  If <code>pkgin</code> is equivalent to <code>apt-get</code> or <code>yum</code>, then these are the equivalent of <code>dpkg</code> or <code>rpm</code>.  Here are some useful commands to get you started.</p>
 				</div>
 			</div>
-                            <div class="row">
+			<div class="row">
 				<div class="col-md-6">
 {% highlight console %}
 : Search for a package.  Regular expressions are supported.
@@ -93,7 +93,7 @@ $ sudo pkgin -y remove ffmpeg2
 : Automatically remove orphaned dependencies
 $ sudo pkgin -y autoremove
 {% endhighlight %}
-			  </div>
+				</div>
 				<div class="col-md-6">
 {% highlight console %}
 : See what packages are installed.
@@ -119,8 +119,8 @@ Package python27-2.7.8 has a arbitrary-code-execution vulnerability, see http://
 : Create a binary package from some metadata files and package directory.
 $ pkg_create -B build-info -c comment -d description -f packlist -I {{page.prefix}} -p files/ -U foo-1.0.tgz
 {% endhighlight %}
-			  </div>
-                        <hr>
+				</div>
+			<hr>
 		</div>
 		<div class="container col-md-8 col-md-offset-2">
 			<hr>
@@ -129,6 +129,6 @@ $ pkg_create -B build-info -c comment -d description -f packlist -I {{page.prefi
 			</footer>
 		</div>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-                <script src="{{site.url}}/js/bootstrap.min.js"></script>
+		<script src="{{site.url}}/js/bootstrap.min.js"></script>
 	</body>
 </html>
