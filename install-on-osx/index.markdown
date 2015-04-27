@@ -8,6 +8,21 @@ prefix: /usr/pkg
 	<h2 class="text-center">Choose Your OS X Package Set</h2>
 	<div class="row">
 	<div class="row">
+		<div class="col-md-1">
+		</div>
+		<div class="col-md-10">
+			<p class="lead">
+				Packages for Mac OS X are offered in two different configurations, a 32-bit set
+				built on Snow Leopard and a 64-bit set built on Mavericks.  Packages which use
+				X11 are built against <a href="http://xquartz.macosforge.org/">Xquartz</a> so if
+				you wish to install them you will need Xquartz installed into
+				<code>/opt/X11</code> first.
+			</p>
+		</div>
+		<div class="col-md-1">
+		</div>
+	</div>
+	<div class="row">
 		<div class="col-md-6">
 			<h3 class="text-center">32-bit Snow Leopard</h3>
 			<p>

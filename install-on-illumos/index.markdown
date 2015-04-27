@@ -7,6 +7,24 @@ prefix: /opt/local
 <div class="container">
 	<h2 class="text-center">Choose Your Illumos Package Set</h2>
 	<div class="row">
+		<div class="col-md-1">
+		</div>
+		<div class="col-md-10">
+			<p class="lead">
+				Packages for illumos distributions are built on SmartOS and offered in three
+				different configurations.  If in doubt choose the 32-bit set.  Package sets
+				prior to 2014Q4 were built on an old release of SmartOS and should be suitable
+				for all distributions.  Sets from 2014Q4 onwards are built on the newer
+				<code>joyent_20141030T081701Z</code> and will only function on distributions
+				that are based on an illumos-gate of at least that date.  Older bootstraps kits
+				are available from the
+				<a href="http://pkgsrc.joyent.com/packages/SmartOS/bootstrap/">archive</a>.
+			</p>
+		</div>
+		<div class="col-md-1">
+		</div>
+	</div>
+	<div class="row">
 		<div class="col-md-4">
 			<h3 class="text-center">32-bit</h3>
 			<p>32-bit binary packages useful for most environments.  32-bit binaries will use less memory, and this set offers the most packages.</p>
