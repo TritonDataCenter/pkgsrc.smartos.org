@@ -1,7 +1,8 @@
 ---
-layout: install
-title: Joyent Packages Documentation - Install On Illumos
-prefix: /opt/local
+layout:      install
+title:       Joyent Packages Documentation - Install On Illumos
+metacontent: Binary pkgsrc package sets for illumos
+prefix:      /opt/local
 ---
 
 <div class="container">

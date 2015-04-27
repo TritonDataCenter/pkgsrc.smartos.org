@@ -1,7 +1,8 @@
 ---
-layout: install
-title: Joyent Packages Documentation - Install On Illumos
-prefix: /usr/pkg
+layout:      install
+title:       Joyent Packages Documentation - Install On Linux
+metacontent: Binary pkgsrc package sets for Linux
+prefix:      /usr/pkg
 ---
 
 <div class="container">

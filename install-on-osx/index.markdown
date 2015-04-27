@@ -1,7 +1,8 @@
 ---
-layout: install
-title: Joyent Packages Documentation - Install On OS X
-prefix: /usr/pkg
+layout:      install
+title:       Joyent Packages Documentation - Install On Mac OS X
+metacontent: Binary pkgsrc package sets for Mac OS X
+prefix:      /usr/pkg
 ---
 
 <div class="container">

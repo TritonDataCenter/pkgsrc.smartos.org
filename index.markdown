@@ -1,6 +1,7 @@
 ---
-layout: default
-title:  "Joyent Packages Documentation - Home"
+layout:      default
+title:       "Joyent Packages Documentation - Home"
+metacontent: Binary pkgsrc package sets for SmartOS/illumos, Mac OS X, and Linux
 ---
 
 <div class="container">
