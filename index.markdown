@@ -80,16 +80,16 @@ CFLAGS=			-O3
 	</div>
 	<div class="row">
 		<div class="col-md-3">
-			<p><a class="btn btn-orange" href="{{site.url}}/install-on-illumos/" role="button">Install on SmartOS/illumos &raquo;</a></p>
+			<p><a class="btn btn-orange" href="/install-on-illumos/" role="button">Install on SmartOS/illumos &raquo;</a></p>
 		</div>
 		<div class="col-md-3">
-			<p><a class="btn btn-orange" href="{{site.url}}/install-on-osx/" role="button">Install on Mac OS X &raquo;</a></p>
+			<p><a class="btn btn-orange" href="/install-on-osx/" role="button">Install on Mac OS X &raquo;</a></p>
 		</div>
 		<div class="col-md-3">
-			<p><a class="btn btn-orange" href="{{site.url}}/install-on-linux/" role="button">Install on Linux &raquo;</a></p>
+			<p><a class="btn btn-orange" href="/install-on-linux/" role="button">Install on Linux &raquo;</a></p>
 		</div>
 		<div class="col-md-3">
-			<p><a class="btn btn-orange" href="{{site.url}}/bootstrap/" role="button">Bootstrap from source &raquo;</a></p>
+			<p><a class="btn btn-orange" href="/bootstrap/" role="button">Bootstrap from source &raquo;</a></p>
 		</div>
 	</div>
 </div>

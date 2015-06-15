@@ -1,4 +1,3 @@
 name: Joyent Packages Documentation
 markdown: redcarpet
 highlighter: pygments
-url: "http://pkgsrc.joyent.com"
