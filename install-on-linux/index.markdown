@@ -16,7 +16,7 @@ prefix:      /usr/pkg
 		<div class="col-md-12">
 {% highlight console %}
 : Download, check, and install bootstrap kit to {{ page.prefix }}.
-$ curl -Os http://pkgsrc.joyent.com/packages/Linux/bootstrap/bootstrap-2014Q2-el6-x86_64.tar.gz
+$ curl -Os https://pkgsrc.joyent.com/packages/Linux/bootstrap/bootstrap-2014Q2-el6-x86_64.tar.gz
 $ sha1sum bootstrap-2014Q2-el6-x86_64.tar.gz
 493e0071508064d1d1ea32956d2ede70f3c20c32	bootstrap-2014Q2-el6-x86_64.tar.gz
 $ sudo tar -zxpf bootstrap-2014Q2-el6-x86_64.tar.gz -C /
