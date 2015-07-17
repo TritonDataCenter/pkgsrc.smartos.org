@@ -2,7 +2,7 @@
 layout:      install
 title:       Joyent Packages Documentation - Install On Mac OS X
 metacontent: Binary pkgsrc package sets for Mac OS X
-prefix:      /usr/pkg
+prefix:      /opt/pkg
 ---
 
 <div class="container">
@@ -18,6 +18,11 @@ prefix:      /usr/pkg
 				X11 are built against <a href="http://xquartz.macosforge.org/">Xquartz</a> so if
 				you wish to install them you will need Xquartz installed into
 				<code>/opt/X11</code> first.
+			</p>
+			<p class="lead">
+				Note that from 2015Q2 onwards the prefix has changed to
+				<code>{{ page.prefix }}</code> in order to be compatible with El Capitan's
+				"System Integrity Protection" feature.
 			</p>
 		</div>
 		<div class="col-md-1">
@@ -46,59 +51,53 @@ prefix:      /usr/pkg
 		<div class="col-md-6">
 {% highlight console %}
 : Download 32-bit bootstrap kit
-$ curl -Os https://pkgsrc.joyent.com/packages/Darwin/bootstrap/bootstrap-2015Q1-i386.tar.gz
+$ curl -Os https://pkgsrc.joyent.com/packages/Darwin/bootstrap/bootstrap-2015Q2-i386.tar.gz
 
 : Verify SHA1 checksum
-$ shasum bootstrap-2015Q1-i386.tar.gz
-57fd810c9900d51b0f49f5501286e2c2db0a28c8  bootstrap-2015Q1-i386.tar.gz
+$ shasum bootstrap-2015Q2-i386.tar.gz
+cb55d3875e91d10338bafbc063c15f56b25c91af  bootstrap-2015Q2-i386.tar.gz
 
 : Verify PGP signature (optional, requires gpg to be installed)
-$ curl -Os https://pkgsrc.joyent.com/packages/Darwin/bootstrap/bootstrap-2015Q1-i386.tar.gz.asc
+$ curl -Os https://pkgsrc.joyent.com/packages/Darwin/bootstrap/bootstrap-2015Q2-i386.tar.gz.asc
 $ gpg --recv-keys 0xDE817B8E
-$ gpg --verify bootstrap-2015Q1-i386.tar.gz{.asc,}
+$ gpg --verify bootstrap-2015Q2-i386.tar.gz{.asc,}
 
 : Install bootstrap kit to {{ page.prefix }}
-$ sudo tar -zxpf bootstrap-2015Q1-i386.tar.gz -C /
+$ sudo tar -zxpf bootstrap-2015Q2-i386.tar.gz -C /
 
 : Add paths
 $ PATH={{ page.prefix }}/sbin:{{ page.prefix }}/bin:$PATH
 $ MANPATH={{ page.prefix }}/man:$MANPATH
 
-: Fetch package repository information
+: Fetch package repository information.
+$ sudo rm -rf /var/db/pkgin
 $ sudo pkgin -y update
-
-: Number of packages available
-$ pkgin avail | wc -l
-  11375
 {% endhighlight %}
 		</div>
 		<div class="col-md-6">
 {% highlight console %}
 : Download 64-bit bootstrap kit
-$ curl -Os https://pkgsrc.joyent.com/packages/Darwin/bootstrap/bootstrap-2015Q1-x86_64.tar.gz
+$ curl -Os https://pkgsrc.joyent.com/packages/Darwin/bootstrap/bootstrap-2015Q2-x86_64.tar.gz
 
 : Verify SHA1 checksum
-$ shasum bootstrap-2015Q1-x86_64.tar.gz
-2d2f8dda3743dcd323c306828e9dbdc63b09bff2  bootstrap-2015Q1-x86_64.tar.gz
+$ shasum bootstrap-2015Q2-x86_64.tar.gz
+fe96f4c6d42839e3c29659184eaeee6cc7ab3e39  bootstrap-2015Q2-x86_64.tar.gz
 
 : Verify PGP signature (optional, requires gpg to be installed)
-$ curl -Os https://pkgsrc.joyent.com/packages/Darwin/bootstrap/bootstrap-2015Q1-x86_64.tar.gz.asc
+$ curl -Os https://pkgsrc.joyent.com/packages/Darwin/bootstrap/bootstrap-2015Q2-x86_64.tar.gz.asc
 $ gpg --recv-keys 0xDE817B8E
-$ gpg --verify bootstrap-2015Q1-x86_64.tar.gz{.asc,}
+$ gpg --verify bootstrap-2015Q2-x86_64.tar.gz{.asc,}
 
 : Install bootstrap kit to {{ page.prefix }}
-$ sudo tar -zxpf bootstrap-2015Q1-x86_64.tar.gz -C /
+$ sudo tar -zxpf bootstrap-2015Q2-x86_64.tar.gz -C /
 
 : Add paths
 $ PATH={{ page.prefix }}/sbin:{{ page.prefix }}/bin:$PATH
 $ MANPATH={{ page.prefix }}/man:$MANPATH
 
 : Fetch package repository information
+$ sudo rm -rf /var/db/pkgin
 $ sudo pkgin -y update
-
-: Number of packages available
-$ pkgin avail | wc -l
-   11240
 {% endhighlight %}
 		</div>
 	</div>
