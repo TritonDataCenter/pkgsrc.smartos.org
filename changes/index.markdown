@@ -17,7 +17,7 @@ try to summarise the most important changes in each quarterly release.
   1.58.0, XFCE 4.12, TeX Live 2015, and Perl 5.22.
 * pkgin on SmartOS has significantly reduced memory requirements (for more
   information see [this blog
-  post](http://www.perkin.org.uk/posts/reducing-ram-usage-in-pkgin.html).
+  post](http://www.perkin.org.uk/posts/reducing-ram-usage-in-pkgin.html)).
 * OSX packages are now installed under the `/opt/pkg` prefix instead of the
   previous `/usr/pkg` in order to be compatible with the "System Integrity
   Protection" feature introduced in El Capitan / 10.11.
