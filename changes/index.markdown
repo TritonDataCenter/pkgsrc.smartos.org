@@ -11,11 +11,11 @@ try to summarise the most important changes in each quarterly release.
 
 ## Major changes in pkgsrc-2015Q2
 
-* Packages and bootstrap kits are now available over HTTPS via
+* Packages and bootstrap kits are now available over HTTPS from
   <https://pkgsrc.joyent.com/>.
 * Major package additions/upgrades include MariaDB 5.5, Emacs 24.5, Boost
   1.58.0, XFCE 4.12, TeX Live 2015, and Perl 5.22.
-* pkgin on SmartOS has significantly reduced memory requirements (for more
+* pkgin on illumos has significantly reduced memory requirements (for more
   information see [this blog
   post](http://www.perkin.org.uk/posts/reducing-ram-usage-in-pkgin.html)).
 * OSX packages are now installed under the `/opt/pkg` prefix instead of the
@@ -23,6 +23,11 @@ try to summarise the most important changes in each quarterly release.
   Protection" feature introduced in El Capitan / 10.11.
 * OSX package defaults have been changed in order to provide fully-featured
   packages out of the box.
+* 1,155 packages have been added.
+* 4 packages have been renamed, 3 moved.
+* 27 packages removed, 12 with a successor.
+* 2,015 packages updated.
+
 
 The main pkgsrc-2015Q2 announcement is [here](https://mail-index.netbsd.org/pkgsrc-users/2015/07/06/msg021778.html).
 
@@ -35,7 +40,7 @@ The main pkgsrc-2015Q2 announcement is [here](https://mail-index.netbsd.org/pkgs
 * 216 packages have been added
 * 2 packages have been renamed
 * 46 packages removed, 11 with a successor
-* 2007 packages updated
+* 2,007 packages updated
 
 The main pkgsrc-2015Q1 announcement is [here](http://mail-index.netbsd.org/pkgsrc-users/2015/04/14/msg021358.html).
 
@@ -50,7 +55,7 @@ The main pkgsrc-2015Q1 announcement is [here](http://mail-index.netbsd.org/pkgsr
 * 156 packages have been added
 * 4 packages have been renamed
 * 48 packages removed, 9 with a successor
-* 1575 packages updated
+* 1,575 packages updated
 
 The main pkgsrc-2014Q4 announcement is [here](http://mail-index.netbsd.org/pkgsrc-users/2015/01/02/msg020854.html).
 
@@ -61,7 +66,7 @@ The main pkgsrc-2014Q4 announcement is [here](http://mail-index.netbsd.org/pkgsr
 * 210 packages have been added
 * 3 packages have been renamed
 * 15 packages removed, 12 with a successor
-* 1123 packages updated
+* 1,123 packages updated
 
 The main pkgsrc-2014Q3 announcement is [here](http://mail-index.netbsd.org/pkgsrc-users/2014/10/03/msg020427.html).
 
@@ -70,7 +75,7 @@ The main pkgsrc-2014Q3 announcement is [here](http://mail-index.netbsd.org/pkgsr
 * 244 packages have been added
 * 2 packages have been renamed
 * 18 packages removed, 1 with a successor
-* 1085 packages updated
+* 1,085 packages updated
 
 ## Major changes in pkgsrc-2014Q1
 
