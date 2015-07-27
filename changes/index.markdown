@@ -9,6 +9,23 @@ With 14,000+ packages being constantly updated and changed, producing a full
 ChangeLog would be an exercise in futility and not very helpful.  So instead we
 try to summarise the most important changes in each quarterly release.
 
+## Major changes in pkgsrc-2015Q2
+
+* Packages and bootstrap kits are now available over HTTPS via
+  <https://pkgsrc.joyent.com/>.
+* Major package additions/upgrades include MariaDB 5.5, Emacs 24.5, Boost
+  1.58.0, XFCE 4.12, TeX Live 2015, and Perl 5.22.
+* pkgin on SmartOS has significantly reduced memory requirements (for more
+  information see [this blog
+  post](http://www.perkin.org.uk/posts/reducing-ram-usage-in-pkgin.html).
+* OSX packages are now installed under the `/opt/pkg` prefix instead of the
+  previous `/usr/pkg` in order to be compatible with the "System Integrity
+  Protection" feature introduced in El Capitan / 10.11.
+* OSX package defaults have been changed in order to provide fully-featured
+  packages out of the box.
+
+The main pkgsrc-2015Q2 announcement is [here](https://mail-index.netbsd.org/pkgsrc-users/2015/07/06/msg021778.html).
+
 ## Major changes in pkgsrc-2015Q1
 
 * OS X packages are now PGP signed and verified by default.
