@@ -51,23 +51,22 @@ prefix:      /opt/pkg
 		<div class="col-md-6">
 {% highlight console %}
 : Download 32-bit bootstrap kit
-$ curl -Os https://pkgsrc.joyent.com/packages/Darwin/bootstrap/bootstrap-2015Q2-i386.tar.gz
+$ curl -Os https://pkgsrc.joyent.com/packages/Darwin/bootstrap/bootstrap-2015Q3-i386.tar.gz
 
 : Verify SHA1 checksum
-$ shasum bootstrap-2015Q2-i386.tar.gz
-cb55d3875e91d10338bafbc063c15f56b25c91af  bootstrap-2015Q2-i386.tar.gz
+$ shasum bootstrap-2015Q3-i386.tar.gz
+2a9f7ebb138a46ddff75f24a288a65cd8cefebf7  bootstrap-2015Q3-i386.tar.gz
 
 : Verify PGP signature (optional, requires gpg to be installed)
-$ curl -Os https://pkgsrc.joyent.com/packages/Darwin/bootstrap/bootstrap-2015Q2-i386.tar.gz.asc
+$ curl -Os https://pkgsrc.joyent.com/packages/Darwin/bootstrap/bootstrap-2015Q3-i386.tar.gz.asc
 $ gpg --recv-keys 0xDE817B8E
-$ gpg --verify bootstrap-2015Q2-i386.tar.gz{.asc,}
+$ gpg --verify bootstrap-2015Q3-i386.tar.gz{.asc,}
 
 : Install bootstrap kit to {{ page.prefix }}
-$ sudo tar -zxpf bootstrap-2015Q2-i386.tar.gz -C /
+$ sudo tar -zxpf bootstrap-2015Q3-i386.tar.gz -C /
 
-: Add paths
+: Add path.  MANPATH is automatically deduced.
 $ PATH={{ page.prefix }}/sbin:{{ page.prefix }}/bin:$PATH
-$ MANPATH={{ page.prefix }}/man:$MANPATH
 
 : Fetch package repository information.
 $ sudo rm -rf /var/db/pkgin
@@ -77,23 +76,22 @@ $ sudo pkgin -y update
 		<div class="col-md-6">
 {% highlight console %}
 : Download 64-bit bootstrap kit
-$ curl -Os https://pkgsrc.joyent.com/packages/Darwin/bootstrap/bootstrap-2015Q2-x86_64.tar.gz
+$ curl -Os https://pkgsrc.joyent.com/packages/Darwin/bootstrap/bootstrap-2015Q3-x86_64.tar.gz
 
 : Verify SHA1 checksum
-$ shasum bootstrap-2015Q2-x86_64.tar.gz
-fe96f4c6d42839e3c29659184eaeee6cc7ab3e39  bootstrap-2015Q2-x86_64.tar.gz
+$ shasum bootstrap-2015Q3-x86_64.tar.gz
+d99f03d5c53a9ea6cb55f7b5c27d0f3dbfadec08  bootstrap-2015Q3-x86_64.tar.gz
 
 : Verify PGP signature (optional, requires gpg to be installed)
-$ curl -Os https://pkgsrc.joyent.com/packages/Darwin/bootstrap/bootstrap-2015Q2-x86_64.tar.gz.asc
+$ curl -Os https://pkgsrc.joyent.com/packages/Darwin/bootstrap/bootstrap-2015Q3-x86_64.tar.gz.asc
 $ gpg --recv-keys 0xDE817B8E
-$ gpg --verify bootstrap-2015Q2-x86_64.tar.gz{.asc,}
+$ gpg --verify bootstrap-2015Q3-x86_64.tar.gz{.asc,}
 
 : Install bootstrap kit to {{ page.prefix }}
-$ sudo tar -zxpf bootstrap-2015Q2-x86_64.tar.gz -C /
+$ sudo tar -zxpf bootstrap-2015Q3-x86_64.tar.gz -C /
 
-: Add paths
+: Add path.  MANPATH is automatically deduced.
 $ PATH={{ page.prefix }}/sbin:{{ page.prefix }}/bin:$PATH
-$ MANPATH={{ page.prefix }}/man:$MANPATH
 
 : Fetch package repository information
 $ sudo rm -rf /var/db/pkgin

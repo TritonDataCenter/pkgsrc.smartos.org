@@ -9,6 +9,20 @@ With 14,000+ packages being constantly updated and changed, producing a full
 ChangeLog would be an exercise in futility and not very helpful.  So instead we
 try to summarise the most important changes in each quarterly release.
 
+## Major changes in pkgsrc-2015Q3
+
+* Default package versions have been bumped for a number of core packages:
+* Lua 5.1 -> 5.2, PostgreSQL 9.3 -> 9.4, PHP 5.5 -> 5.6, Ruby 1.9.3 -> 2.0.0
+* All platforms now contain the pkgin enhancements detailed in [this blog
+  post](http://www.perkin.org.uk/posts/reducing-ram-usage-in-pkgin.html).
+* OSX users no longer show up in the login window.
+* 225 packages have been added
+* 1 package has been renamed
+* 27 packages removed, 8 with a successor
+* 1392 packages updated
+
+The main pkgsrc-2015Q3 announcement is [here](https://mail-index.netbsd.org/pkgsrc-users/2015/09/30/msg022310.html).
+
 ## Major changes in pkgsrc-2015Q2
 
 * Packages and bootstrap kits are now available over HTTPS from
@@ -27,7 +41,6 @@ try to summarise the most important changes in each quarterly release.
 * 4 packages have been renamed, 3 moved.
 * 27 packages removed, 12 with a successor.
 * 2,015 packages updated.
-
 
 The main pkgsrc-2015Q2 announcement is [here](https://mail-index.netbsd.org/pkgsrc-users/2015/07/06/msg021778.html).
 
