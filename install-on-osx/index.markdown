@@ -55,7 +55,7 @@ $ curl -Os https://pkgsrc.joyent.com/packages/Darwin/bootstrap/bootstrap-2015Q3-
 
 : Verify SHA1 checksum
 $ shasum bootstrap-2015Q3-i386.tar.gz
-2a9f7ebb138a46ddff75f24a288a65cd8cefebf7  bootstrap-2015Q3-i386.tar.gz
+2f6d6c3479250280b17246d3a18793593e173f90  bootstrap-2015Q3-i386.tar.gz
 
 : Verify PGP signature (optional, requires gpg to be installed)
 $ curl -Os https://pkgsrc.joyent.com/packages/Darwin/bootstrap/bootstrap-2015Q3-i386.tar.gz.asc
