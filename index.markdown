@@ -75,7 +75,7 @@ CFLAGS=			-O3
 		</div>
 		<div class="col-md-3">
 			<h3>Others</h3>
-			<p>For all other platforms you can easily bootstrap the package tools and then start building packages from source.  We have support for 22 different operating systems - even Windows/Cygwin and Haiku!</p>
+			<p>For all other platforms you can easily bootstrap the package tools and then start building packages from source.  We have support for 23 different operating systems - even Windows/Cygwin and Haiku!</p>
 		</div>
 	</div>
 	<div class="row">
