@@ -9,6 +9,27 @@ With 14,000+ packages being constantly updated and changed, producing a full
 ChangeLog would be an exercise in futility and not very helpful.  So instead we
 try to summarise the most important changes in each quarterly release.
 
+## Major changes in pkgsrc-2015Q4
+
+* Major package additions include PHP 7.0 and Python 3.5.
+* The default SmartOS compiler is now GCC 4.9.3.
+* SmartOS packages are now built with "-gdwarf-2" to ensure debugging
+  information is available, and the core set of bootstrap packages are no
+  longer stripped.
+* clang-3.7.0 is provided as an optional compiler for SmartOS, and has been
+  patched to build [over
+  12,000](https://mail-index.netbsd.org/pkgsrc-bulk/2015/10/27/msg012139.html)
+  packages successfully.
+* The proftpd package has been split up into separate packages, allowing users
+  to simply choose which backends to install instead of using compiled-in
+  defaults.
+* 172 packages have been added
+* 1 package has been renamed
+* 58 packages removed, 7 with a successor
+* 1185 packages updated
+
+The main pkgsrc-2015Q4 announcement is [here](https://mail-index.netbsd.org/pkgsrc-users/2016/01/01/msg022780.html).
+
 ## Major changes in pkgsrc-2015Q3
 
 * Default package versions have been bumped for a number of core packages:
