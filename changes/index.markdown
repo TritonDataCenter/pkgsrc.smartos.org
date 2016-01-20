@@ -12,11 +12,11 @@ try to summarise the most important changes in each quarterly release.
 ## Major changes in pkgsrc-2015Q4
 
 * Major package additions include PHP 7.0 and Python 3.5.
-* The default SmartOS compiler is now GCC 4.9.3.
-* SmartOS packages are now built with "-gdwarf-2" to ensure debugging
+* The default illumos compiler is now GCC 4.9.3.
+* illumos packages are now built with "-gdwarf-2" to ensure debugging
   information is available, and the core set of bootstrap packages are no
   longer stripped.
-* clang-3.7.0 is provided as an optional compiler for SmartOS, and has been
+* clang-3.7.0 is provided as an optional compiler for illumos, and has been
   patched to build [over
   12,000](https://mail-index.netbsd.org/pkgsrc-bulk/2015/10/27/msg012139.html)
   packages successfully.
@@ -81,7 +81,7 @@ The main pkgsrc-2015Q1 announcement is [here](http://mail-index.netbsd.org/pkgsr
 ## Major changes in pkgsrc-2014Q4
 
 * This release introduces Long Term Support, PGP signed packages, and some
-  other enhancements to our SmartOS sets.  See [this blog
+  other enhancements to our illumos sets.  See [this blog
   post](http://www.perkin.org.uk/posts/pkgsrc-2014Q4-lts-signed-packages-and-more.html)
   for more details.
 * This release sees the first set of 64-bit OS X packages, built on OS X
@@ -124,7 +124,7 @@ the latest OpenSSL (1.0.1g) to fix this issue.
 
 Thanks to great work by [Aram Hăvărneanu](https://twitter.com/aramh) Go 1.3
 will support illumos systems, and we've included the 1.3beta1 package in our
-SmartOS x86_64 repository.  Please give it a spin and provide feedback so the
+illumos x86_64 repository.  Please give it a spin and provide feedback so the
 main 1.3 release can be great!
 
 ## Major changes in pkgsrc-2013Q4
@@ -158,11 +158,11 @@ of libjpeg using SIMD instructions.
 ### Disabled -fomit-frame-pointer in GCC
 
 We have disabled the -fomit-frame-pointer option globally in GCC 4.7 on
-SmartOS.  This micro-optimisation creates binaries which are useless for
+illumos.  This micro-optimisation creates binaries which are useless for
 debugging as the frame pointer is crucial for producing stack traces, and the
 potential performance gains are simply not worth the loss of observability.
 
-All of the SmartOS packages produced in pkgsrc-2013Q4 are built with this
+All of the illumos packages produced in pkgsrc-2013Q4 are built with this
 compiler, so any packages which happened to use this option will now be built
 correctly.
 
@@ -304,7 +304,7 @@ OpenSSL for crypto.
 [Go](http://golang.org/) is a reasonably new programming language from Google
 that a number of our users have asked us to support, so we are pleased to
 announce that beginning with pkgsrc-2013Q1 you will be able to use the `gccgo`
-front-end to compile and run Go applications on SmartOS.
+front-end to compile and run Go applications on illumos.
 
 You simply compile the go source code as you would for any other language that
 GCC supports, for example:
