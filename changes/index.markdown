@@ -5,7 +5,7 @@ title:  "Quarterly Changes"
 
 # Changes
 
-With 14,000+ packages being constantly updated and changed, producing a full
+With 17,000+ packages being constantly updated and changed, producing a full
 ChangeLog would be an exercise in futility and not very helpful.  So instead we
 try to summarise the most important changes in each quarterly release.
 
