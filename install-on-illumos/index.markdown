@@ -6,11 +6,15 @@ prefix:      /opt/local
 ---
 
 <div class="container">
-	<h2 class="text-center">Choose Your Illumos Package Set</h2>
 	<div class="row">
-		<div class="col-md-1">
+		<div class="col-md-9">
+			<h2 class="text-center">Choose Your Illumos Package Set</h2>
 		</div>
-		<div class="col-md-10">
+		<div class="col-md-3">
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-9">
 			<p class="lead">
 				Packages for illumos distributions are built on SmartOS and offered in three
 				different configurations.  If in doubt choose the 32-bit set.  Package sets
@@ -22,7 +26,13 @@ prefix:      /opt/local
 				<a href="https://pkgsrc.joyent.com/packages/SmartOS/bootstrap/">archive</a>.
 			</p>
 		</div>
-		<div class="col-md-1">
+		<div class="col-md-3">
+			<a href="/img/omnios-desktop.png">
+				<img alt="pkgsrc Xorg/Xfce/Firefox/Gnumeric/GIMP/E-UAE on OmniOS" src="/img/omnios-desktop.png" class="img-responsive">
+			</a>
+			<p class="small text-center">
+				pkgsrc desktop on OmniOS
+			</p>
 		</div>
 	</div>
 	<div class="row">
