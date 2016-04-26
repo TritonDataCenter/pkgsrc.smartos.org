@@ -34,19 +34,19 @@ metacontent: Binary pkgsrc package sets for SmartOS/illumos, Mac OS X, and Linux
 	<div class="row">
 		<div class="col-md-4">
 {% highlight console %}
-# pkgin search nodejs
-nodejs-0.12.2    V8 JavaScript runtime
-# pkgin -y install nodejs
-# node -e 'console.log("hello!")'
-hello!
+# pkgin se ffmpeg
+ffmpeg3-3.0.1        Decoding, encoding and streaming software (v3.x)
+ffmpeg2-2.8.6nb2     Decoding, encoding and streaming software (v2.x)
+ffmpeg1-1.2.12nb2    Decoding, encoding and streaming software (v1.x)
+# pkgin -y install ffmpeg3
 {% endhighlight %}
 		</div>
 		<div class="col-md-4">
 {% highlight console %}
-# vi /usr/pkg/etc/mk.conf
-PKG_OPTIONS.node=	dtrace openssl
+# vi /opt/pkg/etc/mk.conf.local
+PKG_OPTIONS.ffmpeg3+=	faac x265
 CFLAGS=			-O3
-# cd pkgsrc/lang/nodejs
+# cd pkgsrc/multimedia/ffmpeg3
 # bmake install
 {% endhighlight %}
 		</div>
