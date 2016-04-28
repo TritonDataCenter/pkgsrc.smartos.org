@@ -72,12 +72,13 @@
 				<div class="col-md-6">
 {% highlight console %}
 : Search for a package.  Regular expressions are supported.
-$ pkgin search "^ffmpeg[12]*$"
-ffmpeg2-2.6          Decoding, encoding and streaming software (v2.x)
-ffmpeg1-1.2.12       Decoding, encoding and streaming software (v1.x)
+$ pkgin search "^ffmpeg[0-9]$"
+ffmpeg3-3.0.1   Decoding, encoding and streaming software (v3.x)
+ffmpeg2-2.8.6   Decoding, encoding and streaming software (v2.x)
+ffmpeg1-1.2.12  Decoding, encoding and streaming software (v1.x)
 
 : Install a package without prompting
-$ sudo pkgin -y install ffmpeg2
+$ sudo pkgin -y install ffmpeg3
 
 : List all available packages
 $ pkgin avail
@@ -102,7 +103,7 @@ $ pkg_info
 
 : See what package a file belongs to.
 $ pkg_info -Fe {{page.prefix}}/bin/node
-nodejs-0.12.2
+nodejs-4.4.3
 
 : List the contents of a package.
 $ pkg_info -qL nodejs
