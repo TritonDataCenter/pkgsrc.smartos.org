@@ -62,7 +62,7 @@ prefix:      /opt/local
 		<div class="col-md-10 col-md-offset-1">
 			<p class="lead">
 				Packages for illumos distributions are built on SmartOS 20141030, but should work on any illumos
-				system of at least that date.  If in doubt choose the 32-bit set.  Older bootstrap kits are
+				system of at least that date.  If in doubt choose the 64-bit set.  Older bootstrap kits are
 				available from the <a href="https://pkgsrc.joyent.com/packages/SmartOS/bootstrap/">archive</a>.
 			</p>
 		</div>
