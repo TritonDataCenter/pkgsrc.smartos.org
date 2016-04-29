@@ -9,6 +9,14 @@ With 17,000+ packages being constantly updated and changed, producing a full
 ChangeLog would be an exercise in futility and not very helpful.  So instead we
 try to summarise the most important changes in each quarterly release.
 
+## Major changes in pkgsrc-2016Q1
+
+* illumos packages are now built with -fstack-protector-strong to enable
+  stack smashing protection for functions most at risk.
+* MANZ=yes has been enabled, ensuring manual pages are installed compressed.
+* A rust-1.8.0-dev package is available on illumos 64-bit for testing.
+* The MATE 1.14.0 desktop environment has been included from pkgsrc-wip.
+
 ## Major changes in pkgsrc-2015Q4
 
 * Major package additions include PHP 7.0 and Python 3.5.
