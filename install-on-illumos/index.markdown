@@ -68,7 +68,7 @@ prefix:      /opt/local
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-md-12">
+		<div class="col-md-8 col-md-offset-2">
 {% highlight bash %}
 # Use the 32-bit package set.  This is useful for most environments.  32-bit
 # binaries will use less memory, and in some cases may be faster than 64-bit.
@@ -121,7 +121,7 @@ MANPATH={{ page.prefix }}/man:$MANPATH
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-md-12">
+		<div class="col-md-8 col-md-offset-2">
 {% highlight bash %}
 # Select 32-bit upgrade kit.
 UPGRADE_TAR="bootstrap-2016Q1-i386-upgrade.tar.gz"
@@ -129,7 +129,7 @@ UPGRADE_SHA="66984686a135b42a6a6a1d5e283e0979f4119a7f"
 
 # Select 64-bit upgrade kit.
 UPGRADE_TAR="bootstrap-2016Q1-x86_64-upgrade.tar.gz"
-UPGRADE_SHA=""
+UPGRADE_SHA="e4a368fa4dd948c85384b94a84fd9cca053a9f66"
 
 # Select multiarch upgrade kit.
 UPGRADE_TAR="bootstrap-2016Q1-multiarch-upgrade.tar.gz"
