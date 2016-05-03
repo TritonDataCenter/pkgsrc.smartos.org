@@ -73,17 +73,17 @@ prefix:      /opt/local
 # Use the 32-bit package set.  This is useful for most environments.  32-bit
 # binaries will use less memory, and in some cases may be faster than 64-bit.
 BOOTSTRAP_TAR="bootstrap-2016Q1-i386.tar.gz"
-BOOTSTRAP_SHA="743033133e8cbbbbb44558999a0719325b820928"
+BOOTSTRAP_SHA="66bdf5dab6b4e8bd99c379568bd6bd28dbb5c91c"
 
 # Use the 64-bit package set.  These packages are able to utilise the full
 # x86_64 instruction set and address space, useful for working with large data.
 BOOTSTRAP_TAR="bootstrap-2016Q1-x86_64.tar.gz"
-BOOTSTRAP_SHA="0208413bf4a7150b2e933e9be6d005d088325faf"
+BOOTSTRAP_SHA="4d895af2a537d0e8c2e65945350658ef04a31bdb"
 
 # Use the multiarch package set.  These are 32-bit packages for which some
 # packages also include 64-bit libraries.  Only use if you know you need it.
 BOOTSTRAP_TAR="bootstrap-2016Q1-multiarch.tar.gz"
-BOOTSTRAP_SHA="e3c5a3e4aa1ab61a0498747de786678334e162ea"
+BOOTSTRAP_SHA="bde1844fb845078bb4136b1718d511461cb21363"
 
 # Download the selected bootstrap kit.
 curl -O https://pkgsrc.joyent.com/packages/SmartOS/bootstrap/${BOOTSTRAP_TAR}
@@ -125,15 +125,15 @@ MANPATH={{ page.prefix }}/man:$MANPATH
 {% highlight bash %}
 # Select 32-bit upgrade kit.
 UPGRADE_TAR="bootstrap-2016Q1-i386-upgrade.tar.gz"
-UPGRADE_SHA="66984686a135b42a6a6a1d5e283e0979f4119a7f"
+UPGRADE_SHA="a091e78414277c92e3273a5659133aa9bd097e5e"
 
 # Select 64-bit upgrade kit.
 UPGRADE_TAR="bootstrap-2016Q1-x86_64-upgrade.tar.gz"
-UPGRADE_SHA="e4a368fa4dd948c85384b94a84fd9cca053a9f66"
+UPGRADE_SHA="4e0e57bc3f6d2379e421ed9287243d9a654aa04b"
 
 # Select multiarch upgrade kit.
 UPGRADE_TAR="bootstrap-2016Q1-multiarch-upgrade.tar.gz"
-UPGRADE_SHA="556eb1448333d5ce70150f45db71c49144b782c0"
+UPGRADE_SHA="f6a05edf492bd2ec62356e863ac017ea94a59da2"
 
 # Download selected upgrade kit.
 curl -O https://pkgsrc.joyent.com/packages/SmartOS/bootstrap-upgrade/${UPGRADE_TAR}
