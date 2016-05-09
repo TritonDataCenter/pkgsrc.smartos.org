@@ -120,12 +120,12 @@ eval $(/usr/libexec/path_helper)
 		<div class="col-md-8 col-md-offset-2">
 {% highlight bash %}
 # Select 32-bit upgrade kit.
-UPGRADE_TAR="bootstrap-trunk-i386-20160509.tar.gz"
+UPGRADE_TAR="bootstrap-trunk-i386-20160509-upgrade.tar.gz"
 UPGRADE_SHA="264ccde9985698defcf8db808c543d68eb10217d"
 
 # Select 64-bit upgrade kit.
-UPGRADE_TAR="bootstrap-trunk-x86_64-20160509.tar.gz"
-UPGRADE_SHA="8615ae7bfa4a4efd386ca735ffd7eecf99343b57"
+UPGRADE_TAR="bootstrap-trunk-x86_64-20160509-upgrade.tar.gz"
+UPGRADE_SHA="c86bcb09b1ee5facb40cc77d57d8ee877c85fe14"
 
 # Download the selected upgrade kit.
 curl -O https://pkgsrc.joyent.com/packages/Darwin/bootstrap-upgrade/${UPGRADE_TAR}
