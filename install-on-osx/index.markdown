@@ -135,7 +135,7 @@ echo "${UPGRADE_SHA}  ${UPGRADE_TAR}" >check-shasum
 shasum -c check-shasum
 
 # Verify PGP signature (optional, requires gpg).
-curl -O https://pkgsrc.joyent.com/packages/Darwin/bootstrap/${UPGRADE_TAR}.asc
+curl -O https://pkgsrc.joyent.com/packages/Darwin/bootstrap-upgrade/${UPGRADE_TAR}.asc
 gpg --recv-keys 0x1F32A9AD
 gpg --verify ${UPGRADE_TAR}{.asc,}
 
