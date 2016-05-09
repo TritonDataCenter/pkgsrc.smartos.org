@@ -316,7 +316,7 @@ package integrated into pkgsrc.  There are a few options:
 * Find a NetBSD developer who can review your package and put it straight into
   pkgsrc.
 
-* Get a [pkgsrc-wip](http://pkgsrc-wip.sourceforge.net/) account and work on
+* Get a [pkgsrc-wip](https://pkgsrc.org/wip/) account and work on
  your packages there, before getting it reviewed and integrated.
 
 * If it's somewhat niche just publish it up on GitHub or similar for people to
