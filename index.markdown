@@ -34,7 +34,7 @@ metacontent: Binary pkgsrc package sets for SmartOS/illumos, Mac OS X, and Linux
 	<div class="row">
 		<div class="col-md-4">
 {% highlight console %}
-# pkgin se ffmpeg
+# pkgin search ffmpeg
 ffmpeg3-3.0.1   Decoding, encoding and streaming software (v3.x)
 ffmpeg2-2.8.6   Decoding, encoding and streaming software (v2.x)
 ffmpeg1-1.2.12  Decoding, encoding and streaming software (v1.x)
