@@ -205,7 +205,7 @@ gpg --recv-keys 0xDE817B8E
 gpg --verify ${BOOTSTRAP_TAR}{.asc,}
 
 # Install bootstrap kit to /opt/tools
-sudo tar -zxpf ${BOOTSTRAP_TAR} -C /
+tar -zxpf ${BOOTSTRAP_TAR} -C /
 
 # Add to PATH/MANPATH.
 PATH=/opt/tools/sbin:/opt/tools/bin:$PATH
@@ -350,13 +350,13 @@ gpg --recv-keys 0xDE817B8E
 gpg --verify ${UPGRADE_TAR}{.asc,}
 
 # Unpack upgrade kit to /opt/tools
-sudo tar -zxpf ${UPGRADE_TAR} -C /
+tar -zxpf ${UPGRADE_TAR} -C /
 
 # Upgrade pkgin.
-sudo pkg_add -U pkgin
+pkg_add -U pkgin
 
 # Upgrade all packages.
-sudo pkgin full-upgrade
+pkgin full-upgrade
 {% endhighlight %}
 				</div>
 			</div>
