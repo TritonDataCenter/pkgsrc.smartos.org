@@ -9,6 +9,18 @@ With 17,000+ packages being constantly updated and changed, producing a full
 ChangeLog would be an exercise in futility and not very helpful.  So instead we
 try to summarise the most important changes in each quarterly release.
 
+## Major changes in pkgsrc-2016Q2
+
+* The 'tools' package set has the beginnings of
+  [RFD 42](https://github.com/joyent/rfd/tree/master/rfd/0042) support, allowing
+  packages to install without useradd failures in the SmartOS Global Zone.
+* The default OpenJDK has been switched back to OpenJDK 7 for 32-bit, due to
+  Oracle's deprecation of 32-bit support in OpenJDK 8.  64-bit will continue
+  to default to OpenJDK 8.
+* OCaml is now available for 32-bit.
+* A new postgresql-contrib package has been introduced which includes all of the
+  additional contrib PostgreSQL utilities.
+
 ## Major changes in pkgsrc-2016Q1
 
 * illumos packages are now built with -fstack-protector-strong to enable

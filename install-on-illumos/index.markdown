@@ -72,18 +72,18 @@ prefix:      /opt/local
 {% highlight bash %}
 # Use the 32-bit package set.  This is useful for most environments.  32-bit
 # binaries will use less memory, and in some cases may be faster than 64-bit.
-BOOTSTRAP_TAR="bootstrap-2016Q1-i386.tar.gz"
-BOOTSTRAP_SHA="66bdf5dab6b4e8bd99c379568bd6bd28dbb5c91c"
+BOOTSTRAP_TAR="bootstrap-2016Q2-i386.tar.gz"
+BOOTSTRAP_SHA="4f4a34fd1090795a020d899c66d29f44725c861c"
 
 # Use the 64-bit package set.  These packages are able to utilise the full
 # x86_64 instruction set and address space, useful for working with large data.
-BOOTSTRAP_TAR="bootstrap-2016Q1-x86_64.tar.gz"
-BOOTSTRAP_SHA="4d895af2a537d0e8c2e65945350658ef04a31bdb"
+BOOTSTRAP_TAR="bootstrap-2016Q2-x86_64.tar.gz"
+BOOTSTRAP_SHA="3096569522a75a5a92726e20733679446720cf09"
 
 # Use the multiarch package set.  These are 32-bit packages for which some
 # packages also include 64-bit libraries.  Only use if you know you need it.
-BOOTSTRAP_TAR="bootstrap-2016Q1-multiarch.tar.gz"
-BOOTSTRAP_SHA="bde1844fb845078bb4136b1718d511461cb21363"
+BOOTSTRAP_TAR="bootstrap-2016Q2-multiarch.tar.gz"
+BOOTSTRAP_SHA="aa449df46a391536ab39402d022051cf6821bf2b"
 
 # Download the selected bootstrap kit.
 curl -O https://pkgsrc.joyent.com/packages/SmartOS/bootstrap/${BOOTSTRAP_TAR}
@@ -124,16 +124,16 @@ MANPATH={{ page.prefix }}/man:$MANPATH
 		<div class="col-md-8 col-md-offset-2">
 {% highlight bash %}
 # Select 32-bit upgrade kit.
-UPGRADE_TAR="bootstrap-2016Q1-i386-upgrade.tar.gz"
-UPGRADE_SHA="a091e78414277c92e3273a5659133aa9bd097e5e"
+UPGRADE_TAR="bootstrap-2016Q2-i386-upgrade.tar.gz"
+UPGRADE_SHA="5a3eadd2e89baec27aa1fc552ca427980be81007"
 
 # Select 64-bit upgrade kit.
-UPGRADE_TAR="bootstrap-2016Q1-x86_64-upgrade.tar.gz"
-UPGRADE_SHA="4e0e57bc3f6d2379e421ed9287243d9a654aa04b"
+UPGRADE_TAR="bootstrap-2016Q2-x86_64-upgrade.tar.gz"
+UPGRADE_SHA="dcf0ab81615807f27ee59eadd62e676de62124fa"
 
 # Select multiarch upgrade kit.
-UPGRADE_TAR="bootstrap-2016Q1-multiarch-upgrade.tar.gz"
-UPGRADE_SHA="f6a05edf492bd2ec62356e863ac017ea94a59da2"
+UPGRADE_TAR="bootstrap-2016Q2-multiarch-upgrade.tar.gz"
+UPGRADE_SHA="5a41cee2a099c381ebffb9292bf64aa995c5d499"
 
 # Download selected upgrade kit.
 curl -O https://pkgsrc.joyent.com/packages/SmartOS/bootstrap-upgrade/${UPGRADE_TAR}
