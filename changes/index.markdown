@@ -9,6 +9,41 @@ With 17,000+ packages being constantly updated and changed, producing a full
 ChangeLog would be an exercise in futility and not very helpful.  So instead we
 try to summarise the most important changes in each quarterly release.
 
+## Major changes in pkgsrc-2016Q3
+
+* The `pkg_install` tools now support HTTPS, and both `pkgin` and `pkg_add` now
+  fetch packages over HTTPS by default.
+* Dovecot plugins are now separate packages instead of compile-time
+  options, providing more flexibility for binary package users.
+* The new `GFORTRAN_VERSION` variable allows the user to select which GCC
+  package will supply the GNU Fortran implementation when `PKGSRC_FORTRAN`
+  is set to "gfortran".  The default remains "48" (lang/gcc48).
+* Guile 2.0 is now the default, 1.8 is retained.
+* PHP modules are now automatically enabled at install time with
+  per-module `.ini` files placed into the `PKG_SYSCONFDIR/php.d` directory.
+* `PKGSRC_KEEP_BIN_PKGS` is now set to "yes" by default, meaning that
+  "make install" will now save/overwrite binary packages to `PACKAGES`.
+  Users who prefer to retain a distinction between "make install" and
+  "make package", for example to avoid overwriting known-good binary
+  packages during testing, should set this back to "no" in mk.conf.
+* `pkg_tarup` is no longer used for "make replace" in `DESTDIR` mode.
+* `RUBY_VERSION_SUPPORTED` is renamed `_RUBY_VERSIONS_ACCEPTED` to match
+  other multi-version support, and `*_VERSIONS_INCOMPATIBLE` support is
+  added to ruby and php.
+* New package additions include:
+ - Emacs 25.1
+ - Firefox 49.0
+ - GCC 6.2.0
+ - Go 1.7.1
+ - KDE Frameworks 5.25.0
+ - MySQL 5.7.15
+ - PHP 7.1.0rc2
+ - Rust 1.11
+ - Many more TexLive 2016 packages
+* Package removals include:
+ - Python 3.3
+ - PHP 5.5
+
 ## Major changes in pkgsrc-2016Q2
 
 * The 'tools' package set has the beginnings of
