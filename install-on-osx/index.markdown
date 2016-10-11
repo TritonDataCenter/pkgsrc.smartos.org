@@ -62,99 +62,196 @@ prefix:      /opt/pkg
 	<div class="row">
 		<div class="col-md-10 col-md-offset-1">
 			<p class="lead">
-				Packages for Mac OS X are offered in two different configurations, a 32-bit
-				set built on Snow Leopard suitable for 10.6+ and a 64-bit set built on
-				Mavericks suitable for 10.9+.  Both sets are built from pkgsrc trunk and are
+				Packages for Mac OS X are offered in two different configurations, a 64-bit set
+				built on Mavericks suitable for users running 10.9 or newer (recommended), and a
+				32-bit set built on Snow Leopard suitable for users still running legacy OS X
+				releases on 32-bit hardware.  Both sets are built from pkgsrc trunk and are
 				updated with the latest packages every few days.
 			</p>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
+			<ul class="nav nav-tabs" role="tablist">
+				<li role="presentation" class="active"><a href="#64bit-install" aria-controls="64bit-install" role="tab" data-toggle="tab">64-bit 10.9+</a></li>
+				<li role="presentation"><a href="#32bit-install" aria-controls="32bit-install" role="tab" data-toggle="tab">32-bit 10.6+</a></li>
+				<li role="presentation"><a href="#64bit-upgrade" aria-controls="64bit-upgrade" role="tab" data-toggle="tab">64-bit (upgrade)</a></li>
+				<li role="presentation"><a href="#32bit-upgrade" aria-controls="32bit-upgrade" role="tab" data-toggle="tab">32-bit (upgrade)</a></li>
+			</ul>
+			<div class="tab-content">
+				<div role="tabpanel" class="tab-pane active" id="64bit-install">
+					<p></p>
+					<p class="lead1">
+						64-bit set built on OS X Mavericks (10.9) using clang-600.0.56.
+						Use this set unless you specifically need packages built for an
+						older release or do not have 64-bit hardware.
+					</p>
 {% highlight bash %}
-# Use the 32-bit 10.6+ built with gcc 4.2.1 set if you are running an older
-# release on hardware that lacks 64-bit support.
-BOOTSTRAP_TAR="bootstrap-trunk-i386-20160509.tar.gz"
-BOOTSTRAP_SHA="e900f05c9f3aa8e2fb7ccee370467acf95f5df21"
+#
+# Copy and paste the lines below to install the 64-bit 10.9+ set.
+#
+BOOTSTRAP_TAR="bootstrap-trunk-x86_64-20161011.tar.gz"
+BOOTSTRAP_SHA="09d6649027ce12cadf35a47fcc5ce1192f40e3b2"
 
-# Use the 64-bit 10.9+ build with clang-600.0.56 set for all other systems.
-BOOTSTRAP_TAR="bootstrap-trunk-x86_64-20160509.tar.gz"
-BOOTSTRAP_SHA="8615ae7bfa4a4efd386ca735ffd7eecf99343b57"
-
-# Download the selected bootstrap kit.
+# Download the bootstrap kit to the current directory.
 curl -O https://pkgsrc.joyent.com/packages/Darwin/bootstrap/${BOOTSTRAP_TAR}
 
-# Verify SHA1 checksum.
+# Verify the SHA1 checksum.
 echo "${BOOTSTRAP_SHA}  ${BOOTSTRAP_TAR}" >check-shasum
 shasum -c check-shasum
 
-# Verify PGP signature (optional, requires gpg).
+# Verify PGP signature.  This step is optional, and requires gpg.
 curl -O https://pkgsrc.joyent.com/packages/Darwin/bootstrap/${BOOTSTRAP_TAR}.asc
 gpg --recv-keys 0x1F32A9AD
 gpg --verify ${BOOTSTRAP_TAR}{.asc,}
 
-# Install bootstrap kit to {{ page.prefix }}.
+# Install bootstrap kit to {{ page.prefix }}
 sudo tar -zxpf ${BOOTSTRAP_TAR} -C /
 
 # Reload PATH/MANPATH (pkgsrc installs /etc/paths.d/10-pkgsrc for new sessions)
 eval $(/usr/libexec/path_helper)
 {% endhighlight %}
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-10 col-md-offset-1">
-			<h2 class="text-center">Upgrading From Previous Releases</h2>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-10 col-md-offset-1">
-			<p class="lead">
-				If you wish to upgrade from a previous pkgsrc-2015Q2 or pkgsrc-2015Q3 installation
-				then follow the instructions below.  Upgrades from pkgsrc-2015Q2 and earlier are not
-				supported as those sets used a different installation prefix, so the full bootstrap
-				kit instructions as detailed above are required.
-			</p>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-8 col-md-offset-2">
+				</div>
+				<div role="tabpanel" class="tab-pane" id="32bit-install">
+					<p></p>
+					<p class="lead1">
+						32-bit set built on OS X Snow Leopard (10.6) using GCC 4.2.1.
+						Use this set only if you are running an OS X release prior to
+						Mavericks (10.9) or do not have 64-bit hardware.
+					</p>
 {% highlight bash %}
-# Select 32-bit upgrade kit.
-UPGRADE_TAR="bootstrap-trunk-i386-20160509-upgrade.tar.gz"
-UPGRADE_SHA="264ccde9985698defcf8db808c543d68eb10217d"
+#
+# Copy and paste the lines below to install the 32-bit 10.6+ set.
+#
+BOOTSTRAP_TAR="bootstrap-trunk-i386-20160509.tar.gz"
+BOOTSTRAP_SHA="e900f05c9f3aa8e2fb7ccee370467acf95f5df21"
 
-# Select 64-bit upgrade kit.
+# Download the bootstrap kit to the current directory.
+curl -O https://pkgsrc.joyent.com/packages/Darwin/bootstrap/${BOOTSTRAP_TAR}
+
+# Verify the SHA1 checksum.
+echo "${BOOTSTRAP_SHA}  ${BOOTSTRAP_TAR}" >check-shasum
+shasum -c check-shasum
+
+# Verify PGP signature.  This step is optional, and requires gpg.
+curl -O https://pkgsrc.joyent.com/packages/Darwin/bootstrap/${BOOTSTRAP_TAR}.asc
+gpg --recv-keys 0x1F32A9AD
+gpg --verify ${BOOTSTRAP_TAR}{.asc,}
+
+# Install bootstrap kit to {{ page.prefix }}
+sudo tar -zxpf ${BOOTSTRAP_TAR} -C /
+
+# Reload PATH/MANPATH (pkgsrc installs /etc/paths.d/10-pkgsrc for new sessions)
+eval $(/usr/libexec/path_helper)
+{% endhighlight %}
+				</div>
+				<div role="tabpanel" class="tab-pane" id="64bit-upgrade">
+					<p></p>
+					<p class="lead1">
+						Use these sets to upgrade from a previous pkgsrc-2015Q[23] or trunk 64-bit
+						install.  If you are currently running a pkgsrc-2015Q1 or earlier release
+						you will need to follow the full install instructions.
+					</p>
+{% highlight bash %}
+#
+# If you are upgrading from pkgsrc-2015Q[23] then use this upgrade kit first.  This
+# will switch you over to the trunk package repository.
+#
 UPGRADE_TAR="bootstrap-trunk-x86_64-20160509-upgrade.tar.gz"
 UPGRADE_SHA="c86bcb09b1ee5facb40cc77d57d8ee877c85fe14"
 
-# Download the selected upgrade kit.
+#
+# Otherwise if you are upgrading from a previous trunk release use this kit, which
+# changes the repositories to fetch via HTTPS by default (requires pkgtools support).
+#
+UPGRADE_TAR="bootstrap-trunk-x86_64-20161011-upgrade.tar.gz"
+UPGRADE_SHA="f24d12ed8b6fed0c372c77168133e8cebced13a9"
+
+# Download the upgrade kit to the current directory.
 curl -O https://pkgsrc.joyent.com/packages/Darwin/bootstrap-upgrade/${UPGRADE_TAR}
 
-# Verify SHA1 checksum.
+# Verify the SHA1 checksum.
 echo "${UPGRADE_SHA}  ${UPGRADE_TAR}" >check-shasum
 shasum -c check-shasum
 
-# Verify PGP signature (optional, requires gpg).
+# Verify PGP signature.  This step is optional, and requires gpg.
 curl -O https://pkgsrc.joyent.com/packages/Darwin/bootstrap-upgrade/${UPGRADE_TAR}.asc
 gpg --recv-keys 0x1F32A9AD
 gpg --verify ${UPGRADE_TAR}{.asc,}
 
-# Unpack bootstrap upgrade kit over {{ page.prefix }}.
+# Ensure you are running the latest package tools.
+sudo pkg_add -U pkg_install pkgin
+
+# Unpack bootstrap upgrade kit over {{ page.prefix }}
 sudo tar -zxpf ${UPGRADE_TAR} -C /
 
-# Upgrade pkgin.
-sudo pkg_add -U pkgin
+# Re-install the package tools again in case the repository changed.
+sudo pkg_add -U pkg_install pkgin
 
 # Upgrade all packages.
 sudo pkgin full-upgrade
 
-# There is a small chance that there may be some packages which still have
-# references to Xquartz from /opt/X11.  The trunk packages use Xquartz from
-# pkgsrc, so to ensure the newer versions are installed use this command.
+#
+# When upgrading from an older pkgsrc-2015Q[23] install there is a small
+# chance that there may be some packages which still have references to
+# Xquartz from /opt/X11.  The trunk packages use Xquartz from pkgsrc, so
+# to ensure the newer versions are installed use this command.
+#
 for pkg in $(pkg_info | awk '{print $1}'); do
   pkg_info -Q REQUIRES ${pkg} | grep '^/opt/X11' >/dev/null 2>&1 && echo ${pkg}
 done | xargs pkgin -Fy install
 {% endhighlight %}
+				</div>
+				<div role="tabpanel" class="tab-pane" id="32bit-upgrade">
+					<p></p>
+					<p class="lead1">
+						Use these sets to upgrade from a previous pkgsrc-2015Q[23] or trunk 32-bit
+						install.  If you are currently running a pkgsrc-2015Q1 or earlier release
+						you will need to follow the full install instructions.
+					</p>
+{% highlight bash %}
+#
+# Copy and paste the lines below to upgrade to the latest 32-bit set.
+#
+UPGRADE_TAR="bootstrap-trunk-i386-20160509-upgrade.tar.gz"
+UPGRADE_SHA="264ccde9985698defcf8db808c543d68eb10217d"
+
+# Download the upgrade kit to the current directory.
+curl -O https://pkgsrc.joyent.com/packages/Darwin/bootstrap-upgrade/${UPGRADE_TAR}
+
+# Verify the SHA1 checksum.
+echo "${UPGRADE_SHA}  ${UPGRADE_TAR}" >check-shasum
+shasum -c check-shasum
+
+# Verify PGP signature.  This step is optional, and requires gpg.
+curl -O https://pkgsrc.joyent.com/packages/Darwin/bootstrap-upgrade/${UPGRADE_TAR}.asc
+gpg --recv-keys 0x1F32A9AD
+gpg --verify ${UPGRADE_TAR}{.asc,}
+
+# Ensure you are running the latest package tools.
+sudo pkg_add -U pkg_install pkgin
+
+# Unpack bootstrap upgrade kit over {{ page.prefix }}
+sudo tar -zxpf ${UPGRADE_TAR} -C /
+
+# Re-install the package tools again in case the repository changed.
+sudo pkg_add -U pkg_install pkgin
+
+# Upgrade all packages.
+sudo pkgin full-upgrade
+
+#
+# When upgrading from an older pkgsrc-2015Q[23] install there is a small
+# chance that there may be some packages which still have references to
+# Xquartz from /opt/X11.  The trunk packages use Xquartz from pkgsrc, so
+# to ensure the newer versions are installed use this command.
+#
+for pkg in $(pkg_info | awk '{print $1}'); do
+  pkg_info -Q REQUIRES ${pkg} | grep '^/opt/X11' >/dev/null 2>&1 && echo ${pkg}
+done | xargs pkgin -Fy install
+{% endhighlight %}
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
