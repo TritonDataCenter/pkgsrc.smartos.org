@@ -103,7 +103,7 @@ gpg --recv-keys 0xDE817B8E
 gpg --verify ${BOOTSTRAP_TAR}{.asc,}
 
 # Install bootstrap kit to {{ page.prefix }}
-sudo tar -zxpf ${BOOTSTRAP_TAR} -C /
+tar -zxpf ${BOOTSTRAP_TAR} -C /
 
 # Add to PATH/MANPATH.
 PATH={{ page.prefix }}/sbin:{{ page.prefix }}/bin:$PATH
@@ -137,7 +137,7 @@ gpg --recv-keys 0xDE817B8E
 gpg --verify ${BOOTSTRAP_TAR}{.asc,}
 
 # Install bootstrap kit to {{ page.prefix }}
-sudo tar -zxpf ${BOOTSTRAP_TAR} -C /
+tar -zxpf ${BOOTSTRAP_TAR} -C /
 
 # Add to PATH/MANPATH.
 PATH={{ page.prefix }}/sbin:{{ page.prefix }}/bin:$PATH
@@ -172,7 +172,7 @@ gpg --recv-keys 0xDE817B8E
 gpg --verify ${BOOTSTRAP_TAR}{.asc,}
 
 # Install bootstrap kit to {{ page.prefix }}
-sudo tar -zxpf ${BOOTSTRAP_TAR} -C /
+tar -zxpf ${BOOTSTRAP_TAR} -C /
 
 # Add to PATH/MANPATH.
 PATH={{ page.prefix }}/sbin:{{ page.prefix }}/bin:$PATH
@@ -260,16 +260,13 @@ gpg --recv-keys 0xDE817B8E
 gpg --verify ${UPGRADE_TAR}{.asc,}
 
 # Ensure you are running the latest package tools.
-sudo pkg_add -U pkg_install pkgin
+PKG_PATH=http://pkgsrc.joyent.com/packages/SmartOS/2016Q3/x86_64/All pkg_add -U pkg_install pkgin
 
 # Unpack upgrade kit to {{ page.prefix }}
-sudo tar -zxpf ${UPGRADE_TAR} -C /
-
-# Re-install the package tools again in case the repository changed.
-sudo pkg_add -U pkg_install pkgin
+tar -zxpf ${UPGRADE_TAR} -C /
 
 # Upgrade all packages.
-sudo pkgin full-upgrade
+pkgin full-upgrade
 {% endhighlight %}
 				</div>
 				<div role="tabpanel" class="tab-pane" id="32bit-upgrade">
@@ -293,16 +290,13 @@ gpg --recv-keys 0xDE817B8E
 gpg --verify ${UPGRADE_TAR}{.asc,}
 
 # Ensure you are running the latest package tools.
-sudo pkg_add -U pkg_install pkgin
+PKG_PATH=http://pkgsrc.joyent.com/packages/SmartOS/2016Q3/i386/All pkg_add -U pkg_install pkgin
 
 # Unpack upgrade kit to {{ page.prefix }}
-sudo tar -zxpf ${UPGRADE_TAR} -C /
-
-# Re-install the package tools again in case the repository changed.
-sudo pkg_add -U pkg_install pkgin
+tar -zxpf ${UPGRADE_TAR} -C /
 
 # Upgrade all packages.
-sudo pkgin full-upgrade
+pkgin full-upgrade
 {% endhighlight %}
 				</div>
 				<div role="tabpanel" class="tab-pane" id="multiarch-upgrade">
@@ -326,16 +320,13 @@ gpg --recv-keys 0xDE817B8E
 gpg --verify ${UPGRADE_TAR}{.asc,}
 
 # Ensure you are running the latest package tools.
-sudo pkg_add -U pkg_install pkgin
+PKG_PATH=http://pkgsrc.joyent.com/packages/SmartOS/2016Q3/multiarch/All pkg_add -U pkg_install pkgin
 
 # Unpack upgrade kit to {{ page.prefix }}
-sudo tar -zxpf ${UPGRADE_TAR} -C /
-
-# Re-install the package tools again in case the repository changed.
-sudo pkg_add -U pkg_install pkgin
+tar -zxpf ${UPGRADE_TAR} -C /
 
 # Upgrade all packages.
-sudo pkgin full-upgrade
+pkgin full-upgrade
 {% endhighlight %}
 				</div>
 				<div role="tabpanel" class="tab-pane" id="tools-upgrade">
@@ -359,13 +350,10 @@ gpg --recv-keys 0xDE817B8E
 gpg --verify ${UPGRADE_TAR}{.asc,}
 
 # Ensure you are running the latest package tools.
-sudo pkg_add -U pkg_install pkgin
+PKG_PATH=http://pkgsrc.joyent.com/packages/SmartOS/2016Q3/tools/All pkg_add -U pkg_install pkgin
 
 # Unpack upgrade kit to /opt/tools
 tar -zxpf ${UPGRADE_TAR} -C /
-
-# Re-install the package tools again in case the repository changed.
-sudo pkg_add -U pkg_install pkgin
 
 # Upgrade all packages.
 pkgin full-upgrade
