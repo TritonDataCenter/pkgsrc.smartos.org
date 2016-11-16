@@ -193,14 +193,15 @@ MANPATH={{ page.prefix }}/man:$MANPATH
 BOOTSTRAP_TAR="bootstrap-2016Q3-tools-20161020.tar.gz"
 BOOTSTRAP_SHA="7564104003ff9039c83de07d4f29a6a659cb8f30"
 
-# Download the bootstrap kit to the current directory.
-curl -O https://pkgsrc.joyent.com/packages/SmartOS/bootstrap/${BOOTSTRAP_TAR}
+# Download the bootstrap kit to the current directory.  Note that we currently
+# pass "-k" to skip SSL certificate checks as the GZ doesn't install them.
+curl -kO https://pkgsrc.joyent.com/packages/SmartOS/bootstrap/${BOOTSTRAP_TAR}
 
 # Verify the SHA1 checksum.
 [ "${BOOTSTRAP_SHA}" = "$(/bin/digest -a sha1 ${BOOTSTRAP_TAR})" ] || echo "ERROR: checksum failure"
 
 # Verify PGP signature.  This step is optional, and requires gpg.
-curl -O https://pkgsrc.joyent.com/packages/SmartOS/bootstrap/${BOOTSTRAP_TAR}.asc
+curl -kO https://pkgsrc.joyent.com/packages/SmartOS/bootstrap/${BOOTSTRAP_TAR}.asc
 gpg --recv-keys 0xDE817B8E
 gpg --verify ${BOOTSTRAP_TAR}{.asc,}
 
@@ -255,7 +256,7 @@ curl -O https://pkgsrc.joyent.com/packages/SmartOS/bootstrap-upgrade/${UPGRADE_T
 [ "${UPGRADE_SHA}" = "$(/bin/digest -a sha1 ${UPGRADE_TAR})" ] || echo "ERROR: checksum failure"
 
 # Verify PGP signature.  This step is optional, and requires gpg.
-curl -Os https://pkgsrc.joyent.com/packages/SmartOS/bootstrap-upgrade/${UPGRADE_TAR}.asc
+curl -O https://pkgsrc.joyent.com/packages/SmartOS/bootstrap-upgrade/${UPGRADE_TAR}.asc
 gpg --recv-keys 0xDE817B8E
 gpg --verify ${UPGRADE_TAR}{.asc,}
 
@@ -285,7 +286,7 @@ curl -O https://pkgsrc.joyent.com/packages/SmartOS/bootstrap-upgrade/${UPGRADE_T
 [ "${UPGRADE_SHA}" = "$(/bin/digest -a sha1 ${UPGRADE_TAR})" ] || echo "ERROR: checksum failure"
 
 # Verify PGP signature.  This step is optional, and requires gpg.
-curl -Os https://pkgsrc.joyent.com/packages/SmartOS/bootstrap-upgrade/${UPGRADE_TAR}.asc
+curl -O https://pkgsrc.joyent.com/packages/SmartOS/bootstrap-upgrade/${UPGRADE_TAR}.asc
 gpg --recv-keys 0xDE817B8E
 gpg --verify ${UPGRADE_TAR}{.asc,}
 
@@ -315,7 +316,7 @@ curl -O https://pkgsrc.joyent.com/packages/SmartOS/bootstrap-upgrade/${UPGRADE_T
 [ "${UPGRADE_SHA}" = "$(/bin/digest -a sha1 ${UPGRADE_TAR})" ] || echo "ERROR: checksum failure"
 
 # Verify PGP signature.  This step is optional, and requires gpg.
-curl -Os https://pkgsrc.joyent.com/packages/SmartOS/bootstrap-upgrade/${UPGRADE_TAR}.asc
+curl -O https://pkgsrc.joyent.com/packages/SmartOS/bootstrap-upgrade/${UPGRADE_TAR}.asc
 gpg --recv-keys 0xDE817B8E
 gpg --verify ${UPGRADE_TAR}{.asc,}
 
@@ -338,14 +339,15 @@ pkgin full-upgrade
 UPGRADE_TAR="bootstrap-2016Q3-tools-20161020-upgrade.tar.gz"
 UPGRADE_SHA="fa185fc8343920a9f5def5ab6003455228340642"
 
-# Download the upgrade kit to the current directory.
-curl -O https://pkgsrc.joyent.com/packages/SmartOS/bootstrap-upgrade/${UPGRADE_TAR}
+# Download the upgrade kit to the current directory.  Note that we currently
+# pass "-k" to skip SSL certificate checks as the GZ doesn't install them.
+curl -kO https://pkgsrc.joyent.com/packages/SmartOS/bootstrap-upgrade/${UPGRADE_TAR}
 
 # Verify the SHA1 checksum.
 [ "${UPGRADE_SHA}" = "$(/bin/digest -a sha1 ${UPGRADE_TAR})" ] || echo "ERROR: checksum failure"
 
 # Verify PGP signature.  This step is optional, and requires gpg.
-curl -Os https://pkgsrc.joyent.com/packages/SmartOS/bootstrap-upgrade/${UPGRADE_TAR}.asc
+curl -kO https://pkgsrc.joyent.com/packages/SmartOS/bootstrap-upgrade/${UPGRADE_TAR}.asc
 gpg --recv-keys 0xDE817B8E
 gpg --verify ${UPGRADE_TAR}{.asc,}
 
