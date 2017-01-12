@@ -71,6 +71,9 @@
 			<div class="row">
 				<div class="col-md-6">
 {% highlight console %}
+: Refresh the pkgin database with the latest version
+$ sudo pkgin -y update
+
 : Search for a package.  Regular expressions are supported.
 $ pkgin search "^ffmpeg[0-9]$"
 ffmpeg3-3.0.1   Decoding, encoding and streaming software (v3.x)
@@ -82,9 +85,6 @@ $ sudo pkgin -y install ffmpeg3
 
 : List all available packages
 $ pkgin avail
-
-: Refresh the pkgin database with the latest version
-$ sudo pkgin -y update
 
 : Upgrade all out-of-date packages
 $ sudo pkgin -y full-upgrade
