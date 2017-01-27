@@ -71,11 +71,11 @@ CFLAGS+=                -O3
 		</div>
 		<div class="col-md-3">
 			<h3>Linux</h3>
-			<p>Our Linux packages are built on CentOS 6 for distributions based on RHEL 6 and are available for 32-bit and 64-bit.  They provide a useful companion to the default set of available RPM packages.</p>
+			<p>Our Linux packages are built on CentOS 6 and 7 for distributions based on RedHat Enterprise Linux.  They provide a useful companion to the default set of available RPM packages.</p>
 		</div>
 		<div class="col-md-3">
 			<h3>Others</h3>
-			<p>For all other platforms you can easily bootstrap the package tools and then start building packages from source.  We have support for 23 different operating systems - even Windows/Cygwin and Haiku!</p>
+			<p>For other platforms you can easily bootstrap the package tools and then build packages from source.  We have support for 23 different operating systems - even Cygwin and Haiku!</p>
 		</div>
 	</div>
 	<div class="row">

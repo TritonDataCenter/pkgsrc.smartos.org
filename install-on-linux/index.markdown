@@ -6,25 +6,87 @@ prefix:      /usr/pkg
 ---
 
 <div class="container">
-	<h2 class="text-center">Linux EL6-Based Packages</h2>
-	<p>
-		At present we produce just one set of EL6-compatible packages.
-		They should be compatible across all EL6 distributions, such as
-		RHEL, Oracle Linux, CentOS and Scientific Linux.
-	</p>
 	<div class="row">
-		<div class="col-md-12">
+		<div class="col-md-10 col-md-offset-1">
+			<h2 class="text-center">Choose Your Linux Package Set</h2>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-10 col-md-offset-1">
+			<p class="lead">
+				Packages for Linux are currently built for Enterprise Linux
+				(i.e. CentOS, Oracle, RedHat, Scientific) versions 6.x and
+				7.x.  Both sets are built in 64-bit from pkgsrc trunk and
+				are updated with the latest packages every couple of days.
+			</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<ul class="nav nav-tabs" role="tablist">
+				<li role="presentation" class="active"><a href="#el7-install" aria-controls="el7-install" role="tab" data-toggle="tab">64-bit EL 7.x</a></li>
+				<li role="presentation"><a href="#el6-install" aria-controls="el6-install" role="tab" data-toggle="tab">64-bit EL 6.x</a></li>
+			</ul>
+			<div class="tab-content">
+				<div role="tabpanel" class="tab-pane active" id="el7-install">
+					<p></p>
 {% highlight console %}
-: Download, check, and install bootstrap kit to {{ page.prefix }}.
-$ curl -Os https://pkgsrc.joyent.com/packages/Linux/bootstrap/bootstrap-2014Q2-el6-x86_64.tar.gz
-$ sha1sum bootstrap-2014Q2-el6-x86_64.tar.gz
-493e0071508064d1d1ea32956d2ede70f3c20c32	bootstrap-2014Q2-el6-x86_64.tar.gz
-$ sudo tar -zxpf bootstrap-2014Q2-el6-x86_64.tar.gz -C /
+#
+# Copy and paste the lines below to install the 64-bit EL 7.x set.
+#
+BOOTSTRAP_TAR="bootstrap-trunk-x86_64-20170126.tar.gz"
+BOOTSTRAP_SHA="fc2484ad9550250a979f91b20db3ff4dba6bb86e"
 
-: Add paths
+# Download the bootstrap kit to the current directory.
+curl -O https://pkgsrc.joyent.com/packages/Linux/el7/bootstrap/${BOOTSTRAP_TAR}
+
+# Verify the SHA1 checksum.
+echo "${BOOTSTRAP_SHA}  ${BOOTSTRAP_TAR}" >check-shasum
+sha1sum -c check-shasum
+
+# Verify PGP signature.  This step is optional, and requires gpg.
+curl -O https://pkgsrc.joyent.com/packages/Linux/el7/bootstrap/${BOOTSTRAP_TAR}.asc
+gpg --recv-keys 0x56AAACAF
+gpg --verify ${BOOTSTRAP_TAR}{.asc,}
+
+# Install bootstrap kit to {{ page.prefix }}
+sudo tar -zxpf ${BOOTSTRAP_TAR} -C /
+
+# Add paths
 $ PATH={{ page.prefix }}/sbin:{{ page.prefix }}/bin:$PATH
 $ MANPATH={{ page.prefix }}/man:$MANPATH
 {% endhighlight %}
+				</div>
+				<div role="tabpanel" class="tab-pane" id="el6-install">
+					<p></p>
+{% highlight console %}
+#
+# Copy and paste the lines below to install the 64-bit EL 6.x set.
+#
+BOOTSTRAP_TAR="bootstrap-trunk-x86_64-20170126.tar.gz"
+BOOTSTRAP_SHA="fc64b38f0a2f22d15de13731026ccc9b4ddd8559"
+
+# Download the bootstrap kit to the current directory.
+curl -O https://pkgsrc.joyent.com/packages/Linux/el6/bootstrap/${BOOTSTRAP_TAR}
+
+# Verify the SHA1 checksum.
+echo "${BOOTSTRAP_SHA}  ${BOOTSTRAP_TAR}" >check-shasum
+sha1sum -c check-shasum
+
+# Verify PGP signature.  This step is optional, and requires gpg.
+curl -O https://pkgsrc.joyent.com/packages/Linux/el6/bootstrap/${BOOTSTRAP_TAR}.asc
+gpg --recv-keys 0x56AAACAF
+gpg --verify ${BOOTSTRAP_TAR}{.asc,}
+
+# Install bootstrap kit to {{ page.prefix }}
+sudo tar -zxpf ${BOOTSTRAP_TAR} -C /
+
+# Add paths
+$ PATH={{ page.prefix }}/sbin:{{ page.prefix }}/bin:$PATH
+$ MANPATH={{ page.prefix }}/man:$MANPATH
+{% endhighlight %}
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
