@@ -34,8 +34,8 @@ prefix:      /usr/pkg
 #
 # Copy and paste the lines below to install the 64-bit EL 7.x set.
 #
-BOOTSTRAP_TAR="bootstrap-trunk-x86_64-20170126.tar.gz"
-BOOTSTRAP_SHA="fc2484ad9550250a979f91b20db3ff4dba6bb86e"
+BOOTSTRAP_TAR="bootstrap-trunk-x86_64-20170127.tar.gz"
+BOOTSTRAP_SHA="eb0d6911489579ca893f67f8a528ecd02137d43a"
 
 # Download the bootstrap kit to the current directory.
 curl -O https://pkgsrc.joyent.com/packages/Linux/el7/bootstrap/${BOOTSTRAP_TAR}
@@ -63,8 +63,8 @@ $ MANPATH={{ page.prefix }}/man:$MANPATH
 #
 # Copy and paste the lines below to install the 64-bit EL 6.x set.
 #
-BOOTSTRAP_TAR="bootstrap-trunk-x86_64-20170126.tar.gz"
-BOOTSTRAP_SHA="fc64b38f0a2f22d15de13731026ccc9b4ddd8559"
+BOOTSTRAP_TAR="bootstrap-trunk-x86_64-20170127.tar.gz"
+BOOTSTRAP_SHA="dcb6128284e7e8529a8a770d55cf93d97550558c"
 
 # Download the bootstrap kit to the current directory.
 curl -O https://pkgsrc.joyent.com/packages/Linux/el6/bootstrap/${BOOTSTRAP_TAR}
