@@ -88,8 +88,8 @@ prefix:      /opt/local
 #
 # Copy and paste the lines below to install the 64-bit set.
 #
-BOOTSTRAP_TAR="bootstrap-2016Q4-x86_64-20170130.tar.gz"
-BOOTSTRAP_SHA="b10eae984dd427c7f2781ede141a3e9ca86e3b1a"
+BOOTSTRAP_TAR="bootstrap-2017Q1-x86_64.tar.gz"
+BOOTSTRAP_SHA="133e4c7aac77e73fce6654db0055e514746be3d8"
 
 # Download the bootstrap kit to the current directory.
 curl -O https://pkgsrc.joyent.com/packages/SmartOS/bootstrap/${BOOTSTRAP_TAR}
@@ -122,8 +122,8 @@ MANPATH={{ page.prefix }}/man:$MANPATH
 #
 # Copy and paste the lines below to install the 32-bit set.
 #
-BOOTSTRAP_TAR="bootstrap-2016Q4-i386-20170130.tar.gz"
-BOOTSTRAP_SHA="e886f195fcf6b361399a6a47caee318f2e603606"
+BOOTSTRAP_TAR="bootstrap-2017Q1-i386.tar.gz"
+BOOTSTRAP_SHA="6138a1bca31276ef2b0f25829cb9d19b2dcb0232"
 
 # Download the bootstrap kit to the current directory.
 curl -O https://pkgsrc.joyent.com/packages/SmartOS/bootstrap/${BOOTSTRAP_TAR}
@@ -157,8 +157,8 @@ MANPATH={{ page.prefix }}/man:$MANPATH
 #
 # Copy and paste the lines below to install the 32-bit multiarch set.
 #
-BOOTSTRAP_TAR="bootstrap-2016Q4-multiarch-20170130.tar.gz"
-BOOTSTRAP_SHA="17dd688ebd47c39473018b0d9921fc99a82f7bf5"
+BOOTSTRAP_TAR="bootstrap-2017Q1-multiarch.tar.gz"
+BOOTSTRAP_SHA="08a56914528b039bdb65b25f9c97a212122f931e"
 
 # Download the bootstrap kit to the current directory.
 curl -O https://pkgsrc.joyent.com/packages/SmartOS/bootstrap/${BOOTSTRAP_TAR}
@@ -190,8 +190,8 @@ MANPATH={{ page.prefix }}/man:$MANPATH
 #
 # Copy and paste the lines below to install the 64-bit tools set.
 #
-BOOTSTRAP_TAR="bootstrap-2016Q4-tools-20170130.tar.gz"
-BOOTSTRAP_SHA="77f41c9c7ec6ca3300329c35f39fad7c7db07582"
+BOOTSTRAP_TAR="bootstrap-2017Q1-tools.tar.gz"
+BOOTSTRAP_SHA="a39d8dce904c2d0afb3cb570c671490153a71f15"
 
 # Download the bootstrap kit to the current directory.  Note that we currently
 # pass "-k" to skip SSL certificate checks as the GZ doesn't install them.
@@ -246,8 +246,8 @@ MANPATH=/opt/tools/man:$MANPATH
 #
 # Copy and paste the lines below to upgrade the 64-bit set.
 #
-UPGRADE_TAR="bootstrap-2016Q4-x86_64-20170130-upgrade.tar.gz"
-UPGRADE_SHA="40d614a7d3122b21c579ab4b442064c01f8bb75e"
+UPGRADE_TAR="bootstrap-2017Q1-x86_64-upgrade.tar.gz"
+UPGRADE_SHA="48de2f67974c1c099fe7a1f8201bcc26a0ddcc85"
 
 # Download the upgrade kit to the current directory.
 curl -O https://pkgsrc.joyent.com/packages/SmartOS/bootstrap-upgrade/${UPGRADE_TAR}
@@ -261,7 +261,7 @@ gpg --recv-keys 0xDE817B8E
 gpg --verify ${UPGRADE_TAR}{.asc,}
 
 # Ensure you are running the latest package tools.
-PKG_PATH=http://pkgsrc.joyent.com/packages/SmartOS/2016Q4/x86_64/All pkg_add -U pkg_install pkgin
+PKG_PATH=http://pkgsrc.joyent.com/packages/SmartOS/2017Q1/x86_64/All pkg_add -U pkg_install pkgin
 
 # Unpack upgrade kit to {{ page.prefix }}
 tar -zxpf ${UPGRADE_TAR} -C /
@@ -276,8 +276,8 @@ pkgin full-upgrade
 #
 # Copy and paste the lines below to upgrade the 32-bit set.
 #
-UPGRADE_TAR="bootstrap-2016Q4-i386-20170130-upgrade.tar.gz"
-UPGRADE_SHA="71575f067a2745804d7159de19786455a86d1d61"
+UPGRADE_TAR="bootstrap-2017Q1-i386-upgrade.tar.gz"
+UPGRADE_SHA="75b9687b2186e81848976f22bc9d03409a63fc9d"
 
 # Download the upgrade kit to the current directory.
 curl -O https://pkgsrc.joyent.com/packages/SmartOS/bootstrap-upgrade/${UPGRADE_TAR}
@@ -291,7 +291,7 @@ gpg --recv-keys 0xDE817B8E
 gpg --verify ${UPGRADE_TAR}{.asc,}
 
 # Ensure you are running the latest package tools.
-PKG_PATH=http://pkgsrc.joyent.com/packages/SmartOS/2016Q4/i386/All pkg_add -U pkg_install pkgin
+PKG_PATH=http://pkgsrc.joyent.com/packages/SmartOS/2017Q1/i386/All pkg_add -U pkg_install pkgin
 
 # Unpack upgrade kit to {{ page.prefix }}
 tar -zxpf ${UPGRADE_TAR} -C /
@@ -306,8 +306,8 @@ pkgin full-upgrade
 #
 # Copy and paste the lines below to upgrade the 32-bit multiarch set.
 #
-UPGRADE_TAR="bootstrap-2016Q4-multiarch-20170130-upgrade.tar.gz"
-UPGRADE_SHA="2a6c0b670e2a7e541b6d4f937c3e8a5d8b30383b"
+UPGRADE_TAR="bootstrap-2017Q1-multiarch-upgrade.tar.gz"
+UPGRADE_SHA="fcfe2c49035b12ef4ca92f6820b19139e1f88e9e"
 
 # Download the upgrade kit to the current directory.
 curl -O https://pkgsrc.joyent.com/packages/SmartOS/bootstrap-upgrade/${UPGRADE_TAR}
@@ -321,7 +321,7 @@ gpg --recv-keys 0xDE817B8E
 gpg --verify ${UPGRADE_TAR}{.asc,}
 
 # Ensure you are running the latest package tools.
-PKG_PATH=http://pkgsrc.joyent.com/packages/SmartOS/2016Q4/multiarch/All pkg_add -U pkg_install pkgin
+PKG_PATH=http://pkgsrc.joyent.com/packages/SmartOS/2017Q1/multiarch/All pkg_add -U pkg_install pkgin
 
 # Unpack upgrade kit to {{ page.prefix }}
 tar -zxpf ${UPGRADE_TAR} -C /
@@ -336,8 +336,8 @@ pkgin full-upgrade
 #
 # Copy and paste the lines below to upgrade the 64-bit tools set.
 #
-UPGRADE_TAR="bootstrap-2016Q4-tools-20170130-upgrade.tar.gz"
-UPGRADE_SHA="6a9629941a3f5d8bab18cf833a3ac78de3ffc878"
+UPGRADE_TAR="bootstrap-2017Q1-tools-upgrade.tar.gz"
+UPGRADE_SHA="72f9335b127ac0470a03f6a206c27c0ff253fd75"
 
 # Download the upgrade kit to the current directory.  Note that we currently
 # pass "-k" to skip SSL certificate checks as the GZ doesn't install them.
@@ -352,7 +352,7 @@ gpg --recv-keys 0xDE817B8E
 gpg --verify ${UPGRADE_TAR}{.asc,}
 
 # Ensure you are running the latest package tools.
-PKG_PATH=http://pkgsrc.joyent.com/packages/SmartOS/2016Q4/tools/All pkg_add -U pkg_install pkgin
+PKG_PATH=http://pkgsrc.joyent.com/packages/SmartOS/2017Q1/tools/All pkg_add -U pkg_install pkgin
 
 # Unpack upgrade kit to /opt/tools
 tar -zxpf ${UPGRADE_TAR} -C /
