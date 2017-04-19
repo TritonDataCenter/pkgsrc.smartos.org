@@ -102,7 +102,7 @@ shasum -c check-shasum
 
 # Verify PGP signature.  This step is optional, and requires gpg.
 curl -O https://pkgsrc.joyent.com/packages/Darwin/bootstrap/${BOOTSTRAP_TAR}.asc
-gpg --recv-keys 0x1F32A9AD
+curl -sS https://pkgsrc.joyent.com/pgp/1F32A9AD.asc | gpg --import
 gpg --verify ${BOOTSTRAP_TAR}{.asc,}
 
 # Install bootstrap kit to {{ page.prefix }}
@@ -135,7 +135,7 @@ shasum -c check-shasum
 
 # Verify PGP signature.  This step is optional, and requires gpg.
 curl -O https://pkgsrc.joyent.com/packages/Darwin/bootstrap/${BOOTSTRAP_TAR}.asc
-gpg --recv-keys 0x1F32A9AD
+curl -sS https://pkgsrc.joyent.com/pgp/1F32A9AD.asc | gpg --import
 gpg --verify ${BOOTSTRAP_TAR}{.asc,}
 
 # Install bootstrap kit to {{ page.prefix }}
@@ -178,7 +178,7 @@ shasum -c check-shasum
 
 # Verify PGP signature.  This step is optional, and requires gpg.
 curl -O https://pkgsrc.joyent.com/packages/Darwin/bootstrap-upgrade/${UPGRADE_TAR}.asc
-gpg --recv-keys 0x1F32A9AD
+curl -sS https://pkgsrc.joyent.com/pgp/1F32A9AD.asc | gpg --import
 gpg --verify ${UPGRADE_TAR}{.asc,}
 
 # Unpack bootstrap upgrade kit over {{ page.prefix }}
@@ -237,7 +237,7 @@ shasum -c check-shasum
 
 # Verify PGP signature.  This step is optional, and requires gpg.
 curl -O https://pkgsrc.joyent.com/packages/Darwin/bootstrap-upgrade/${UPGRADE_TAR}.asc
-gpg --recv-keys 0x1F32A9AD
+curl -sS https://pkgsrc.joyent.com/pgp/1F32A9AD.asc | gpg --import
 gpg --verify ${UPGRADE_TAR}{.asc,}
 
 # Ensure you are running the latest package tools.
@@ -276,7 +276,7 @@ shasum -c check-shasum
 
 # Verify PGP signature.  This step is optional, and requires gpg.
 curl -O https://pkgsrc.joyent.com/packages/Darwin/bootstrap-upgrade/${UPGRADE_TAR}.asc
-gpg --recv-keys 0x1F32A9AD
+curl -sS https://pkgsrc.joyent.com/pgp/1F32A9AD.asc | gpg --import
 gpg --verify ${UPGRADE_TAR}{.asc,}
 
 # Ensure you are running the latest package tools.

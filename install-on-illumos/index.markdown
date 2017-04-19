@@ -99,7 +99,7 @@ curl -O https://pkgsrc.joyent.com/packages/SmartOS/bootstrap/${BOOTSTRAP_TAR}
 
 # Verify PGP signature.  This step is optional, and requires gpg.
 curl -O https://pkgsrc.joyent.com/packages/SmartOS/bootstrap/${BOOTSTRAP_TAR}.asc
-gpg --recv-keys 0xDE817B8E
+curl -sS https://pkgsrc.joyent.com/pgp/DE817B8E.asc | gpg --import
 gpg --verify ${BOOTSTRAP_TAR}{.asc,}
 
 # Install bootstrap kit to {{ page.prefix }}
@@ -133,7 +133,7 @@ curl -O https://pkgsrc.joyent.com/packages/SmartOS/bootstrap/${BOOTSTRAP_TAR}
 
 # Verify PGP signature.  This step is optional, and requires gpg.
 curl -O https://pkgsrc.joyent.com/packages/SmartOS/bootstrap/${BOOTSTRAP_TAR}.asc
-gpg --recv-keys 0xDE817B8E
+curl -sS https://pkgsrc.joyent.com/pgp/DE817B8E.asc | gpg --import
 gpg --verify ${BOOTSTRAP_TAR}{.asc,}
 
 # Install bootstrap kit to {{ page.prefix }}
@@ -168,7 +168,7 @@ curl -O https://pkgsrc.joyent.com/packages/SmartOS/bootstrap/${BOOTSTRAP_TAR}
 
 # Verify PGP signature.  This step is optional, and requires gpg.
 curl -O https://pkgsrc.joyent.com/packages/SmartOS/bootstrap/${BOOTSTRAP_TAR}.asc
-gpg --recv-keys 0xDE817B8E
+curl -sS https://pkgsrc.joyent.com/pgp/DE817B8E.asc | gpg --import
 gpg --verify ${BOOTSTRAP_TAR}{.asc,}
 
 # Install bootstrap kit to {{ page.prefix }}
@@ -202,7 +202,7 @@ curl -kO https://pkgsrc.joyent.com/packages/SmartOS/bootstrap/${BOOTSTRAP_TAR}
 
 # Verify PGP signature.  This step is optional, and requires gpg.
 curl -kO https://pkgsrc.joyent.com/packages/SmartOS/bootstrap/${BOOTSTRAP_TAR}.asc
-gpg --recv-keys 0xDE817B8E
+curl -sS https://pkgsrc.joyent.com/pgp/DE817B8E.asc | gpg --import
 gpg --verify ${BOOTSTRAP_TAR}{.asc,}
 
 # Install bootstrap kit to /opt/tools
@@ -257,7 +257,7 @@ curl -O https://pkgsrc.joyent.com/packages/SmartOS/bootstrap-upgrade/${UPGRADE_T
 
 # Verify PGP signature.  This step is optional, and requires gpg.
 curl -O https://pkgsrc.joyent.com/packages/SmartOS/bootstrap-upgrade/${UPGRADE_TAR}.asc
-gpg --recv-keys 0xDE817B8E
+curl -sS https://pkgsrc.joyent.com/pgp/DE817B8E.asc | gpg --import
 gpg --verify ${UPGRADE_TAR}{.asc,}
 
 # Ensure you are running the latest package tools.
@@ -287,7 +287,7 @@ curl -O https://pkgsrc.joyent.com/packages/SmartOS/bootstrap-upgrade/${UPGRADE_T
 
 # Verify PGP signature.  This step is optional, and requires gpg.
 curl -O https://pkgsrc.joyent.com/packages/SmartOS/bootstrap-upgrade/${UPGRADE_TAR}.asc
-gpg --recv-keys 0xDE817B8E
+curl -sS https://pkgsrc.joyent.com/pgp/DE817B8E.asc | gpg --import
 gpg --verify ${UPGRADE_TAR}{.asc,}
 
 # Ensure you are running the latest package tools.
@@ -317,7 +317,7 @@ curl -O https://pkgsrc.joyent.com/packages/SmartOS/bootstrap-upgrade/${UPGRADE_T
 
 # Verify PGP signature.  This step is optional, and requires gpg.
 curl -O https://pkgsrc.joyent.com/packages/SmartOS/bootstrap-upgrade/${UPGRADE_TAR}.asc
-gpg --recv-keys 0xDE817B8E
+curl -sS https://pkgsrc.joyent.com/pgp/DE817B8E.asc | gpg --import
 gpg --verify ${UPGRADE_TAR}{.asc,}
 
 # Ensure you are running the latest package tools.
@@ -348,7 +348,7 @@ curl -kO https://pkgsrc.joyent.com/packages/SmartOS/bootstrap-upgrade/${UPGRADE_
 
 # Verify PGP signature.  This step is optional, and requires gpg.
 curl -kO https://pkgsrc.joyent.com/packages/SmartOS/bootstrap-upgrade/${UPGRADE_TAR}.asc
-gpg --recv-keys 0xDE817B8E
+curl -sS https://pkgsrc.joyent.com/pgp/DE817B8E.asc | gpg --import
 gpg --verify ${UPGRADE_TAR}{.asc,}
 
 # Ensure you are running the latest package tools.
