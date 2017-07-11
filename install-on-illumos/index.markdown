@@ -89,7 +89,7 @@ prefix:      /opt/local
 # Copy and paste the lines below to install the 64-bit set.
 #
 BOOTSTRAP_TAR="bootstrap-2017Q2-x86_64.tar.gz"
-BOOTSTRAP_SHA="3ba44ce1a4f246bb42e8f99454733d4049babac9"
+BOOTSTRAP_SHA="76395983001441108c3ca3ed77d6e071387cc2f5"
 
 # Download the bootstrap kit to the current directory.
 curl -O https://pkgsrc.joyent.com/packages/SmartOS/bootstrap/${BOOTSTRAP_TAR}
@@ -123,7 +123,7 @@ MANPATH={{ page.prefix }}/man:$MANPATH
 # Copy and paste the lines below to install the 32-bit set.
 #
 BOOTSTRAP_TAR="bootstrap-2017Q2-i386.tar.gz"
-BOOTSTRAP_SHA="22abf870271dbd286b785d07f9be11c7a8123240"
+BOOTSTRAP_SHA="f952069a2054d2ed48a0d73e3726a0cb817de144"
 
 # Download the bootstrap kit to the current directory.
 curl -O https://pkgsrc.joyent.com/packages/SmartOS/bootstrap/${BOOTSTRAP_TAR}
@@ -158,7 +158,7 @@ MANPATH={{ page.prefix }}/man:$MANPATH
 # Copy and paste the lines below to install the 32-bit multiarch set.
 #
 BOOTSTRAP_TAR="bootstrap-2017Q2-multiarch.tar.gz"
-BOOTSTRAP_SHA="6bf09dbbc7703104b9908b1510e280a9efc6f006"
+BOOTSTRAP_SHA="e431fafdba66850b3f33fb988ca780aac6b165bb"
 
 # Download the bootstrap kit to the current directory.
 curl -O https://pkgsrc.joyent.com/packages/SmartOS/bootstrap/${BOOTSTRAP_TAR}
@@ -247,7 +247,7 @@ MANPATH=/opt/tools/man:$MANPATH
 # Copy and paste the lines below to upgrade the 64-bit set.
 #
 UPGRADE_TAR="bootstrap-2017Q2-x86_64-upgrade.tar.gz"
-UPGRADE_SHA="e11f78384ed96b7d8c9f90d95cb61c0eb96f9d6b"
+UPGRADE_SHA="d574519519aa42dd87e11aabf8148d38d24afae9"
 
 # Download the upgrade kit to the current directory.
 curl -O https://pkgsrc.joyent.com/packages/SmartOS/bootstrap-upgrade/${UPGRADE_TAR}
@@ -277,7 +277,7 @@ pkgin full-upgrade
 # Copy and paste the lines below to upgrade the 32-bit set.
 #
 UPGRADE_TAR="bootstrap-2017Q2-i386-upgrade.tar.gz"
-UPGRADE_SHA="e85d8e1ea88b7f4c9174c239854fa79ff7beb8d9"
+UPGRADE_SHA="e91b1829b02fad1bb6217e9a0807ae3bc969f80b"
 
 # Download the upgrade kit to the current directory.
 curl -O https://pkgsrc.joyent.com/packages/SmartOS/bootstrap-upgrade/${UPGRADE_TAR}
@@ -307,7 +307,7 @@ pkgin full-upgrade
 # Copy and paste the lines below to upgrade the 32-bit multiarch set.
 #
 UPGRADE_TAR="bootstrap-2017Q2-multiarch-upgrade.tar.gz"
-UPGRADE_SHA="d50e91c38e808268a7ea80e4d6bb320e95aca9d1"
+UPGRADE_SHA="beba9d685237cf8a009d496c2204da2b8c288788"
 
 # Download the upgrade kit to the current directory.
 curl -O https://pkgsrc.joyent.com/packages/SmartOS/bootstrap-upgrade/${UPGRADE_TAR}
