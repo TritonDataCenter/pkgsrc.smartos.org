@@ -23,16 +23,14 @@ title: Joyent Packages Documentation - Home
 	<div class="row">
 		<div class="col-md-6">
 {% highlight console %}
-: To get the latest pkgsrc-2014Q4 branch with CVS.  If you want to get pkgsrc
+: To get the latest pkgsrc-2017Q2 branch with CVS.  If you want to get pkgsrc
 : trunk (the very latest code), leave off the -r argument.
-$ cvs -d anoncvs@anoncvs.netbsd.org:/cvsroot co -rpkgsrc-2014Q4 -P pkgsrc
+$ cvs -d anoncvs@anoncvs.netbsd.org:/cvsroot co -rpkgsrc-2017Q2 -P pkgsrc
 
-: Or with git
-$ git clone https://github.com/jsonn/pkgsrc.git
-
-: Check out the pkgsrc_2014Q4 branch, or stay on master for the latest code.
+: Or with git.  Check out the latest branch, or stay on master for the latest.
+$ git clone https://github.com/NetBSD/pkgsrc.git
 $ cd pkgsrc
-$ git checkout pkgsrc_2014Q4
+$ git checkout pkgsrc-2017Q2
 {% endhighlight %}
 		</div>
 		<div class="col-md-6">
