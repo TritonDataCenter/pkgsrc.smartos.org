@@ -90,8 +90,8 @@ prefix:      /opt/pkg
 #
 # Copy and paste the lines below to install the 64-bit 10.9+ set.
 #
-BOOTSTRAP_TAR="bootstrap-trunk-x86_64-20170205.tar.gz"
-BOOTSTRAP_SHA="177e0be390b57ef9d7f61511a8169268000693df"
+BOOTSTRAP_TAR="bootstrap-trunk-x86_64-20171103.tar.gz"
+BOOTSTRAP_SHA="d7bee3a08e6e07818ff445f042c469333c96ac22"
 
 # Download the bootstrap kit to the current directory.
 curl -O https://pkgsrc.joyent.com/packages/Darwin/bootstrap/${BOOTSTRAP_TAR}
@@ -225,8 +225,8 @@ done | xargs pkgin -Fy install
 # your /opt/pkg/etc/pkg_install.conf file already uses "https://" you do not
 # need to perform these steps.
 #
-UPGRADE_TAR="bootstrap-trunk-x86_64-20170205-upgrade.tar.gz"
-UPGRADE_SHA="734c58387d740fab870f360c0ff84fa4b13de70f"
+UPGRADE_TAR="bootstrap-trunk-x86_64-20171103-upgrade.tar.gz"
+UPGRADE_SHA="be8440200bdf75754e97c1eb2df4a336f6b632e4"
 
 # Download the upgrade kit to the current directory.
 curl -O https://pkgsrc.joyent.com/packages/Darwin/bootstrap-upgrade/${UPGRADE_TAR}
