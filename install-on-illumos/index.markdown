@@ -14,8 +14,9 @@ prefix:      /opt/local
 	<div class="row">
 		<div class="col-md-10 col-md-offset-1">
 			<p class="lead">
-				These example screenshots show just a small number of the 15,000+ binary packages available in our
-				pkgsrc sets.  All examples were produced on a clean install of OmniOS r151018 using pkgsrc Xorg.
+				These example screenshots show just a small number of the 17,500+ binary packages available in our
+				pkgsrc sets.  All examples were produced on a clean install of OmniOS r151018 using pkgsrc Xorg from
+				the 2016Q1 release.  Since then many packages have been upgraded to their latest releases.
 			</p>
 		</div>
 	</div>
