@@ -194,6 +194,10 @@ MANPATH={{ page.prefix }}/man:$MANPATH
 BOOTSTRAP_TAR="bootstrap-2017Q4-tools.tar.gz"
 BOOTSTRAP_SHA="840bcdff718bdf1f7d3ac10017af83a23d25f4c3"
 
+# Ensure you are in a directory with enough space for the bootstrap download,
+# by default the SmartOS /root directory is limited to the size of the ramdisk.
+cd /var/tmp
+
 # Download the bootstrap kit to the current directory.  Note that we currently
 # pass "-k" to skip SSL certificate checks as the GZ doesn't install them.
 curl -kO https://pkgsrc.joyent.com/packages/SmartOS/bootstrap/${BOOTSTRAP_TAR}
