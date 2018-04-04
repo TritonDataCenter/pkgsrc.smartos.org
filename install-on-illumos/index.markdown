@@ -207,7 +207,7 @@ curl -kO https://pkgsrc.joyent.com/packages/SmartOS/bootstrap/${BOOTSTRAP_TAR}
 
 # Verify PGP signature.  This step is optional, and requires gpg.
 curl -kO https://pkgsrc.joyent.com/packages/SmartOS/bootstrap/${BOOTSTRAP_TAR}.asc
-curl -sS https://pkgsrc.joyent.com/pgp/DE817B8E.asc | gpg --import
+curl -ksS https://pkgsrc.joyent.com/pgp/DE817B8E.asc | gpg --import
 gpg --verify ${BOOTSTRAP_TAR}{.asc,}
 
 # Install bootstrap kit to /opt/tools
