@@ -8,25 +8,33 @@ prefix:      /opt/local
 <div class="container">
 	<div class="row">
 		<div class="col-md-12">
-			<h2 class="text-center">Screenshots</h2>
+			<h2 class="text-center">Illumos Packages For Server And Desktop</h2>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-md-10 col-md-offset-1">
 			<p class="lead">
-				These example screenshots show just a small number of the 18,000+ binary packages available in our
-				pkgsrc sets.  All examples were produced on a clean install of OmniOS r151018 using pkgsrc Xorg from
-				the 2016Q1 release.  Since then many packages have been upgraded to their latest releases.
+				Thanks to its cross-platform support, pkgsrc is
+				able to combine the efforts of developers from
+				NetBSD, SmartOS, macOS, Linux, and others, to
+				produce a single package repository containing
+				over 18,500 binary packages, providing regularly
+				updated desktop and server packages to cover a
+				wide range of requirements.  Our package sets
+				are built on SmartOS, but are designed to be
+				portable across all illumos distributions, as
+				the examples below running on Tribblix and
+				OmniOS demonstrate.
 			</p>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-md-3">
-			<a href="/img/illumos-desktop-mate.png">
-				<img alt="pkgsrc MATE 1.14.0 on OmniOS" src="/img/illumos-desktop-mate-small.png" class="img-responsive">
+			<a href="/img/illumos-desktop-2018Q2.png">
+				<img alt="pkgsrc MATE 1.20.0 on Tribblix" src="/img/illumos-desktop-2018Q2.png" class="img-responsive">
 			</a>
 			<p class="small text-center">
-				MATE 1.14.0
+				MATE 1.20.0
 			</p>
 		</div>
 		<div class="col-md-3">
@@ -39,18 +47,18 @@ prefix:      /opt/local
 		</div>
 		<div class="col-md-3">
 			<a href="/img/illumos-desktop-kde4.png">
-				<img alt="pkgsrc KDE 4.14.15 on OmniOS" src="/img/illumos-desktop-kde4-small.png" class="img-responsive">
+				<img alt="pkgsrc KDE 4 on OmniOS" src="/img/illumos-desktop-kde4-small.png" class="img-responsive">
 			</a>
 			<p class="small text-center">
-				KDE 4.14.15
+				KDE 4
 			</p>
 		</div>
 		<div class="col-md-3">
 			<a href="/img/illumos-desktop-awesome.png">
-				<img alt="pkgsrc Awesome 3.5.5 on OmniOS" src="/img/illumos-desktop-awesome-small.png" class="img-responsive">
+				<img alt="pkgsrc Awesome on OmniOS" src="/img/illumos-desktop-awesome-small.png" class="img-responsive">
 			</a>
 			<p class="small text-center">
-				Awesome 3.5.5
+				Awesome
 			</p>
 		</div>
 	</div>
@@ -89,8 +97,8 @@ prefix:      /opt/local
 #
 # Copy and paste the lines below to install the latest 64-bit set.
 #
-BOOTSTRAP_TAR="bootstrap-2018Q1-x86_64.tar.gz"
-BOOTSTRAP_SHA="77c52b15dc0cf7438ad41031f2aeb7cc5007ae1c"
+BOOTSTRAP_TAR="bootstrap-2018Q2-x86_64.tar.gz"
+BOOTSTRAP_SHA="1548a39efe4f4b9d46f654652806cf26698103ab"
 
 # Download the bootstrap kit to the current directory.
 curl -O https://pkgsrc.joyent.com/packages/SmartOS/bootstrap/${BOOTSTRAP_TAR}
@@ -123,8 +131,8 @@ MANPATH={{ page.prefix }}/man:$MANPATH
 #
 # Copy and paste the lines below to install the latest 32-bit set.
 #
-BOOTSTRAP_TAR="bootstrap-2018Q1-i386.tar.gz"
-BOOTSTRAP_SHA="a45088ca09ac5f8227663c15edf5d39aae42c807"
+BOOTSTRAP_TAR="bootstrap-2018Q2-i386.tar.gz"
+BOOTSTRAP_SHA="a59bc43d943f43285e7424e5057b0447ff7d0932"
 
 # Download the bootstrap kit to the current directory.
 curl -O https://pkgsrc.joyent.com/packages/SmartOS/bootstrap/${BOOTSTRAP_TAR}
@@ -158,8 +166,8 @@ MANPATH={{ page.prefix }}/man:$MANPATH
 #
 # Copy and paste the lines below to install the latest 32-bit multiarch set.
 #
-BOOTSTRAP_TAR="bootstrap-2018Q1-multiarch.tar.gz"
-BOOTSTRAP_SHA="23601ba37c0e277b515196efcc37c158c54dd84a"
+BOOTSTRAP_TAR="bootstrap-2018Q2-multiarch.tar.gz"
+BOOTSTRAP_SHA="c0ee2be1a08b756e10cb01d1ffade8f95f7cf117"
 
 # Download the bootstrap kit to the current directory.
 curl -O https://pkgsrc.joyent.com/packages/SmartOS/bootstrap/${BOOTSTRAP_TAR}
@@ -191,8 +199,8 @@ MANPATH={{ page.prefix }}/man:$MANPATH
 #
 # Copy and paste the lines below to install the latest 64-bit tools set.
 #
-BOOTSTRAP_TAR="bootstrap-2018Q1-tools.tar.gz"
-BOOTSTRAP_SHA="89bdc6a0513c2b42f67b9be8306044beae2c07b6"
+BOOTSTRAP_TAR="bootstrap-2018Q2-tools.tar.gz"
+BOOTSTRAP_SHA="61f2cf783aef961ae6ad7a3a464a3f530855c774"
 
 # Ensure you are in a directory with enough space for the bootstrap download,
 # by default the SmartOS /root directory is limited to the size of the ramdisk.
@@ -229,10 +237,12 @@ MANPATH=/opt/tools/man:$MANPATH
 	<div class="row">
 		<div class="col-md-10 col-md-offset-1">
 			<p class="lead">
-				Upgrades aren't fully supported (we don't yet handle major configuration changes) but this
-				procedure may work fine for many users and avoid having to re-bootstrap.  If in doubt ensure
-				you have backed up your data and configuration files.  Make sure you use the same set that
-				was originally installed.
+				To upgrade your package set, use the upgrade
+				kits below.  Note that this will only update
+				the packages, it will not handle configuration
+				changes, so you may need to consult your
+				software documentation if there are upgrade
+				procedures you need to follow (e.g. PostgreSQL).
 			</p>
 		</div>
 	</div>
@@ -251,8 +261,8 @@ MANPATH=/opt/tools/man:$MANPATH
 #
 # Copy and paste the lines below to upgrade to the latest 64-bit set.
 #
-UPGRADE_TAR="bootstrap-2018Q1-x86_64-upgrade.tar.gz"
-UPGRADE_SHA="0db59254339a024b4fb6e4bc70e6d2d5a0e03784"
+UPGRADE_TAR="bootstrap-2018Q2-x86_64-upgrade.tar.gz"
+UPGRADE_SHA="cbde9f408526432dd58d4b6293356ed278b62583"
 
 # Download the upgrade kit to the current directory.
 curl -O https://pkgsrc.joyent.com/packages/SmartOS/bootstrap-upgrade/${UPGRADE_TAR}
@@ -266,7 +276,7 @@ curl -sS https://pkgsrc.joyent.com/pgp/DE817B8E.asc | gpg --import
 gpg --verify ${UPGRADE_TAR}{.asc,}
 
 # Ensure you are running the latest package tools.
-PKG_PATH=http://pkgsrc.joyent.com/packages/SmartOS/2018Q1/x86_64/All pkg_add -U pkg_install pkgin
+PKG_PATH=http://pkgsrc.joyent.com/packages/SmartOS/2018Q2/x86_64/All pkg_add -U pkg_install pkgin
 
 # Unpack upgrade kit to {{ page.prefix }}
 tar -zxpf ${UPGRADE_TAR} -C /
@@ -281,8 +291,8 @@ pkgin full-upgrade
 #
 # Copy and paste the lines below to upgrade to the latest 32-bit set.
 #
-UPGRADE_TAR="bootstrap-2018Q1-i386-upgrade.tar.gz"
-UPGRADE_SHA="27811afab705f493f4a8f33701a830424a61beb4"
+UPGRADE_TAR="bootstrap-2018Q2-i386-upgrade.tar.gz"
+UPGRADE_SHA="5ad8e91dc3b1963f9fb5067507c815cfaa42bf15"
 
 # Download the upgrade kit to the current directory.
 curl -O https://pkgsrc.joyent.com/packages/SmartOS/bootstrap-upgrade/${UPGRADE_TAR}
@@ -296,7 +306,7 @@ curl -sS https://pkgsrc.joyent.com/pgp/DE817B8E.asc | gpg --import
 gpg --verify ${UPGRADE_TAR}{.asc,}
 
 # Ensure you are running the latest package tools.
-PKG_PATH=http://pkgsrc.joyent.com/packages/SmartOS/2018Q1/i386/All pkg_add -U pkg_install pkgin
+PKG_PATH=http://pkgsrc.joyent.com/packages/SmartOS/2018Q2/i386/All pkg_add -U pkg_install pkgin
 
 # Unpack upgrade kit to {{ page.prefix }}
 tar -zxpf ${UPGRADE_TAR} -C /
@@ -311,8 +321,8 @@ pkgin full-upgrade
 #
 # Copy and paste the lines below to upgrade to the latest 32-bit multiarch set.
 #
-UPGRADE_TAR="bootstrap-2018Q1-multiarch-upgrade.tar.gz"
-UPGRADE_SHA="d31148c5524fd552c3b5d7e2ce4091e41c8ee76f"
+UPGRADE_TAR="bootstrap-2018Q2-multiarch-upgrade.tar.gz"
+UPGRADE_SHA="15618fac3e4cb815d49c5665d88767f0f452d93a"
 
 # Download the upgrade kit to the current directory.
 curl -O https://pkgsrc.joyent.com/packages/SmartOS/bootstrap-upgrade/${UPGRADE_TAR}
@@ -326,7 +336,7 @@ curl -sS https://pkgsrc.joyent.com/pgp/DE817B8E.asc | gpg --import
 gpg --verify ${UPGRADE_TAR}{.asc,}
 
 # Ensure you are running the latest package tools.
-PKG_PATH=http://pkgsrc.joyent.com/packages/SmartOS/2018Q1/multiarch/All pkg_add -U pkg_install pkgin
+PKG_PATH=http://pkgsrc.joyent.com/packages/SmartOS/2018Q2/multiarch/All pkg_add -U pkg_install pkgin
 
 # Unpack upgrade kit to {{ page.prefix }}
 tar -zxpf ${UPGRADE_TAR} -C /
@@ -341,8 +351,8 @@ pkgin full-upgrade
 #
 # Copy and paste the lines below to upgrade to the latest 64-bit tools set.
 #
-UPGRADE_TAR="bootstrap-2018Q1-tools-upgrade.tar.gz"
-UPGRADE_SHA="010ac002502e8dd83f672146881b227572621fce"
+UPGRADE_TAR="bootstrap-2018Q2-tools-upgrade.tar.gz"
+UPGRADE_SHA="6439fc20249196270e4dacc534ad16a3eb991a0a"
 
 # Download the upgrade kit to the current directory.  Note that we currently
 # pass "-k" to skip SSL certificate checks as the GZ doesn't install them.
@@ -357,7 +367,7 @@ curl -sS https://pkgsrc.joyent.com/pgp/DE817B8E.asc | gpg --import
 gpg --verify ${UPGRADE_TAR}{.asc,}
 
 # Ensure you are running the latest package tools.
-PKG_PATH=http://pkgsrc.joyent.com/packages/SmartOS/2018Q1/tools/All pkg_add -U pkg_install pkgin
+PKG_PATH=http://pkgsrc.joyent.com/packages/SmartOS/2018Q2/tools/All pkg_add -U pkg_install pkgin
 
 # Unpack upgrade kit to /opt/tools
 tar -zxpf ${UPGRADE_TAR} -C /
