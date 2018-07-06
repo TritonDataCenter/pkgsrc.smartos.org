@@ -1,7 +1,7 @@
 ---
 layout:      install
-title:       Joyent Packages Documentation - Install On Mac OS X
-metacontent: Binary pkgsrc package sets for Mac OS X
+title:       Joyent Packages Documentation - Install On macOS
+metacontent: Binary pkgsrc package sets for macOS
 prefix:      /opt/pkg
 ---
 
@@ -16,14 +16,14 @@ prefix:      /opt/pkg
 			<p class="lead">
 				These example screenshots show just a small number of the 17,000+ binary
 				packages available in our 64-bit pkgsrc set.  All examples were produced
-				on a clean install of OS X El Capitan (10.11.4) inside VMware Fusion.
+				on a clean install of macOS El Capitan (10.11.4) inside VMware Fusion.
 			</p>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-md-3">
 			<a href="/img/osx-desktop-xfce.png">
-				<img alt="pkgsrc XFCE 4.12 on OSX" src="/img/osx-desktop-xfce-small.png" class="img-responsive">
+				<img alt="pkgsrc XFCE 4.12 on macOS" src="/img/osx-desktop-xfce-small.png" class="img-responsive">
 			</a>
 			<p class="small text-center">
 				XFCE 4.12 / Gnumeric / Inkscape
@@ -31,7 +31,7 @@ prefix:      /opt/pkg
 		</div>
 		<div class="col-md-3">
 			<a href="/img/osx-desktop-apps.png">
-				<img alt="pkgsrc apps on OSX" src="/img/osx-desktop-apps-small.png" class="img-responsive">
+				<img alt="pkgsrc apps on macOS" src="/img/osx-desktop-apps-small.png" class="img-responsive">
 			</a>
 			<p class="small text-center">
 				GIMP / XChat
@@ -39,7 +39,7 @@ prefix:      /opt/pkg
 		</div>
 		<div class="col-md-3">
 			<a href="/img/osx-install-nodejs.png">
-				<img alt="Installing pkgsrc nodejs on OSX" src="/img/osx-install-nodejs-small.png" class="img-responsive">
+				<img alt="Installing pkgsrc nodejs on macOS" src="/img/osx-install-nodejs-small.png" class="img-responsive">
 			</a>
 			<p class="small text-center">
 				Installing Node.js
@@ -47,7 +47,7 @@ prefix:      /opt/pkg
 		</div>
 		<div class="col-md-3">
 			<a href="/img/osx-install-jekyll.png">
-				<img alt="Running pkgsrc jekyll on OSX" src="/img/osx-install-jekyll-small.png" class="img-responsive">
+				<img alt="Running pkgsrc jekyll on macOS" src="/img/osx-install-jekyll-small.png" class="img-responsive">
 			</a>
 			<p class="small text-center">
 				Installing and running Jekyll (Ruby 2.3 version)
@@ -56,15 +56,15 @@ prefix:      /opt/pkg
 	</div>
 	<div class="row">
 		<div class="col-md-10 col-md-offset-1">
-			<h2 class="text-center">Choose Your OS X Package Set</h2>
+			<h2 class="text-center">Choose Your macOS Package Set</h2>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-md-10 col-md-offset-1">
 			<p class="lead">
-				Packages for Mac OS X are offered in two different configurations, a 64-bit set
+				Packages for macOS are offered in two different configurations, a 64-bit set
 				built on Mavericks suitable for users running 10.9 or newer (recommended), and a
-				32-bit set built on Snow Leopard suitable for users still running legacy OS X
+				32-bit set built on Snow Leopard suitable for users still running legacy macOS
 				releases on 32-bit hardware.  Both sets are built from pkgsrc trunk and are
 				updated with the latest packages every few days.
 			</p>
@@ -82,7 +82,7 @@ prefix:      /opt/pkg
 				<div role="tabpanel" class="tab-pane active" id="64bit-install">
 					<p></p>
 					<p class="lead1">
-						64-bit set built on OS X Mavericks (10.9) using clang-600.0.56.
+						64-bit set built on macOS Mavericks (10.9) using clang-600.0.56.
 						Use this set unless you specifically need packages built for an
 						older release or do not have 64-bit hardware.
 					</p>
@@ -115,8 +115,8 @@ eval $(/usr/libexec/path_helper)
 				<div role="tabpanel" class="tab-pane" id="32bit-install">
 					<p></p>
 					<p class="lead1">
-						32-bit set built on OS X Snow Leopard (10.6) using GCC 4.2.1.
-						Use this set only if you are running an OS X release prior to
+						32-bit set built on macOS Snow Leopard (10.6) using GCC 4.2.1.
+						Use this set only if you are running an macOS release prior to
 						Mavericks (10.9) or do not have 64-bit hardware.
 					</p>
 {% highlight bash %}

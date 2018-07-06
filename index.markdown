@@ -1,7 +1,7 @@
 ---
 layout:      default
 title:       "Joyent Packages Documentation - Home"
-metacontent: Binary pkgsrc package sets for SmartOS/illumos, Mac OS X, and Linux
+metacontent: Binary pkgsrc package sets for SmartOS/illumos, macOS, and Linux
 ---
 
 <div class="container">
@@ -63,11 +63,11 @@ CFLAGS+=                -O3
 	<div class="row">
 		<div class="col-md-3">
 			<h3>SmartOS/Illumos</h3>
-			<p>Our primary platform is SmartOS, but our packages are portable across illumos distributions.  They are available in 3 sets (32-bit, 64-bit, multiarch) and are tested on OmniOS and OpenIndiana.</p>
+			<p>Our primary platform is SmartOS, but our packages are portable across illumos distributions.  They are available in 3 sets (32-bit, 64-bit, multiarch) for SmartOS, OmniOS, OpenIndiana, and Tribblix.</p>
 		</div>
 		<div class="col-md-3">
-			<h3>Mac OS X</h3>
-			<p>For OS X you can choose between 32-bit packages built on Snow Leopard for maximum portability, or 64-bit packages built on Mavericks to take advantage of newer features and compilers.</p>
+			<h3>macOS</h3>
+			<p>For macOS you can choose between 32-bit packages built on Snow Leopard for maximum portability, or 64-bit packages built on Mavericks to take advantage of newer features and compilers.</p>
 		</div>
 		<div class="col-md-3">
 			<h3>Linux</h3>
@@ -83,7 +83,7 @@ CFLAGS+=                -O3
 			<p><a class="btn btn-orange" href="/install-on-illumos/" role="button">Install on SmartOS/illumos &raquo;</a></p>
 		</div>
 		<div class="col-md-3">
-			<p><a class="btn btn-orange" href="/install-on-osx/" role="button">Install on Mac OS X &raquo;</a></p>
+			<p><a class="btn btn-orange" href="/install-on-osx/" role="button">Install on macOS &raquo;</a></p>
 		</div>
 		<div class="col-md-3">
 			<p><a class="btn btn-orange" href="/install-on-linux/" role="button">Install on Linux &raquo;</a></p>
