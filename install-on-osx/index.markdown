@@ -115,7 +115,7 @@ eval $(/usr/libexec/path_helper)
 				<div role="tabpanel" class="tab-pane" id="32bit-install">
 					<p></p>
 					<p class="lead1">
-						32-bit set built on macOS Snow Leopard (10.6) using GCC 4.2.1.
+						32-bit set built on macOS Snow Leopard (10.6) using pkgsrc GCC 4.9.
 						Use this set only if you are running an macOS release prior to
 						Mavericks (10.9) or do not have 64-bit hardware.
 					</p>
