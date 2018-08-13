@@ -123,8 +123,8 @@ eval $(/usr/libexec/path_helper)
 #
 # Copy and paste the lines below to install the 32-bit 10.6+ set.
 #
-BOOTSTRAP_TAR="bootstrap-trunk-i386-20171120.tar.gz"
-BOOTSTRAP_SHA="1101b4613ec67ed93fb9e1fbc2f278c83ae7b522"
+BOOTSTRAP_TAR="bootstrap-trunk-i386-20180812.tar.gz"
+BOOTSTRAP_SHA="283b88b13c75e8f92de8376532ccf4f4b9443f9d"
 
 # Download the bootstrap kit to the current directory.
 curl -O https://pkgsrc.joyent.com/packages/Darwin/bootstrap/${BOOTSTRAP_TAR}
@@ -264,8 +264,8 @@ sudo pkgin full-upgrade
 #
 # Copy and paste the lines below to upgrade to the latest 32-bit set.
 #
-UPGRADE_TAR="bootstrap-trunk-i386-20171120-upgrade.tar.gz"
-UPGRADE_SHA="2c98f0cc2946c2917fea158fc1cc0bdeac30bdf5"
+UPGRADE_TAR="bootstrap-trunk-i386-20180812-upgrade.tar.gz"
+UPGRADE_SHA="dcdc4c4a35502f2f4b67c3910529fd4be6cd1e08"
 
 # Download the upgrade kit to the current directory.
 curl -O https://pkgsrc.joyent.com/packages/Darwin/bootstrap-upgrade/${UPGRADE_TAR}
