@@ -63,11 +63,11 @@ CFLAGS+=                -O3
 	<div class="row">
 		<div class="col-md-3">
 			<h3>SmartOS/Illumos</h3>
-			<p>Our primary platform is SmartOS, but our packages are portable across illumos distributions.  They are available in 3 sets (32-bit, 64-bit, multiarch) for SmartOS, OmniOS, OpenIndiana, and Tribblix.</p>
+			<p>Our primary platform is SmartOS, but our packages are portable across illumos distributions.  They are built nightly from pkgsrc trunk for SmartOS, OmniOS, OpenIndiana, and Tribblix.</p>
 		</div>
 		<div class="col-md-3">
 			<h3>macOS</h3>
-			<p>For macOS you can choose between 32-bit packages built on Snow Leopard for maximum portability, or 64-bit packages built on Mavericks to take advantage of newer features and compilers.</p>
+			<p>For macOS we offer the latest packages built for 64-bit Sierra onwards, or for anyone stuck on older releases we have archived package sets built for 64-bit Mavericks and 32-bit Snow Leopard.</p>
 		</div>
 		<div class="col-md-3">
 			<h3>Linux</h3>
