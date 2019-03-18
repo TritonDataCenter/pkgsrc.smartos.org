@@ -14,7 +14,7 @@ prefix:      /opt/pkg
 	<div class="row">
 		<div class="col-md-10 col-md-offset-1">
 			<p class="lead">
-				These example screenshots show just a small number of the 17,000+ binary
+				These example screenshots show just a small number of the 18,000+ binary
 				packages available in our 64-bit pkgsrc set.  All examples were produced
 				on a clean install of macOS El Capitan (10.11.4) inside VMware Fusion.
 			</p>

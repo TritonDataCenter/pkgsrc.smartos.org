@@ -35,18 +35,18 @@ metacontent: Binary pkgsrc package sets for SmartOS/illumos, macOS, and Linux
 		<div class="col-md-4">
 {% highlight console %}
 # pkgin search ffmpeg
-ffmpeg3-3.0.1   Decoding, encoding and streaming software (v3.x)
-ffmpeg2-2.8.6   Decoding, encoding and streaming software (v2.x)
-ffmpeg1-1.2.12  Decoding, encoding and streaming software (v1.x)
-# pkgin -y install ffmpeg3
+ffmpeg4-4.1.1   Decoding, encoding and streaming software (v4.x)
+ffmpeg3-3.4.5   Decoding, encoding and streaming software (v3.x)
+# pkgin install ffmpeg4
+# pkgin full-upgrade
 {% endhighlight %}
 		</div>
 		<div class="col-md-4">
 {% highlight console %}
 # vi /opt/pkg/etc/mk.conf.local
-PKG_OPTIONS.ffmpeg3+=   faac x265
+PKG_OPTIONS.ffmpeg4+=   faac x265
 CFLAGS+=                -O3
-# cd pkgsrc/multimedia/ffmpeg3
+# cd pkgsrc/multimedia/ffmpeg4
 # bmake install
 {% endhighlight %}
 		</div>

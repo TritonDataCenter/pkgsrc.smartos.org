@@ -75,13 +75,14 @@
 $ sudo pkgin -y update
 
 : Search for a package.  Regular expressions are supported.
-$ pkgin search "^ffmpeg[0-9]$"
-ffmpeg3-3.0.1   Decoding, encoding and streaming software (v3.x)
-ffmpeg2-2.8.6   Decoding, encoding and streaming software (v2.x)
+$ pkgin search ^ffmpeg[0-9]$
+ffmpeg4-4.1.1   Decoding, encoding and streaming software (v4.x)
+ffmpeg3-3.4.5   Decoding, encoding and streaming software (v3.x)
+ffmpeg2-2.8.14  Decoding, encoding and streaming software (v2.x)
 ffmpeg1-1.2.12  Decoding, encoding and streaming software (v1.x)
 
 : Install a package without prompting
-$ sudo pkgin -y install ffmpeg3
+$ sudo pkgin -y install ffmpeg4
 
 : List all available packages
 $ pkgin avail
@@ -90,7 +91,7 @@ $ pkgin avail
 $ sudo pkgin -y full-upgrade
 
 : Remove a package
-$ sudo pkgin -y remove ffmpeg2
+$ sudo pkgin -y remove ffmpeg4
 
 : Automatically remove orphaned dependencies
 $ sudo pkgin -y autoremove
@@ -98,25 +99,26 @@ $ sudo pkgin -y autoremove
 				</div>
 				<div class="col-md-6">
 {% highlight console %}
-: See what packages are installed.
+: List installed packages.
 $ pkg_info
 
-: See what package a file belongs to.
-$ pkg_info -Fe {{page.prefix}}/bin/node
-nodejs-4.4.3
+: Query which package a file belongs to.
+$ pkg_info -Fe {{page.prefix}}/bin/ffmpeg4
+ffmpeg4-4.1.1
 
 : List the contents of a package.
-$ pkg_info -qL nodejs
-{{page.prefix}}/bin/node
-{{page.prefix}}/bin/npm
+$ pkg_info -qL ffmpeg4
+{{page.prefix}}/bin/ffmpeg4
+{{page.prefix}}/bin/ffprobe4
 [...]
 
 : Perform an audit of all currently installed packages.
 $ sudo pkg_admin fetch-pkg-vulnerabilities
 $ pkg_admin audit
-Package jasper-1.900.1nb11 has a integer-overflow vulnerability, see http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-3520
-Package samba-3.6.25nb3 has a privilege-escalation vulnerability, see https://www.samba.org/samba/security/CVE-2015-5299.html
-Package tiff-4.0.6 has a arbitrary-memory-access vulnerability, see http://www.securityfocus.com/archive/1/537205
+Package npm-6.9.0 has a denial-of-service vulnerability, see https://nvd.nist.gov/vuln/detail/CVE-2018-3721
+Package nodejs-8.12.0 has a denial-of-service vulnerability, see https://nvd.nist.gov/vuln/detail/CVE-2018-7651
+Package nodejs-8.12.0 has a http-response-splitting vulnerability, see https://nvd.nist.gov/vuln/detail/CVE-2018-12116
+Package nodejs-8.12.0 has a spoofing vulnerability, see https://nvd.nist.gov/vuln/detail/CVE-2018-12123
 [...]
 
 : Create a binary package from some metadata files and package directory.
@@ -128,7 +130,7 @@ $ pkg_create -B build-info -c comment -d description -f packlist -I {{page.prefi
 		<div class="container col-md-8 col-md-offset-2">
 			<hr>
 			<footer class="footer">
-				<p class="text-center small">pkgsrc is a registered trademark of The NetBSD Foundation, Inc.  Copyright &copy; 2018 Joyent, Inc.</p>
+				<p class="text-center small">pkgsrc is a registered trademark of The NetBSD Foundation, Inc.  Copyright &copy; 2019 Joyent, Inc.</p>
 			</footer>
 		</div>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
