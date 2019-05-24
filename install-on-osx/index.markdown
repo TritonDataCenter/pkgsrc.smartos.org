@@ -90,8 +90,8 @@ prefix:      /opt/pkg
 # These packages are suitable for anyone running Sierra (10.12.6) or newer,
 # and are updated from pkgsrc trunk every few days.
 #
-BOOTSTRAP_TAR="bootstrap-trunk-x86_64-20190314.tar.gz"
-BOOTSTRAP_SHA="fbebf528762a96d4ee2b0872b97b189f5791d332"
+BOOTSTRAP_TAR="bootstrap-trunk-x86_64-20190524.tar.gz"
+BOOTSTRAP_SHA="1c554a806fb41dcc382ef33e64841ace13988479"
 
 # Download the bootstrap kit to the current directory.
 curl -O https://pkgsrc.joyent.com/packages/Darwin/bootstrap/${BOOTSTRAP_TAR}
