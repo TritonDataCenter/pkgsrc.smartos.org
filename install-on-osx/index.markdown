@@ -62,39 +62,72 @@ prefix:      /opt/pkg
 	<div class="row">
 		<div class="col-md-10 col-md-offset-1">
 			<p class="lead">
-				Our primary packages for macOS are built on Sierra (10.12.6) and are suitable
+				Our primary packages for macOS are built on Mojave (10.14.6) and are suitable
 				for users running the latest macOS releases.  They are built from pkgsrc trunk
 				and updated every few days.
 			</p>
 			<p class="lead">
-				We also provide archives of our previous package sets built on 64-bit Mavericks
-				(10.9.5) and 32-bit Snow Leopard (10.6.8) for users who wish to quickly install
-				software on older releases.  These archived sets are no longer updated.
+				We also provide archives of our previous package sets built on 64-bit Sierra
+				(10.12.6), Mavericks (10.9.5), and 32-bit Snow Leopard (10.6.8) for users who
+				wish to quickly install software on older releases.  These archived sets are
+				no longer updated.
 			</p>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
 			<ul class="nav nav-tabs" role="tablist">
-				<li role="presentation" class="active"><a href="#sierra-install" aria-controls="sierra-install" role="tab" data-toggle="tab">Sierra (10.12+)</a></li>
-				<li role="presentation"><a href="#mavericks-install" aria-controls="mavericks-install" role="tab" data-toggle="tab">Mavericks (10.9+, archived)</a></li>
-				<li role="presentation"><a href="#snow-leopard-install" aria-controls="snow-leopard-install" role="tab" data-toggle="tab">Snow Leopard (10.6+, archived)</a></li>
+				<li role="presentation" class="active"><a href="#mojave-install" aria-controls="mojave-install" role="tab" data-toggle="tab">Mojave</a></li>
+				<li role="presentation"><a href="#sierra-install" aria-controls="sierra-install" role="tab" data-toggle="tab">Sierra (archived)</a></li>
+				<li role="presentation"><a href="#mavericks-install" aria-controls="mavericks-install" role="tab" data-toggle="tab">Mavericks (archived)</a></li>
+				<li role="presentation"><a href="#snow-leopard-install" aria-controls="snow-leopard-install" role="tab" data-toggle="tab">Snow Leopard (archived)</a></li>
 			</ul>
 			<div class="tab-content">
-				<div role="tabpanel" class="tab-pane active" id="sierra-install">
+				<div role="tabpanel" class="tab-pane active" id="mojave-install">
+					<p></p>
+{% highlight bash %}
+#
+# Copy and paste the lines below to install the 64-bit Mojave set.
+#
+# These packages are suitable for anyone running Mojave (10.14.6) or newer,
+# and are updated from pkgsrc trunk every few days.
+#
+BOOTSTRAP_TAR="bootstrap-trunk-x86_64-20191204.tar.gz"
+BOOTSTRAP_SHA="e4c585ca0d80ccac887824432e94e5715abc85ec"
+
+# Download the bootstrap kit to the current directory.
+curl -O https://pkgsrc.joyent.com/packages/Darwin/bootstrap/${BOOTSTRAP_TAR}
+
+# Verify the SHA1 checksum.
+echo "${BOOTSTRAP_SHA}  ${BOOTSTRAP_TAR}" >check-shasum
+shasum -c check-shasum
+
+# Verify PGP signature.  This step is optional, and requires gpg.
+curl -O https://pkgsrc.joyent.com/packages/Darwin/bootstrap/${BOOTSTRAP_TAR}.asc
+curl -sS https://pkgsrc.joyent.com/pgp/1F32A9AD.asc | gpg --import
+gpg --verify ${BOOTSTRAP_TAR}{.asc,}
+
+# Install bootstrap kit to {{ page.prefix }}
+sudo tar -zxpf ${BOOTSTRAP_TAR} -C /
+
+# Reload PATH/MANPATH (pkgsrc installs /etc/paths.d/10-pkgsrc for new sessions)
+eval $(/usr/libexec/path_helper)
+{% endhighlight %}
+				</div>
+				<div role="tabpanel" class="tab-pane" id="sierra-install">
 					<p></p>
 {% highlight bash %}
 #
 # Copy and paste the lines below to install the 64-bit Sierra set.
 #
 # These packages are suitable for anyone running Sierra (10.12.6) or newer,
-# and are updated from pkgsrc trunk every few days.
+# however they are no longer updated.
 #
 BOOTSTRAP_TAR="bootstrap-trunk-x86_64-20190524.tar.gz"
 BOOTSTRAP_SHA="1c554a806fb41dcc382ef33e64841ace13988479"
 
 # Download the bootstrap kit to the current directory.
-curl -O https://pkgsrc.joyent.com/packages/Darwin/bootstrap/${BOOTSTRAP_TAR}
+curl -O https://us-east.manta.joyent.com/pkgsrc/public/packages/Darwin/10.12/bootstrap/${BOOTSTRAP_TAR}
 
 # Verify the SHA1 checksum.
 echo "${BOOTSTRAP_SHA}  ${BOOTSTRAP_TAR}" >check-shasum
