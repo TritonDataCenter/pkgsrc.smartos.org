@@ -195,7 +195,7 @@ PKG_PATH=http://pkgsrc.joyent.com/packages/SmartOS/trunk/x86_64/All pkg_add -U p
 tar -zxpf ${UPGRADE_TAR} -C /
 
 # Upgrade all packages.
-pkgin full-upgrade
+pkgin -y upgrade
 {% endhighlight %}
 				</div>
 				<div role="tabpanel" class="tab-pane" id="tools-upgrade">
@@ -226,7 +226,7 @@ PKG_PATH=http://pkgsrc.joyent.com/packages/SmartOS/trunk/tools/All pkg_add -U pk
 tar -zxpf ${UPGRADE_TAR} -C /
 
 # Upgrade all packages.
-pkgin full-upgrade
+pkgin -y upgrade
 {% endhighlight %}
 				</div>
 			</div>

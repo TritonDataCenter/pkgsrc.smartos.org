@@ -34,11 +34,11 @@ metacontent: Binary pkgsrc package sets for SmartOS/illumos, macOS, and Linux
 	<div class="row">
 		<div class="col-md-4">
 {% highlight console %}
+# pkgin -y upgrade
 # pkgin search ffmpeg
 ffmpeg4-4.1.1   Decoding, encoding and streaming software (v4.x)
 ffmpeg3-3.4.5   Decoding, encoding and streaming software (v3.x)
 # pkgin install ffmpeg4
-# pkgin full-upgrade
 {% endhighlight %}
 		</div>
 		<div class="col-md-4">
