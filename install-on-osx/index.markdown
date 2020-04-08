@@ -104,8 +104,8 @@ shasum -c check-shasum
 
 # Verify PGP signature.  This step is optional, and requires gpg.
 curl -O https://pkgsrc.joyent.com/packages/Darwin/bootstrap/${BOOTSTRAP_TAR}.asc
-curl -sS https://pkgsrc.joyent.com/pgp/1F32A9AD.asc | gpg --import
-gpg --verify ${BOOTSTRAP_TAR}{.asc,}
+curl -sS https://pkgsrc.joyent.com/pgp/1F32A9AD.asc | gpg2 --import
+gpg2 --verify ${BOOTSTRAP_TAR}{.asc,}
 
 # Install bootstrap kit to {{ page.prefix }}
 sudo tar -zxpf ${BOOTSTRAP_TAR} -C /
@@ -135,8 +135,8 @@ shasum -c check-shasum
 
 # Verify PGP signature.  This step is optional, and requires gpg.
 curl -O https://pkgsrc.joyent.com/packages/Darwin/bootstrap/${BOOTSTRAP_TAR}.asc
-curl -sS https://pkgsrc.joyent.com/pgp/1F32A9AD.asc | gpg --import
-gpg --verify ${BOOTSTRAP_TAR}{.asc,}
+curl -sS https://pkgsrc.joyent.com/pgp/1F32A9AD.asc | gpg2 --import
+gpg2 --verify ${BOOTSTRAP_TAR}{.asc,}
 
 # Install bootstrap kit to {{ page.prefix }}
 sudo tar -zxpf ${BOOTSTRAP_TAR} -C /
@@ -166,8 +166,8 @@ shasum -c check-shasum
 
 # Verify PGP signature.  This step is optional, and requires gpg.
 curl -O https://us-east.manta.joyent.com/pkgsrc/public/packages/Darwin/10.9/bootstrap/${BOOTSTRAP_TAR}.asc
-curl -sS https://pkgsrc.joyent.com/pgp/1F32A9AD.asc | gpg --import
-gpg --verify ${BOOTSTRAP_TAR}{.asc,}
+curl -sS https://pkgsrc.joyent.com/pgp/1F32A9AD.asc | gpg2 --import
+gpg2 --verify ${BOOTSTRAP_TAR}{.asc,}
 
 # Install bootstrap kit to {{ page.prefix }}
 sudo tar -zxpf ${BOOTSTRAP_TAR} -C /
@@ -197,8 +197,8 @@ shasum -c check-shasum
 
 # Verify PGP signature.  This step is optional, and requires gpg.
 curl -O https://pkgsrc.joyent.com/packages/Darwin/bootstrap/${BOOTSTRAP_TAR}.asc
-curl -sS https://pkgsrc.joyent.com/pgp/1F32A9AD.asc | gpg --import
-gpg --verify ${BOOTSTRAP_TAR}{.asc,}
+curl -sS https://pkgsrc.joyent.com/pgp/1F32A9AD.asc | gpg2 --import
+gpg2 --verify ${BOOTSTRAP_TAR}{.asc,}
 
 # Install bootstrap kit to {{ page.prefix }}
 sudo tar -zxpf ${BOOTSTRAP_TAR} -C /

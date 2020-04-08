@@ -46,8 +46,8 @@ sha1sum -c check-shasum
 
 # Verify PGP signature.  This step is optional, and requires gpg.
 curl -O https://pkgsrc.joyent.com/packages/Linux/el7/bootstrap/${BOOTSTRAP_TAR}.asc
-curl -sS https://pkgsrc.joyent.com/pgp/56AAACAF.asc | gpg --import
-gpg --verify ${BOOTSTRAP_TAR}{.asc,}
+curl -sS https://pkgsrc.joyent.com/pgp/56AAACAF.asc | gpg2 --import
+gpg2 --verify ${BOOTSTRAP_TAR}{.asc,}
 
 # Install bootstrap kit to {{ page.prefix }}
 sudo tar -zxpf ${BOOTSTRAP_TAR} -C /
@@ -75,8 +75,8 @@ sha1sum -c check-shasum
 
 # Verify PGP signature.  This step is optional, and requires gpg.
 curl -O https://pkgsrc.joyent.com/packages/Linux/el6/bootstrap/${BOOTSTRAP_TAR}.asc
-curl -sS https://pkgsrc.joyent.com/pgp/56AAACAF.asc | gpg --import
-gpg --verify ${BOOTSTRAP_TAR}{.asc,}
+curl -sS https://pkgsrc.joyent.com/pgp/56AAACAF.asc | gpg2 --import
+gpg2 --verify ${BOOTSTRAP_TAR}{.asc,}
 
 # Install bootstrap kit to {{ page.prefix }}
 sudo tar -zxpf ${BOOTSTRAP_TAR} -C /
