@@ -70,7 +70,7 @@ prefix:      /opt/local
 	<div class="row">
 		<div class="col-md-10 col-md-offset-1">
 			<p class="lead">
-				Bots sets are built on SmartOS 20141030 for maximum portability and are updated from pkgsrc trunk
+				Both sets are built on SmartOS 20161222 for maximum portability and are updated from pkgsrc trunk
 				every night.  The tools repository is a smaller package set designed specifically to run in the
 				SmartOS GZ, otherwise use the main 64-bit set.  Older and LTS bootstrap kits are available from the
                                 <a href="https://pkgsrc.joyent.com/packages/SmartOS/bootstrap/">archive</a>.
