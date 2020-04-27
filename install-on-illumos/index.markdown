@@ -80,11 +80,12 @@ prefix:      /opt/local
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
 			<ul class="nav nav-tabs" role="tablist">
-				<li role="presentation" class="active"><a href="#64bit-install" aria-controls="64bit-install" role="tab" data-toggle="tab">64-bit</a></li>
-				<li role="presentation"><a href="#tools-install" aria-controls="tools-install" role="tab" data-toggle="tab">64-bit tools (SmartOS GZ)</a></li>
+				<li role="presentation" class="active"><a href="#64bit-install-illumos" aria-controls="64bit-install-illumos" role="tab" data-toggle="tab">Other 64-bit illumos</a></li>
+				<li role="presentation" class="active"><a href="#64bit-install-smartos-zone" aria-controls="64bit-install-smartos-zone" role="tab" data-toggle="tab">64-bit SmartOS Zone</a></li>
+				<li role="presentation"><a href="#64bit-install-tools-smartos-gz" aria-controls="64bit-install-tools-smartos-gz" role="tab" data-toggle="tab">Tools for 64-bit SmartOS Global Zone</a></li>
 			</ul>
 			<div class="tab-content">
-				<div role="tabpanel" class="tab-pane active" id="64bit-install">
+				<div role="tabpanel" class="tab-pane active" id="64bit-install-illumos">
 					<p></p>
 {% highlight bash %}
 #
@@ -112,7 +113,35 @@ PATH={{ page.prefix }}/sbin:{{ page.prefix }}/bin:$PATH
 MANPATH={{ page.prefix }}/man:$MANPATH
 {% endhighlight %}
 				</div>
-				<div role="tabpanel" class="tab-pane" id="tools-install">
+				<div role="tabpanel" class="tab-pane active" id="64bit-install-smartos-zone">
+					<p></p>
+{% highlight bash %}
+#
+# Copy and paste the lines below to install the latest 64-bit set.
+#
+BOOTSTRAP_TAR="bootstrap-trunk-x86_64-20200124.tar.gz"
+BOOTSTRAP_SHA="0c5f8926f63217cb81802dc83253ac6e1d3ac1f0"
+
+# Download the bootstrap kit to the current directory.
+curl -O https://pkgsrc.joyent.com/packages/SmartOS/bootstrap/${BOOTSTRAP_TAR}
+
+# Verify the SHA1 checksum.
+[ "${BOOTSTRAP_SHA}" = "$(/bin/digest -a sha1 ${BOOTSTRAP_TAR})" ] || echo "ERROR: checksum failure"
+
+# Verify PGP signature.  This step is optional, and requires gpg.
+curl -O https://pkgsrc.joyent.com/packages/SmartOS/bootstrap/${BOOTSTRAP_TAR}.asc
+curl -sS https://pkgsrc.joyent.com/pgp/DE817B8E.asc | gpg --import
+gpg --verify ${BOOTSTRAP_TAR}{.asc,}
+
+# Install bootstrap kit to {{ page.prefix }}
+tar -zxpf ${BOOTSTRAP_TAR} -C /
+
+# Add to PATH/MANPATH.
+PATH={{ page.prefix }}/sbin:{{ page.prefix }}/bin:$PATH
+MANPATH={{ page.prefix }}/man:$MANPATH
+{% endhighlight %}
+				</div>
+				<div role="tabpanel" class="tab-pane" id="64bit-install-tools-smartos-gz">
 					<p></p>
 {% highlight bash %}
 #
@@ -164,11 +193,12 @@ MANPATH=/opt/tools/man:$MANPATH
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
 			<ul class="nav nav-tabs" role="tablist">
-				<li role="presentation" class="active"><a href="#64bit-upgrade" aria-controls="64bit-upgrade" role="tab" data-toggle="tab">64-bit</a></li>
-				<li role="presentation"><a href="#tools-upgrade" aria-controls="tools-upgrade" role="tab" data-toggle="tab">64-bit tools (SmartOS GZ)</a></li>
+				<li role="presentation" class="active"><a href="#64bit-upgrade-illumos" aria-controls="64bit-upgrade-illumos" role="tab" data-toggle="tab">Other 64-bit illumos</a></li>
+				<li role="presentation" class="active"><a href="#64bit-upgrade-smartos-zone" aria-controls="64bit-upgrade-smartos-zone" role="tab" data-toggle="tab">64-bit SmartOS Zone</a></li>
+				<li role="presentation"><a href="#64bit-upgrade-tools-smartos-gz" aria-controls="64bit-upgrade-tools-smartos-gz" role="tab" data-toggle="tab">Tools for 64-bit SmartOS Global Zone</a></li>
 			</ul>
 			<div class="tab-content">
-				<div role="tabpanel" class="tab-pane active" id="64bit-upgrade">
+				<div role="tabpanel" class="tab-pane active" id="64bit-upgrade-illumos">
 					<p></p>
 {% highlight bash %}
 #
@@ -198,7 +228,37 @@ tar -zxpf ${UPGRADE_TAR} -C /
 pkgin -y upgrade
 {% endhighlight %}
 				</div>
-				<div role="tabpanel" class="tab-pane" id="tools-upgrade">
+				<div role="tabpanel" class="tab-pane active" id="64bit-upgrade-smartos-zone">
+					<p></p>
+{% highlight bash %}
+#
+# Copy and paste the lines below to upgrade to the latest 64-bit set.
+#
+UPGRADE_TAR="bootstrap-trunk-x86_64-20200124-upgrade.tar.gz"
+UPGRADE_SHA="a682480e0ba549d45f312a1a191a2fd49df2fb07"
+
+# Download the upgrade kit to the current directory.
+curl -O https://pkgsrc.joyent.com/packages/SmartOS/bootstrap-upgrade/${UPGRADE_TAR}
+
+# Verify the SHA1 checksum.
+[ "${UPGRADE_SHA}" = "$(/bin/digest -a sha1 ${UPGRADE_TAR})" ] || echo "ERROR: checksum failure"
+
+# Verify PGP signature.  This step is optional, and requires gpg.
+curl -O https://pkgsrc.joyent.com/packages/SmartOS/bootstrap-upgrade/${UPGRADE_TAR}.asc
+curl -sS https://pkgsrc.joyent.com/pgp/DE817B8E.asc | gpg --import
+gpg --verify ${UPGRADE_TAR}{.asc,}
+
+# Ensure you are running the latest package tools.
+PKG_PATH=http://pkgsrc.joyent.com/packages/SmartOS/trunk/x86_64/All pkg_add -U pkg_install pkgin
+
+# Unpack upgrade kit to {{ page.prefix }}
+tar -zxpf ${UPGRADE_TAR} -C /
+
+# Upgrade all packages.
+pkgin -y upgrade
+{% endhighlight %}
+				</div>
+				<div role="tabpanel" class="tab-pane" id="64bit-upgrade-tools-smartos-gz">
 					<p></p>
 {% highlight bash %}
 #
