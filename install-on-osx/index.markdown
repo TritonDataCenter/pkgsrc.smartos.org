@@ -92,8 +92,8 @@ prefix:      /opt/pkg
 # These packages are suitable for anyone running Mojave (10.14.6) or newer,
 # and are updated from pkgsrc trunk every few days.
 #
-BOOTSTRAP_TAR="bootstrap-trunk-x86_64-20200219.tar.gz"
-BOOTSTRAP_SHA="92992f79188a677f09cfa543499beef3f902017a"
+BOOTSTRAP_TAR="bootstrap-macos14-trunk-x86_64-20200716.tar.gz"
+BOOTSTRAP_SHA="395be93bf6b3ca5fbe8f0b248f1f33181b8225fe"
 
 # Download the bootstrap kit to the current directory.
 curl -O https://pkgsrc.joyent.com/packages/Darwin/bootstrap/${BOOTSTRAP_TAR}
