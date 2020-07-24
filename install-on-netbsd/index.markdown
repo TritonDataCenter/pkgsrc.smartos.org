@@ -20,15 +20,27 @@ prefix:      /usr/pkg
 				Note some important differences to other NetBSD
 				package repositories:
 			</p>
-			<li class="lead">All packages are signed, and <code>/usr/pkg/sbin/pkg_add</code> will refuse to install unsigned packages.</li>
-			<li class="lead">The bootstrap kit bundles <code>/etc/openssl/certs/ca-certificates.crt</code> from mozilla-rootcerts.</li>
-			<li class="lead">A number of <code>PKG_OPTIONS</code> have been <a href="https://github.com/joyent/pkgbuild/blob/master/include/pkgoptions/netbsd.mk">enabled by default</a>.</li>
+			<ul class="lead">
+				<li class="lead">
+					All packages are signed, and <code>/usr/pkg/sbin/pkg_add</code> will refuse to install
+					any unsigned packages (configured with <code>VERIFIED_INSTALLATION=always</code> set in
+					<code>/usr/pkg/etc/pkg_install.conf</code>).
+				</li>
+				<li class="lead">
+					The bootstrap kit bundles <code>/etc/openssl/certs/</code> containing certificates installed
+					from the security/mozilla-rootcerts package, ensuring HTTPS will work without requiring any
+					manual configuration.
+				</li>
+				<li class="lead">
+					A number of <code>PKG_OPTIONS</code> have been
+					<a href="https://github.com/joyent/pkgbuild/blob/master/include/pkgoptions/netbsd.mk">
+					enabled by default</a> to make packages as useful as possible.
+				</li>
+			</ul>
 			<p class="lead">
-				The aim is to provide a repository that, for
-				most users, will Just Work out of the box.  If
-				you have any requests, please raise an issue
-				<a href="https://github.com/joyent/pkgbuild/issues">
-				here</a>.
+				The aim is to provide a repository that, for most users, will <em>just work</em> out of the box.
+				If you have any requests for changes, please raise an issue
+				<a href="https://github.com/joyent/pkgbuild/issues">here</a>.
 			</p>
 		</div>
 	</div>
@@ -42,7 +54,7 @@ prefix:      /usr/pkg
 # Copy and paste the lines below to install the NetBSD/amd64 9.99.69 set.
 #
 BOOTSTRAP_TAR="bootstrap-netbsd-trunk-amd64-20200724.tar.gz"
-BOOTSTRAP_SHA="7261bd619c8366ab412a69429620c760b78209cc"
+BOOTSTRAP_SHA="85ff96c3f065d48f8c01137451dd0de25cdd6e60"
 
 # Download the bootstrap kit to the current directory.
 ftp https://pkgsrc.joyent.com/packages/NetBSD/bootstrap/${BOOTSTRAP_TAR}
@@ -58,17 +70,16 @@ gpg2 --verify ${BOOTSTRAP_TAR}.asc ${BOOTSTRAP_TAR}
 
 #
 # Remove any existing packages.  Note also that the bootstrap kit will
-# install its own version of /etc/openssl/certs/ca-certificates.crt from
-# the security/mozilla-rootcerts package.
+# install its own copies of the security/mozilla-rootcerts certificates
+# into the /etc/openssl/certs/ directory.
 #
 rm -rf /usr/pkg /var/db/pkg /var/db/pkgin
 
 # Install bootstrap kit to {{ page.prefix }}
 tar -zxpf ${BOOTSTRAP_TAR} -C /
 
-# Add paths
+# Add to PATH if necessary.
 PATH={{ page.prefix }}/sbin:{{ page.prefix }}/bin:$PATH
-MANPATH={{ page.prefix }}/man:$MANPATH
 {% endhighlight %}
 				</div>
 			</div>
