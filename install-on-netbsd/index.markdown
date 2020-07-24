@@ -1,0 +1,77 @@
+---
+layout:      install
+title:       Joyent Packages Documentation - Install On NetBSD
+metacontent: Binary pkgsrc package sets for NetBSD/amd64
+prefix:      /usr/pkg
+---
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-10 col-md-offset-1">
+			<h2 class="text-center">Install on NetBSD</h2>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-10 col-md-offset-1">
+			<p class="lead">
+				Packages are built on the latest development
+				version of NetBSD/amd64 (currently 9.99.69)
+				from pkgsrc trunk and updated every day.
+				Note some important differences to other NetBSD
+				package repositories:
+			</p>
+			<li class="lead">All packages are signed, and <code>/usr/pkg/sbin/pkg_add</code> will refuse to install unsigned packages.</li>
+			<li class="lead">The bootstrap kit bundles <code>/etc/openssl/certs/ca-certificates.crt</code> from mozilla-rootcerts.</li>
+			<li class="lead">A number of <code>PKG_OPTIONS</code> have been <a href="https://github.com/joyent/pkgbuild/blob/master/include/pkgoptions/netbsd.mk">enabled by default</a>.</li>
+			<p class="lead">
+				The aim is to provide a repository that, for
+				most users, will Just Work out of the box.  If
+				you have any requests, please raise an issue
+				<a href="https://github.com/joyent/pkgbuild/issues">
+				here</a>.
+			</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-10 col-md-offset-1">
+			<div class="tab-content">
+				<div role="tabpanel" class="tab-pane active" id="netbsd-install">
+					<p></p>
+{% highlight bash %}
+#
+# Copy and paste the lines below to install the NetBSD/amd64 9.99.69 set.
+#
+BOOTSTRAP_TAR="bootstrap-netbsd-trunk-amd64-20200724.tar.gz"
+BOOTSTRAP_SHA="7261bd619c8366ab412a69429620c760b78209cc"
+
+# Download the bootstrap kit to the current directory.
+ftp https://pkgsrc.joyent.com/packages/NetBSD/bootstrap/${BOOTSTRAP_TAR}
+
+# Verify the SHA1 checksum.
+echo "${BOOTSTRAP_SHA}  ${BOOTSTRAP_TAR}" >check-shasum
+sha1 -c check-shasum
+
+# Verify PGP signature.  This step is optional, and requires gpg.
+ftp https://pkgsrc.joyent.com/packages/NetBSD/bootstrap/${BOOTSTRAP_TAR}.asc
+ftp -Vo - https://pkgsrc.joyent.com/pgp/5D402CC3.asc | gpg2 --import
+gpg2 --verify ${BOOTSTRAP_TAR}.asc ${BOOTSTRAP_TAR}
+
+#
+# Remove any existing packages.  Note also that the bootstrap kit will
+# install its own version of /etc/openssl/certs/ca-certificates.crt from
+# the security/mozilla-rootcerts package.
+#
+rm -rf /usr/pkg /var/db/pkg /var/db/pkgin
+
+# Install bootstrap kit to {{ page.prefix }}
+tar -zxpf ${BOOTSTRAP_TAR} -C /
+
+# Add paths
+PATH={{ page.prefix }}/sbin:{{ page.prefix }}/bin:$PATH
+MANPATH={{ page.prefix }}/man:$MANPATH
+{% endhighlight %}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

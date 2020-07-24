@@ -1,7 +1,7 @@
 ---
 layout:      default
 title:       "Joyent Packages Documentation - Home"
-metacontent: Binary pkgsrc package sets for SmartOS/illumos, macOS, and Linux
+metacontent: Binary pkgsrc package sets for SmartOS/illumos, macOS, Linux, and NetBSD.
 ---
 
 <div class="container">
@@ -74,8 +74,8 @@ CFLAGS+=                -O3
 			<p>Our Linux packages are built on CentOS 6 and 7 for distributions based on RedHat Enterprise Linux.  They provide a useful companion to the default set of available RPM packages.</p>
 		</div>
 		<div class="col-md-3">
-			<h3>Others</h3>
-			<p>For other platforms you can easily bootstrap the package tools and then build packages from source.  We have support for 23 different operating systems - even Cygwin and Haiku!</p>
+			<h3>NetBSD</h3>
+			<p>We also offer daily builds for the latest NetBSD/amd64 development version.  They are provided for developers working on the operating system, and for testing pkgsrc changes.</p>
 		</div>
 	</div>
 	<div class="row">
@@ -89,7 +89,7 @@ CFLAGS+=                -O3
 			<p><a class="btn btn-orange" href="/install-on-linux/" role="button">Install on Linux &raquo;</a></p>
 		</div>
 		<div class="col-md-3">
-			<p><a class="btn btn-orange" href="/bootstrap/" role="button">Bootstrap from source &raquo;</a></p>
+			<p><a class="btn btn-orange" href="/install-on-netbsd/" role="button">Install on NetBSD &raquo;</a></p>
 		</div>
 	</div>
 </div>
