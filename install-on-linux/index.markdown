@@ -17,7 +17,7 @@ prefix:      /usr/pkg
 				Packages for Linux are currently built for Enterprise Linux
 				(i.e. CentOS, Oracle, RedHat, Scientific) versions 6.x and
 				7.x.  Both sets are built in 64-bit from pkgsrc trunk and
-				are updated with the latest packages every couple of days.
+				are updated with the latest packages every day.
 			</p>
 		</div>
 	</div>
@@ -34,8 +34,8 @@ prefix:      /usr/pkg
 #
 # Copy and paste the lines below to install the 64-bit EL 7.x set.
 #
-BOOTSTRAP_TAR="bootstrap-trunk-x86_64-20170127.tar.gz"
-BOOTSTRAP_SHA="eb0d6911489579ca893f67f8a528ecd02137d43a"
+BOOTSTRAP_TAR="bootstrap-el7-trunk-x86_64-20200724.tar.gz"
+BOOTSTRAP_SHA="478d2e30f150712a851f8f4bcff7f60026f65c9e"
 
 # Download the bootstrap kit to the current directory.
 curl -O https://pkgsrc.joyent.com/packages/Linux/el7/bootstrap/${BOOTSTRAP_TAR}
@@ -63,8 +63,8 @@ $ MANPATH={{ page.prefix }}/man:$MANPATH
 #
 # Copy and paste the lines below to install the 64-bit EL 6.x set.
 #
-BOOTSTRAP_TAR="bootstrap-trunk-x86_64-20170127.tar.gz"
-BOOTSTRAP_SHA="dcb6128284e7e8529a8a770d55cf93d97550558c"
+BOOTSTRAP_TAR="bootstrap-el6-trunk-x86_64-20200724.tar.gz"
+BOOTSTRAP_SHA="64ae6d1de6011e20ff09eca77dfb48ce6cdb68d6"
 
 # Download the bootstrap kit to the current directory.
 curl -O https://pkgsrc.joyent.com/packages/Linux/el6/bootstrap/${BOOTSTRAP_TAR}
