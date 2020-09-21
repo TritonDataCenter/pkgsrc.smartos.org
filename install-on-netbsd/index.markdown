@@ -15,7 +15,7 @@ prefix:      /usr/pkg
 		<div class="col-md-10 col-md-offset-1">
 			<p class="lead">
 				Packages are built on the latest development
-				version of NetBSD/amd64 (currently 9.99.69)
+				version of NetBSD/amd64 (currently 9.99.73)
 				from pkgsrc trunk and updated every day.
 				Note some important differences to other NetBSD
 				package repositories:
@@ -51,10 +51,10 @@ prefix:      /usr/pkg
 					<p></p>
 {% highlight bash %}
 #
-# Copy and paste the lines below to install the NetBSD/amd64 9.99.69 set.
+# Copy and paste the lines below to install the NetBSD/amd64 9.99.73 set.
 #
-BOOTSTRAP_TAR="bootstrap-netbsd-trunk-amd64-20200724.tar.gz"
-BOOTSTRAP_SHA="85ff96c3f065d48f8c01137451dd0de25cdd6e60"
+BOOTSTRAP_TAR="bootstrap-netbsd-trunk-amd64-20200921.tar.gz"
+BOOTSTRAP_SHA="b6690fdfe6364a82785200d38c082d66cdac1190"
 
 # Download the bootstrap kit to the current directory.
 ftp https://pkgsrc.joyent.com/packages/NetBSD/bootstrap/${BOOTSTRAP_TAR}
