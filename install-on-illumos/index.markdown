@@ -90,8 +90,8 @@ prefix:      /opt/local
 #
 # Copy and paste the lines below to install the latest 64-bit set.
 #
-BOOTSTRAP_TAR="bootstrap-trunk-x86_64-20200124.tar.gz"
-BOOTSTRAP_SHA="0c5f8926f63217cb81802dc83253ac6e1d3ac1f0"
+BOOTSTRAP_TAR="bootstrap-trunk-x86_64-20201019.tar.gz"
+BOOTSTRAP_SHA="127d6a561d6ae4ce07cdb87e3dd185b837f6cc18"
 
 # Download the bootstrap kit to the current directory.
 curl -O https://pkgsrc.joyent.com/packages/SmartOS/bootstrap/${BOOTSTRAP_TAR}
@@ -118,8 +118,8 @@ MANPATH={{ page.prefix }}/man:$MANPATH
 #
 # Copy and paste the lines below to install the latest 64-bit tools set.
 #
-BOOTSTRAP_TAR="bootstrap-trunk-tools-20200124.tar.gz"
-BOOTSTRAP_SHA="80adb2d113af4ea9742a3e467dc954ded6b48845"
+BOOTSTRAP_TAR="bootstrap-trunk-tools-20201019.tar.gz"
+BOOTSTRAP_SHA="9b7a6daff5528d800e8cea20692f61ccd3b81471"
 
 # Ensure you are in a directory with enough space for the bootstrap download,
 # by default the SmartOS /root directory is limited to the size of the ramdisk.
@@ -174,8 +174,8 @@ MANPATH=/opt/tools/man:$MANPATH
 #
 # Copy and paste the lines below to upgrade to the latest 64-bit set.
 #
-UPGRADE_TAR="bootstrap-trunk-x86_64-20200124-upgrade.tar.gz"
-UPGRADE_SHA="a682480e0ba549d45f312a1a191a2fd49df2fb07"
+UPGRADE_TAR="bootstrap-trunk-x86_64-20201019-upgrade.tar.gz"
+UPGRADE_SHA="02478834e2d0f69c15e5f047b2be9ad9942abbb1"
 
 # Download the upgrade kit to the current directory.
 curl -O https://pkgsrc.joyent.com/packages/SmartOS/bootstrap-upgrade/${UPGRADE_TAR}
@@ -204,8 +204,8 @@ pkgin -y upgrade
 #
 # Copy and paste the lines below to upgrade to the latest 64-bit tools set.
 #
-UPGRADE_TAR="bootstrap-trunk-tools-20200124-upgrade.tar.gz"
-UPGRADE_SHA="cdedafe5079762bbc311f2b3ff775816ff7a1f7e"
+UPGRADE_TAR="bootstrap-trunk-tools-20201019-upgrade.tar.gz"
+UPGRADE_SHA="0a2f894caacbf5b2ed845d7f934a3a331338d36a"
 
 # Download the upgrade kit to the current directory.  Note that we currently
 # pass "-k" to skip SSL certificate checks as the GZ doesn't install them.
