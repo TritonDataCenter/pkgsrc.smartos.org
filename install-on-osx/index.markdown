@@ -123,13 +123,13 @@ eval $(/usr/libexec/path_helper)
 					<p></p>
 {% highlight bash %}
 #
-# Copy and paste the lines below to install the x86 Big Sur set.
+# Copy and paste the lines below to install the Big Sur set.
 #
-# These packages are suitable for anyone running Big Sur x86 (11.0.1) or newer,
+# These packages are suitable for anyone running Big Sur x86 (11.0.x) or newer,
 # and are updated from pkgsrc trunk every few days.
 #
-BOOTSTRAP_TAR="bootstrap-macos11-trunk-x86_64-20201104.tar.gz"
-BOOTSTRAP_SHA="90b1685c63172ae49e94925139f18c94c3ba9809"
+BOOTSTRAP_TAR="bootstrap-macos11-trunk-x86_64-20201105.tar.gz"
+BOOTSTRAP_SHA="737ce40a4e30127813bf9e84b085a335e0558ada"
 
 # Download the bootstrap kit to the current directory.
 curl -O https://pkgsrc.joyent.com/packages/Darwin/bootstrap/${BOOTSTRAP_TAR}
