@@ -15,8 +15,9 @@ prefix:      /opt/pkg
 		<div class="col-md-10 col-md-offset-1">
 			<p class="lead">
 				These example screenshots show just a small number of the 18,000+ binary
-				packages available in our 64-bit pkgsrc set.  All examples were produced
-				on a clean install of macOS El Capitan (10.11.4) inside VMware Fusion.
+				packages available in our pkgsrc sets.  All examples were produced back
+				in 2016 on a clean install of macOS El Capitan (10.11.4) inside VMware
+				Fusion.  Expect to find up-to-date software in current package sets.
 			</p>
 		</div>
 	</div>
@@ -62,12 +63,8 @@ prefix:      /opt/pkg
 	<div class="row">
 		<div class="col-md-10 col-md-offset-1">
 			<p class="lead">
-				Our primary packages for macOS are built on Mojave (10.14.6) and are suitable
-				for users running the latest macOS releases.  They are built from pkgsrc trunk
-				and updated every few days.
-			</p>
-			<p class="lead">
-				In addition there is now a beta set for macOS Big Sur (11.0.1), which are also
+				Our primary packages for macOS are built on Mojave (10.14.6) and Big Sur Intel
+				(11.0.1) and are suitable for users running recent macOS releases.  They are
 				built from pkgsrc trunk and updated every few days.
 			</p>
 			<p class="lead">
@@ -82,7 +79,7 @@ prefix:      /opt/pkg
 		<div class="col-md-8 col-md-offset-2">
 			<ul class="nav nav-tabs" role="tablist">
 				<li role="presentation" class="active"><a href="#mojave-install" aria-controls="mojave-install" role="tab" data-toggle="tab">Mojave</a></li>
-				<li role="presentation"><a href="#bigsur-install" aria-controls="bigsur-install" role="tab" data-toggle="tab">Big Sur x86 (beta)</a></li>
+				<li role="presentation"><a href="#bigsur-install" aria-controls="bigsur-install" role="tab" data-toggle="tab">Big Sur Intel</a></li>
 				<li role="presentation"><a href="#sierra-install" aria-controls="sierra-install" role="tab" data-toggle="tab">Sierra (archived)</a></li>
 				<li role="presentation"><a href="#mavericks-install" aria-controls="mavericks-install" role="tab" data-toggle="tab">Mavericks (archived)</a></li>
 				<li role="presentation"><a href="#snow-leopard-install" aria-controls="snow-leopard-install" role="tab" data-toggle="tab">Snow Leopard (archived)</a></li>
@@ -94,8 +91,8 @@ prefix:      /opt/pkg
 #
 # Copy and paste the lines below to install the 64-bit Mojave set.
 #
-# These packages are suitable for anyone running Mojave (10.14.6) or newer,
-# and are updated from pkgsrc trunk every few days.
+# These packages are suitable for anyone running Mojave (10.14.6) or Catalina
+# (10.15.x), and are updated from pkgsrc trunk every few days.
 #
 BOOTSTRAP_TAR="bootstrap-macos14-trunk-x86_64-20200716.tar.gz"
 BOOTSTRAP_SHA="395be93bf6b3ca5fbe8f0b248f1f33181b8225fe"
@@ -104,8 +101,7 @@ BOOTSTRAP_SHA="395be93bf6b3ca5fbe8f0b248f1f33181b8225fe"
 curl -O https://pkgsrc.joyent.com/packages/Darwin/bootstrap/${BOOTSTRAP_TAR}
 
 # Verify the SHA1 checksum.
-echo "${BOOTSTRAP_SHA}  ${BOOTSTRAP_TAR}" >check-shasum
-shasum -c check-shasum
+echo "${BOOTSTRAP_SHA}  ${BOOTSTRAP_TAR}" | shasum -c-
 
 # Verify PGP signature.  This step is optional, and requires gpg.
 curl -O https://pkgsrc.joyent.com/packages/Darwin/bootstrap/${BOOTSTRAP_TAR}.asc
@@ -119,24 +115,23 @@ sudo tar -zxpf ${BOOTSTRAP_TAR} -C /
 eval $(/usr/libexec/path_helper)
 {% endhighlight %}
 				</div>
-				<div role="tabpanel" class="tab-pane active" id="bigsur-install">
+				<div role="tabpanel" class="tab-pane" id="bigsur-install">
 					<p></p>
 {% highlight bash %}
 #
-# Copy and paste the lines below to install the Big Sur set.
+# Copy and paste the lines below to install the Big Sur on Intel set.
 #
-# These packages are suitable for anyone running Big Sur x86 (11.0.x) or newer,
-# and are updated from pkgsrc trunk every few days.
+# These packages are suitable for anyone running Big Sur (11.0.x) or newer on
+# Intel CPUs, and are updated from pkgsrc trunk every few days.
 #
-BOOTSTRAP_TAR="bootstrap-macos11-trunk-x86_64-20201105.tar.gz"
-BOOTSTRAP_SHA="737ce40a4e30127813bf9e84b085a335e0558ada"
+BOOTSTRAP_TAR="bootstrap-macos11-trunk-x86_64-20201112.tar.gz"
+BOOTSTRAP_SHA="b3c0c4286a2770bf5e3caeaf3fb747cb9f1bc93c"
 
 # Download the bootstrap kit to the current directory.
 curl -O https://pkgsrc.joyent.com/packages/Darwin/bootstrap/${BOOTSTRAP_TAR}
 
 # Verify the SHA1 checksum.
-echo "${BOOTSTRAP_SHA}  ${BOOTSTRAP_TAR}" >check-shasum
-shasum -c check-shasum
+echo "${BOOTSTRAP_SHA}  ${BOOTSTRAP_TAR}" | shasum -c-
 
 # Verify PGP signature.  This step is optional, and requires gpg.
 curl -O https://pkgsrc.joyent.com/packages/Darwin/bootstrap/${BOOTSTRAP_TAR}.asc
@@ -166,8 +161,7 @@ BOOTSTRAP_SHA="1c554a806fb41dcc382ef33e64841ace13988479"
 curl -O https://us-east.manta.joyent.com/pkgsrc/public/packages/Darwin/10.12/bootstrap/${BOOTSTRAP_TAR}
 
 # Verify the SHA1 checksum.
-echo "${BOOTSTRAP_SHA}  ${BOOTSTRAP_TAR}" >check-shasum
-shasum -c check-shasum
+echo "${BOOTSTRAP_SHA}  ${BOOTSTRAP_TAR}" | shasum -c-
 
 # Verify PGP signature.  This step is optional, and requires gpg.
 curl -O https://pkgsrc.joyent.com/packages/Darwin/bootstrap/${BOOTSTRAP_TAR}.asc
@@ -197,8 +191,7 @@ BOOTSTRAP_SHA="7209132a657582cf87897a2ad280c587e3d6bff0"
 curl -O https://us-east.manta.joyent.com/pkgsrc/public/packages/Darwin/10.9/bootstrap/${BOOTSTRAP_TAR}
 
 # Verify the SHA1 checksum.
-echo "${BOOTSTRAP_SHA}  ${BOOTSTRAP_TAR}" >check-shasum
-shasum -c check-shasum
+echo "${BOOTSTRAP_SHA}  ${BOOTSTRAP_TAR}" | shasum -c-
 
 # Verify PGP signature.  This step is optional, and requires gpg.
 curl -O https://us-east.manta.joyent.com/pkgsrc/public/packages/Darwin/10.9/bootstrap/${BOOTSTRAP_TAR}.asc
@@ -228,8 +221,7 @@ BOOTSTRAP_SHA="283b88b13c75e8f92de8376532ccf4f4b9443f9d"
 curl -O https://pkgsrc.joyent.com/packages/Darwin/bootstrap/${BOOTSTRAP_TAR}
 
 # Verify the SHA1 checksum.
-echo "${BOOTSTRAP_SHA}  ${BOOTSTRAP_TAR}" >check-shasum
-shasum -c check-shasum
+echo "${BOOTSTRAP_SHA}  ${BOOTSTRAP_TAR}" | shasum -c-
 
 # Verify PGP signature.  This step is optional, and requires gpg.
 curl -O https://pkgsrc.joyent.com/packages/Darwin/bootstrap/${BOOTSTRAP_TAR}.asc
