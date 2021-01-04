@@ -32,6 +32,10 @@ prefix:      /usr/pkg
 					manual configuration.
 				</li>
 				<li class="lead">
+					Both <code>CHECK_OSABI</code> and <code>CHECK_OS_VERSION</code> are set to <code>no</code>,
+					improving compatibility of the packages across minor releases of NetBSD-current.
+				</li>
+				<li class="lead">
 					A number of <code>PKG_OPTIONS</code> have been
 					<a href="https://github.com/joyent/pkgbuild/blob/master/include/pkgoptions/netbsd.mk">
 					enabled by default</a> to make packages as useful as possible.
@@ -51,10 +55,10 @@ prefix:      /usr/pkg
 					<p></p>
 {% highlight bash %}
 #
-# Copy and paste the lines below to install the NetBSD/amd64 9.99.75 set.
+# Copy and paste the lines below to install the NetBSD/amd64 9.99.x set.
 #
-BOOTSTRAP_TAR="bootstrap-netbsd-trunk-amd64-20201125.tar.gz"
-BOOTSTRAP_SHA="627e603f0eb5e4025d4bd5ccc130697ea3715e63"
+BOOTSTRAP_TAR="bootstrap-netbsd-trunk-x86_64-20201216.tar.gz"
+BOOTSTRAP_SHA="1475d51ab87905e279ac5aa435c09c8ad11ad9c9"
 
 # Download the bootstrap kit to the current directory.
 ftp https://pkgsrc.joyent.com/packages/NetBSD/bootstrap/${BOOTSTRAP_TAR}
