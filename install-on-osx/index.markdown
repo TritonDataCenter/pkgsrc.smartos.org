@@ -63,9 +63,9 @@ prefix:      /opt/pkg
 	<div class="row">
 		<div class="col-md-10 col-md-offset-1">
 			<p class="lead">
-				Our primary packages for macOS are built on Mojave (10.14.6) and Big Sur Intel
-				(11.0.1) and are suitable for users running recent macOS releases.  They are
-				built from pkgsrc trunk and updated every few days.
+				Our primary packages for macOS are built on Big Sur (11.x) and Mojave (10.14)
+				and are suitable for users running recent macOS releases.  They are built from
+				pkgsrc trunk and updated every few days.
 			</p>
 			<p class="lead">
 				We also provide archives of our previous package sets built on 64-bit Sierra
@@ -78,24 +78,25 @@ prefix:      /opt/pkg
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
 			<ul class="nav nav-tabs" role="tablist">
-				<li role="presentation" class="active"><a href="#mojave-install" aria-controls="mojave-install" role="tab" data-toggle="tab">Mojave</a></li>
-				<li role="presentation"><a href="#bigsur-install" aria-controls="bigsur-install" role="tab" data-toggle="tab">Big Sur Intel</a></li>
-				<li role="presentation"><a href="#sierra-install" aria-controls="sierra-install" role="tab" data-toggle="tab">Sierra (archived)</a></li>
-				<li role="presentation"><a href="#mavericks-install" aria-controls="mavericks-install" role="tab" data-toggle="tab">Mavericks (archived)</a></li>
-				<li role="presentation"><a href="#snow-leopard-install" aria-controls="snow-leopard-install" role="tab" data-toggle="tab">Snow Leopard (archived)</a></li>
+				<li role="presentation" class="active"><a href="#bigsur-x86-install" aria-controls="bigsur-x86-install" role="tab" data-toggle="tab">Big Sur (x86)</a></li>
+				<li role="presentation"><a href="#bigsur-arm64-install" aria-controls="bigsur-arm64-install" role="tab" data-toggle="tab">Big Sur (M1)</a></li>
+				<li role="presentation"><a href="#mojave-install" aria-controls="mojave-install" role="tab" data-toggle="tab">Mojave</a></li>
+				<li role="presentation"><a href="#sierra-install" aria-controls="sierra-install" role="tab" data-toggle="tab">Sierra</a></li>
+				<li role="presentation"><a href="#mavericks-install" aria-controls="mavericks-install" role="tab" data-toggle="tab">Mavericks</a></li>
+				<li role="presentation"><a href="#snow-leopard-install" aria-controls="snow-leopard-install" role="tab" data-toggle="tab">Snow Leopard</a></li>
 			</ul>
 			<div class="tab-content">
-				<div role="tabpanel" class="tab-pane active" id="mojave-install">
+				<div role="tabpanel" class="tab-pane active" id="bigsur-x86-install">
 					<p></p>
 {% highlight bash %}
 #
-# Copy and paste the lines below to install the 64-bit Mojave set.
+# Copy and paste the lines below to install the Big Sur on Intel set.
 #
-# These packages are suitable for anyone running Mojave (10.14.6) or Catalina
-# (10.15.x), and are updated from pkgsrc trunk every few days.
+# These packages are suitable for anyone running Big Sur (11.x) or newer on
+# Intel x86 CPUs, and are updated from pkgsrc trunk every few days.
 #
-BOOTSTRAP_TAR="bootstrap-macos14-trunk-x86_64-20200716.tar.gz"
-BOOTSTRAP_SHA="395be93bf6b3ca5fbe8f0b248f1f33181b8225fe"
+BOOTSTRAP_TAR="bootstrap-macos11-trunk-x86_64-20210717.tar.gz"
+BOOTSTRAP_SHA="2f12f8ab596cedde5ec4bb49d0d5890c1eb333ec"
 
 # Download the bootstrap kit to the current directory.
 curl -O https://pkgsrc.joyent.com/packages/Darwin/bootstrap/${BOOTSTRAP_TAR}
@@ -104,9 +105,9 @@ curl -O https://pkgsrc.joyent.com/packages/Darwin/bootstrap/${BOOTSTRAP_TAR}
 echo "${BOOTSTRAP_SHA}  ${BOOTSTRAP_TAR}" | shasum -c-
 
 # Verify PGP signature.  This step is optional, and requires gpg.
-curl -O https://pkgsrc.joyent.com/packages/Darwin/bootstrap/${BOOTSTRAP_TAR}.asc
-curl -sS https://pkgsrc.joyent.com/pgp/1F32A9AD.asc | gpg2 --import
-gpg2 --verify ${BOOTSTRAP_TAR}{.asc,}
+# curl -O https://pkgsrc.joyent.com/packages/Darwin/bootstrap/${BOOTSTRAP_TAR}.asc
+# curl -sS https://pkgsrc.joyent.com/pgp/1F32A9AD.asc | gpg2 --import
+# gpg2 --verify ${BOOTSTRAP_TAR}{.asc,}
 
 # Install bootstrap kit to {{ page.prefix }}
 sudo tar -zxpf ${BOOTSTRAP_TAR} -C /
@@ -115,17 +116,17 @@ sudo tar -zxpf ${BOOTSTRAP_TAR} -C /
 eval $(/usr/libexec/path_helper)
 {% endhighlight %}
 				</div>
-				<div role="tabpanel" class="tab-pane" id="bigsur-install">
+				<div role="tabpanel" class="tab-pane" id="bigsur-arm64-install">
 					<p></p>
 {% highlight bash %}
 #
-# Copy and paste the lines below to install the Big Sur on Intel set.
+# Copy and paste the lines below to install the Big Sur on ARM64 (M1) set.
 #
-# These packages are suitable for anyone running Big Sur (11.0.x) or newer on
-# Intel CPUs, and are updated from pkgsrc trunk every few days.
+# These packages are suitable for anyone running Big Sur (11.x) or newer on
+# Apple Silicon (M1) CPUs, and are updated from pkgsrc trunk every few days.
 #
-BOOTSTRAP_TAR="bootstrap-macos11-trunk-x86_64-20201112.tar.gz"
-BOOTSTRAP_SHA="b3c0c4286a2770bf5e3caeaf3fb747cb9f1bc93c"
+BOOTSTRAP_TAR="bootstrap-macos11-trunk-arm64-20210717.tar.gz"
+BOOTSTRAP_SHA="069d8b376d80a5b28df0c87e5f5339795b406e46"
 
 # Download the bootstrap kit to the current directory.
 curl -O https://pkgsrc.joyent.com/packages/Darwin/bootstrap/${BOOTSTRAP_TAR}
@@ -134,9 +135,39 @@ curl -O https://pkgsrc.joyent.com/packages/Darwin/bootstrap/${BOOTSTRAP_TAR}
 echo "${BOOTSTRAP_SHA}  ${BOOTSTRAP_TAR}" | shasum -c-
 
 # Verify PGP signature.  This step is optional, and requires gpg.
-curl -O https://pkgsrc.joyent.com/packages/Darwin/bootstrap/${BOOTSTRAP_TAR}.asc
-curl -sS https://pkgsrc.joyent.com/pgp/1F32A9AD.asc | gpg2 --import
-gpg2 --verify ${BOOTSTRAP_TAR}{.asc,}
+# curl -O https://pkgsrc.joyent.com/packages/Darwin/bootstrap/${BOOTSTRAP_TAR}.asc
+# curl -sS https://pkgsrc.joyent.com/pgp/1F32A9AD.asc | gpg2 --import
+# gpg2 --verify ${BOOTSTRAP_TAR}{.asc,}
+
+# Install bootstrap kit to {{ page.prefix }}
+sudo tar -zxpf ${BOOTSTRAP_TAR} -C /
+
+# Reload PATH/MANPATH (pkgsrc installs /etc/paths.d/10-pkgsrc for new sessions)
+eval $(/usr/libexec/path_helper)
+{% endhighlight %}
+				</div>
+				<div role="tabpanel" class="tab-pane" id="mojave-install">
+					<p></p>
+{% highlight bash %}
+#
+# Copy and paste the lines below to install the 64-bit Mojave set.
+#
+# These packages are suitable for anyone running Mojave (10.14.6) or Catalina
+# (10.15.x), and are updated from pkgsrc trunk every few days.
+#
+BOOTSTRAP_TAR="bootstrap-macos14-trunk-x86_64-20210717.tar.gz"
+BOOTSTRAP_SHA="a23fed860e7f515e7405fcfea9595049b9ea6634"
+
+# Download the bootstrap kit to the current directory.
+curl -O https://pkgsrc.joyent.com/packages/Darwin/bootstrap/${BOOTSTRAP_TAR}
+
+# Verify the SHA1 checksum.
+echo "${BOOTSTRAP_SHA}  ${BOOTSTRAP_TAR}" | shasum -c-
+
+# Verify PGP signature.  This step is optional, and requires gpg.
+# curl -O https://pkgsrc.joyent.com/packages/Darwin/bootstrap/${BOOTSTRAP_TAR}.asc
+# curl -sS https://pkgsrc.joyent.com/pgp/1F32A9AD.asc | gpg2 --import
+# gpg2 --verify ${BOOTSTRAP_TAR}{.asc,}
 
 # Install bootstrap kit to {{ page.prefix }}
 sudo tar -zxpf ${BOOTSTRAP_TAR} -C /
@@ -164,9 +195,9 @@ curl -O https://us-east.manta.joyent.com/pkgsrc/public/packages/Darwin/10.12/boo
 echo "${BOOTSTRAP_SHA}  ${BOOTSTRAP_TAR}" | shasum -c-
 
 # Verify PGP signature.  This step is optional, and requires gpg.
-curl -O https://pkgsrc.joyent.com/packages/Darwin/bootstrap/${BOOTSTRAP_TAR}.asc
-curl -sS https://pkgsrc.joyent.com/pgp/1F32A9AD.asc | gpg2 --import
-gpg2 --verify ${BOOTSTRAP_TAR}{.asc,}
+# curl -O https://pkgsrc.joyent.com/packages/Darwin/bootstrap/${BOOTSTRAP_TAR}.asc
+# curl -sS https://pkgsrc.joyent.com/pgp/1F32A9AD.asc | gpg2 --import
+# gpg2 --verify ${BOOTSTRAP_TAR}{.asc,}
 
 # Install bootstrap kit to {{ page.prefix }}
 sudo tar -zxpf ${BOOTSTRAP_TAR} -C /
@@ -194,9 +225,9 @@ curl -O https://us-east.manta.joyent.com/pkgsrc/public/packages/Darwin/10.9/boot
 echo "${BOOTSTRAP_SHA}  ${BOOTSTRAP_TAR}" | shasum -c-
 
 # Verify PGP signature.  This step is optional, and requires gpg.
-curl -O https://us-east.manta.joyent.com/pkgsrc/public/packages/Darwin/10.9/bootstrap/${BOOTSTRAP_TAR}.asc
-curl -sS https://pkgsrc.joyent.com/pgp/1F32A9AD.asc | gpg2 --import
-gpg2 --verify ${BOOTSTRAP_TAR}{.asc,}
+# curl -O https://us-east.manta.joyent.com/pkgsrc/public/packages/Darwin/10.9/bootstrap/${BOOTSTRAP_TAR}.asc
+# curl -sS https://pkgsrc.joyent.com/pgp/1F32A9AD.asc | gpg2 --import
+# gpg2 --verify ${BOOTSTRAP_TAR}{.asc,}
 
 # Install bootstrap kit to {{ page.prefix }}
 sudo tar -zxpf ${BOOTSTRAP_TAR} -C /
@@ -224,9 +255,9 @@ curl -O https://pkgsrc.joyent.com/packages/Darwin/bootstrap/${BOOTSTRAP_TAR}
 echo "${BOOTSTRAP_SHA}  ${BOOTSTRAP_TAR}" | shasum -c-
 
 # Verify PGP signature.  This step is optional, and requires gpg.
-curl -O https://pkgsrc.joyent.com/packages/Darwin/bootstrap/${BOOTSTRAP_TAR}.asc
-curl -sS https://pkgsrc.joyent.com/pgp/1F32A9AD.asc | gpg2 --import
-gpg2 --verify ${BOOTSTRAP_TAR}{.asc,}
+# curl -O https://pkgsrc.joyent.com/packages/Darwin/bootstrap/${BOOTSTRAP_TAR}.asc
+# curl -sS https://pkgsrc.joyent.com/pgp/1F32A9AD.asc | gpg2 --import
+# gpg2 --verify ${BOOTSTRAP_TAR}{.asc,}
 
 # Install bootstrap kit to {{ page.prefix }}
 sudo tar -zxpf ${BOOTSTRAP_TAR} -C /
