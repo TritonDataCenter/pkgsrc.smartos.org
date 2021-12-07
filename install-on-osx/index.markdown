@@ -95,8 +95,8 @@ prefix:      /opt/pkg
 # These packages are suitable for anyone running Big Sur (11.x) or newer on
 # Intel x86 CPUs, and are updated from pkgsrc trunk every few days.
 #
-BOOTSTRAP_TAR="bootstrap-macos11-trunk-x86_64-20210717.tar.gz"
-BOOTSTRAP_SHA="2f12f8ab596cedde5ec4bb49d0d5890c1eb333ec"
+BOOTSTRAP_TAR="bootstrap-macos11-trunk-x86_64-20211207.tar.gz"
+BOOTSTRAP_SHA="07e323065708223bbac225d556b6aa5921711e0a"
 
 # Download the bootstrap kit to the current directory.
 curl -O https://pkgsrc.joyent.com/packages/Darwin/bootstrap/${BOOTSTRAP_TAR}
@@ -125,8 +125,8 @@ eval $(/usr/libexec/path_helper)
 # These packages are suitable for anyone running Big Sur (11.x) or newer on
 # Apple Silicon (M1) CPUs, and are updated from pkgsrc trunk every few days.
 #
-BOOTSTRAP_TAR="bootstrap-macos11-trunk-arm64-20210717.tar.gz"
-BOOTSTRAP_SHA="069d8b376d80a5b28df0c87e5f5339795b406e46"
+BOOTSTRAP_TAR="bootstrap-macos11-trunk-arm64-20211207.tar.gz"
+BOOTSTRAP_SHA="036b7345ebb217cb685e54c919c66350d55d819c"
 
 # Download the bootstrap kit to the current directory.
 curl -O https://pkgsrc.joyent.com/packages/Darwin/bootstrap/${BOOTSTRAP_TAR}
