@@ -67,9 +67,9 @@ ftp https://pkgsrc.joyent.com/packages/NetBSD/bootstrap/${BOOTSTRAP_TAR}
 echo "${BOOTSTRAP_SHA} ${BOOTSTRAP_TAR}" | sha1 -c
 
 # Verify PGP signature.  This step is optional, and requires gpg.
-ftp https://pkgsrc.joyent.com/packages/NetBSD/bootstrap/${BOOTSTRAP_TAR}.asc
-ftp -Vo - https://pkgsrc.joyent.com/pgp/5D402CC3.asc | gpg2 --import
-gpg2 --verify ${BOOTSTRAP_TAR}.asc ${BOOTSTRAP_TAR}
+#ftp https://pkgsrc.joyent.com/packages/NetBSD/bootstrap/${BOOTSTRAP_TAR}.asc
+#ftp -Vo - https://pkgsrc.joyent.com/pgp/5D402CC3.asc | gpg2 --import
+#gpg2 --verify ${BOOTSTRAP_TAR}.asc ${BOOTSTRAP_TAR}
 
 #
 # Remove any existing packages.  Note also that the bootstrap kit will

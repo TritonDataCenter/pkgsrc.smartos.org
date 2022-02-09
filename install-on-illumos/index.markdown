@@ -100,9 +100,9 @@ curl -O https://pkgsrc.joyent.com/packages/SmartOS/bootstrap/${BOOTSTRAP_TAR}
 [ "${BOOTSTRAP_SHA}" = "$(/bin/digest -a sha1 ${BOOTSTRAP_TAR})" ] || echo "ERROR: checksum failure"
 
 # Verify PGP signature.  This step is optional, and requires gpg.
-curl -O https://pkgsrc.joyent.com/packages/SmartOS/bootstrap/${BOOTSTRAP_TAR}.asc
-curl -sS https://pkgsrc.joyent.com/pgp/DE817B8E.asc | gpg2 --import
-gpg2 --verify ${BOOTSTRAP_TAR}{.asc,}
+#curl -O https://pkgsrc.joyent.com/packages/SmartOS/bootstrap/${BOOTSTRAP_TAR}.asc
+#curl -sS https://pkgsrc.joyent.com/pgp/DE817B8E.asc | gpg2 --import
+#gpg2 --verify ${BOOTSTRAP_TAR}{.asc,}
 
 # Install bootstrap kit to {{ page.prefix }}
 tar -zxpf ${BOOTSTRAP_TAR} -C /
@@ -133,9 +133,9 @@ curl -kO https://pkgsrc.joyent.com/packages/SmartOS/bootstrap/${BOOTSTRAP_TAR}
 [ "${BOOTSTRAP_SHA}" = "$(/bin/digest -a sha1 ${BOOTSTRAP_TAR})" ] || echo "ERROR: checksum failure"
 
 # Verify PGP signature.  This step is optional, and requires gpg.
-curl -kO https://pkgsrc.joyent.com/packages/SmartOS/bootstrap/${BOOTSTRAP_TAR}.asc
-curl -ksS https://pkgsrc.joyent.com/pgp/DE817B8E.asc | gpg --import
-gpg --verify ${BOOTSTRAP_TAR}{.asc,}
+#curl -kO https://pkgsrc.joyent.com/packages/SmartOS/bootstrap/${BOOTSTRAP_TAR}.asc
+#curl -ksS https://pkgsrc.joyent.com/pgp/DE817B8E.asc | gpg --import
+#gpg --verify ${BOOTSTRAP_TAR}{.asc,}
 
 # Install bootstrap kit to /opt/tools
 tar -zxpf ${BOOTSTRAP_TAR} -C /
@@ -184,9 +184,9 @@ curl -O https://pkgsrc.joyent.com/packages/SmartOS/bootstrap-upgrade/${UPGRADE_T
 [ "${UPGRADE_SHA}" = "$(/bin/digest -a sha1 ${UPGRADE_TAR})" ] || echo "ERROR: checksum failure"
 
 # Verify PGP signature.  This step is optional, and requires gpg.
-curl -O https://pkgsrc.joyent.com/packages/SmartOS/bootstrap-upgrade/${UPGRADE_TAR}.asc
-curl -sS https://pkgsrc.joyent.com/pgp/DE817B8E.asc | gpg2 --import
-gpg2 --verify ${UPGRADE_TAR}{.asc,}
+#curl -O https://pkgsrc.joyent.com/packages/SmartOS/bootstrap-upgrade/${UPGRADE_TAR}.asc
+#curl -sS https://pkgsrc.joyent.com/pgp/DE817B8E.asc | gpg2 --import
+#gpg2 --verify ${UPGRADE_TAR}{.asc,}
 
 # Ensure you are running the latest package tools.
 PKG_PATH=http://pkgsrc.joyent.com/packages/SmartOS/trunk/x86_64/All pkg_add -U pkg_install pkgin
@@ -215,9 +215,9 @@ curl -kO https://pkgsrc.joyent.com/packages/SmartOS/bootstrap-upgrade/${UPGRADE_
 [ "${UPGRADE_SHA}" = "$(/bin/digest -a sha1 ${UPGRADE_TAR})" ] || echo "ERROR: checksum failure"
 
 # Verify PGP signature.  This step is optional, and requires gpg.
-curl -kO https://pkgsrc.joyent.com/packages/SmartOS/bootstrap-upgrade/${UPGRADE_TAR}.asc
-curl -sS https://pkgsrc.joyent.com/pgp/DE817B8E.asc | gpg --import
-gpg --verify ${UPGRADE_TAR}{.asc,}
+#curl -kO https://pkgsrc.joyent.com/packages/SmartOS/bootstrap-upgrade/${UPGRADE_TAR}.asc
+#curl -sS https://pkgsrc.joyent.com/pgp/DE817B8E.asc | gpg --import
+#gpg --verify ${UPGRADE_TAR}{.asc,}
 
 # Ensure you are running the latest package tools.
 PKG_PATH=http://pkgsrc.joyent.com/packages/SmartOS/trunk/tools/All pkg_add -U pkg_install pkgin
