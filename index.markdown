@@ -83,7 +83,7 @@ CFLAGS+=                -O3
 			<p><a class="btn btn-orange" href="/install-on-illumos/" role="button">Install on SmartOS/illumos &raquo;</a></p>
 		</div>
 		<div class="col-md-3">
-			<p><a class="btn btn-orange" href="/install-on-osx/" role="button">Install on macOS &raquo;</a></p>
+			<p><a class="btn btn-orange" href="/install-on-macos/" role="button">Install on macOS &raquo;</a></p>
 		</div>
 		<div class="col-md-3">
 			<p><a class="btn btn-orange" href="/install-on-linux/" role="button">Install on Linux &raquo;</a></p>
