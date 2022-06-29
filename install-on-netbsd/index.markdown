@@ -1,6 +1,6 @@
 ---
 layout:      install
-title:       Joyent Packages Documentation - Install On NetBSD
+title:       Install on NetBSD
 metacontent: Binary pkgsrc package sets for NetBSD/amd64
 prefix:      /usr/pkg
 ---
@@ -37,14 +37,14 @@ prefix:      /usr/pkg
 				</li>
 				<li class="lead">
 					A number of <code>PKG_OPTIONS</code> have been
-					<a href="https://github.com/joyent/pkgbuild/blob/master/include/pkgoptions/netbsd.mk">
+					<a href="https://github.com/TritonDataCenter/pkgbuild/blob/master/include/pkgoptions/netbsd.mk">
 					enabled by default</a> to make packages as useful as possible.
 				</li>
 			</ul>
 			<p class="lead">
 				The aim is to provide a repository that, for most users, will <em>just work</em> out of the box.
 				If you have any requests for changes, please raise an issue
-				<a href="https://github.com/joyent/pkgbuild/issues">here</a>.
+				<a href="https://github.com/TritonDataCenter/pkgbuild/issues">here</a>.
 			</p>
 		</div>
 	</div>
@@ -61,14 +61,14 @@ BOOTSTRAP_TAR="bootstrap-netbsd-trunk-x86_64-20201216.tar.gz"
 BOOTSTRAP_SHA="1475d51ab87905e279ac5aa435c09c8ad11ad9c9"
 
 # Download the bootstrap kit to the current directory.
-ftp https://pkgsrc.joyent.com/packages/NetBSD/bootstrap/${BOOTSTRAP_TAR}
+ftp https://pkgsrc.smartos.org/packages/NetBSD/bootstrap/${BOOTSTRAP_TAR}
 
 # Verify the SHA1 checksum.
 echo "${BOOTSTRAP_SHA} ${BOOTSTRAP_TAR}" | sha1 -c
 
 # Verify PGP signature.  This step is optional, and requires gpg.
-#ftp https://pkgsrc.joyent.com/packages/NetBSD/bootstrap/${BOOTSTRAP_TAR}.asc
-#ftp -Vo - https://pkgsrc.joyent.com/pgp/5D402CC3.asc | gpg2 --import
+#ftp https://pkgsrc.smartos.org/packages/NetBSD/bootstrap/${BOOTSTRAP_TAR}.asc
+#ftp -Vo - https://pkgsrc.smartos.org/pgp/5D402CC3.asc | gpg2 --import
 #gpg2 --verify ${BOOTSTRAP_TAR}.asc ${BOOTSTRAP_TAR}
 
 #

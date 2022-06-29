@@ -1,6 +1,6 @@
 ---
 layout:      install
-title:       Joyent Packages Documentation - Install On Linux
+title:       Install on Linux
 metacontent: Binary pkgsrc package sets for Linux
 prefix:      /usr/pkg
 ---
@@ -38,15 +38,15 @@ BOOTSTRAP_TAR="bootstrap-el7-trunk-x86_64-20200724.tar.gz"
 BOOTSTRAP_SHA="478d2e30f150712a851f8f4bcff7f60026f65c9e"
 
 # Download the bootstrap kit to the current directory.
-curl -O https://pkgsrc.joyent.com/packages/Linux/el7/bootstrap/${BOOTSTRAP_TAR}
+curl -O https://pkgsrc.smartos.org/packages/Linux/el7/bootstrap/${BOOTSTRAP_TAR}
 
 # Verify the SHA1 checksum.
 echo "${BOOTSTRAP_SHA}  ${BOOTSTRAP_TAR}" >check-shasum
 sha1sum -c check-shasum
 
 # Verify PGP signature.  This step is optional, and requires gpg.
-#curl -O https://pkgsrc.joyent.com/packages/Linux/el7/bootstrap/${BOOTSTRAP_TAR}.asc
-#curl -sS https://pkgsrc.joyent.com/pgp/56AAACAF.asc | gpg2 --import
+#curl -O https://pkgsrc.smartos.org/packages/Linux/el7/bootstrap/${BOOTSTRAP_TAR}.asc
+#curl -sS https://pkgsrc.smartos.org/pgp/56AAACAF.asc | gpg2 --import
 #gpg2 --verify ${BOOTSTRAP_TAR}{.asc,}
 
 # Install bootstrap kit to {{ page.prefix }}
@@ -67,15 +67,15 @@ BOOTSTRAP_TAR="bootstrap-el6-trunk-x86_64-20200724.tar.gz"
 BOOTSTRAP_SHA="64ae6d1de6011e20ff09eca77dfb48ce6cdb68d6"
 
 # Download the bootstrap kit to the current directory.
-curl -O https://pkgsrc.joyent.com/packages/Linux/el6/bootstrap/${BOOTSTRAP_TAR}
+curl -O https://pkgsrc.smartos.org/packages/Linux/el6/bootstrap/${BOOTSTRAP_TAR}
 
 # Verify the SHA1 checksum.
 echo "${BOOTSTRAP_SHA}  ${BOOTSTRAP_TAR}" >check-shasum
 sha1sum -c check-shasum
 
 # Verify PGP signature.  This step is optional, and requires gpg.
-#curl -O https://pkgsrc.joyent.com/packages/Linux/el6/bootstrap/${BOOTSTRAP_TAR}.asc
-#curl -sS https://pkgsrc.joyent.com/pgp/56AAACAF.asc | gpg2 --import
+#curl -O https://pkgsrc.smartos.org/packages/Linux/el6/bootstrap/${BOOTSTRAP_TAR}.asc
+#curl -sS https://pkgsrc.smartos.org/pgp/56AAACAF.asc | gpg2 --import
 #gpg2 --verify ${BOOTSTRAP_TAR}{.asc,}
 
 # Install bootstrap kit to {{ page.prefix }}

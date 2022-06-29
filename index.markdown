@@ -1,6 +1,6 @@
 ---
 layout:      default
-title:       "Joyent Packages Documentation - Home"
+title:       Binary packages for SmartOS/illumos, macOS, Linux, and NetBSD
 metacontent: Binary pkgsrc package sets for SmartOS/illumos, macOS, Linux, and NetBSD.
 ---
 
