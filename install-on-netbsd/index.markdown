@@ -68,7 +68,7 @@ echo "${BOOTSTRAP_SHA} ${BOOTSTRAP_TAR}" | sha1 -c
 
 # Verify PGP signature.  This step is optional, and requires gpg.
 #ftp https://pkgsrc.smartos.org/packages/NetBSD/bootstrap/${BOOTSTRAP_TAR}.asc
-#ftp -Vo - https://pkgsrc.smartos.org/pgp/5D402CC3.asc | gpg2 --import
+#ftp -Vo - https://pkgsrc.smartos.org/pgp/C72658C9.asc | gpg2 --import
 #gpg2 --verify ${BOOTSTRAP_TAR}.asc ${BOOTSTRAP_TAR}
 
 #
