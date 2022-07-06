@@ -80,13 +80,13 @@ prefix:      /opt/local
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
 			<ul class="nav nav-tabs" role="tablist">
-				<li role="presentation" class="active"><a href="#regular-install" aria-controls="regular-install" role="tab" data-toggle="tab">Regular</a></li>
+				<li role="presentation" class="active"><a href="#standard-install" aria-controls="standard-install" role="tab" data-toggle="tab">Standard</a></li>
+				<li role="presentation"><a href="#standard-upgrade" aria-controls="standard-upgrade" role="tab" data-toggle="tab">Standard (upgrade)</a></li>
 				<li role="presentation"><a href="#tools-install" aria-controls="tools-install" role="tab" data-toggle="tab">Tools (SmartOS GZ)</a></li>
-				<li role="presentation"><a href="#regular-upgrade" aria-controls="regular-upgrade" role="tab" data-toggle="tab">Regular (upgrade)</a></li>
 				<li role="presentation"><a href="#tools-upgrade" aria-controls="tools-upgrade" role="tab" data-toggle="tab">Tools (SmartOS GZ upgrade)</a></li>
 			</ul>
 			<div class="tab-content">
-				<div role="tabpanel" class="tab-pane active" id="regular-install">
+				<div role="tabpanel" class="tab-pane active" id="standard-install">
 					<p></p>
 {% highlight bash %}
 #
@@ -112,6 +112,45 @@ tar -zxpf ${BOOTSTRAP_TAR} -C /
 # Add to PATH/MANPATH.
 PATH={{ page.prefix }}/sbin:{{ page.prefix }}/bin:$PATH
 MANPATH={{ page.prefix }}/man:$MANPATH
+{% endhighlight %}
+				</div>
+				<div role="tabpanel" class="tab-pane" id="standard-upgrade">
+					<p></p>
+{% highlight bash %}
+#
+# Copy and paste the lines below to upgrade to the latest bootstrap.  This
+# will overwrite the following files:
+#
+#	{{ page.prefix }}/etc/mk.conf
+#	{{ page.prefix }}/etc/pkg_install.conf
+#	{{ page.prefix }}/etc/pkgin/repositories.conf
+#	{{ page.prefix }}/etc/gnupg/pkgsrc.gpg
+#
+UPGRADE_TAR="bootstrap-trunk-x86_64-20220706-upgrade.tar.gz"
+UPGRADE_SHA="00d0f99bc91eba353445e5b961b22d35cd0ecfcc"
+
+# Download the upgrade kit to the current directory.
+curl -O https://pkgsrc.smartos.org/packages/SmartOS/bootstrap-upgrade/${UPGRADE_TAR}
+
+# Verify the SHA1 checksum.
+[ "${UPGRADE_SHA}" = "$(/bin/digest -a sha1 ${UPGRADE_TAR})" ] || echo "ERROR: checksum failure"
+
+# Verify PGP signature.  This step is optional, and requires gpg.
+#curl -O https://pkgsrc.smartos.org/packages/SmartOS/bootstrap-upgrade/${UPGRADE_TAR}.asc
+#curl -sS https://pkgsrc.smartos.org/pgp/8254B861.asc | gpg2 --import
+#gpg2 --verify ${UPGRADE_TAR}{.asc,}
+
+# Unpack upgrade kit to {{ page.prefix }}
+tar -zxpf ${UPGRADE_TAR} -C /
+
+# Ensure you are running the latest package tools.
+PKG_PATH=https://pkgsrc.smartos.org/packages/SmartOS/trunk/x86_64/All pkg_add -U pkg_install pkgin libarchive
+
+# Clean out any old packages signed with the previous key.
+pkgin clean
+
+# Upgrade all packages.
+pkgin -y upgrade
 {% endhighlight %}
 				</div>
 				<div role="tabpanel" class="tab-pane" id="tools-install">
@@ -147,44 +186,17 @@ PATH=/opt/tools/sbin:/opt/tools/bin:$PATH
 MANPATH=/opt/tools/man:$MANPATH
 {% endhighlight %}
 				</div>
-				<div role="tabpanel" class="tab-pane" id="regular-upgrade">
-					<p></p>
-{% highlight bash %}
-#
-# Copy and paste the lines below to upgrade to the latest bootstrap.
-#
-UPGRADE_TAR="bootstrap-trunk-x86_64-20220706-upgrade.tar.gz"
-UPGRADE_SHA="00d0f99bc91eba353445e5b961b22d35cd0ecfcc"
-
-# Download the upgrade kit to the current directory.
-curl -O https://pkgsrc.smartos.org/packages/SmartOS/bootstrap-upgrade/${UPGRADE_TAR}
-
-# Verify the SHA1 checksum.
-[ "${UPGRADE_SHA}" = "$(/bin/digest -a sha1 ${UPGRADE_TAR})" ] || echo "ERROR: checksum failure"
-
-# Verify PGP signature.  This step is optional, and requires gpg.
-#curl -O https://pkgsrc.smartos.org/packages/SmartOS/bootstrap-upgrade/${UPGRADE_TAR}.asc
-#curl -sS https://pkgsrc.smartos.org/pgp/8254B861.asc | gpg2 --import
-#gpg2 --verify ${UPGRADE_TAR}{.asc,}
-
-# Unpack upgrade kit to {{ page.prefix }}
-tar -zxpf ${UPGRADE_TAR} -C /
-
-# Ensure you are running the latest package tools.
-PKG_PATH=https://pkgsrc.smartos.org/packages/SmartOS/trunk/x86_64/All pkg_add -U pkg_install pkgin libarchive
-
-# Clean out any old packages signed with the previous key.
-pkgin clean
-
-# Upgrade all packages.
-pkgin -y upgrade
-{% endhighlight %}
-				</div>
 				<div role="tabpanel" class="tab-pane" id="tools-upgrade">
 					<p></p>
 {% highlight bash %}
 #
-# Copy and paste the lines below to upgrade to the latest tools bootstrap.
+# Copy and paste the lines below to upgrade to the latest tools bootstrap.  This
+# will overwrite the following files:
+#
+#	/opt/tools/etc/mk.conf
+#	/opt/tools/etc/pkg_install.conf
+#	/opt/tools/etc/pkgin/repositories.conf
+#	/opt/tools/etc/gnupg/pkgsrc.gpg
 #
 UPGRADE_TAR="bootstrap-trunk-tools-20220706-upgrade.tar.gz"
 UPGRADE_SHA="6779b158a17600172585406e67adaeb1a147e045"
