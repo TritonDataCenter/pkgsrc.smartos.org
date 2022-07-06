@@ -14,17 +14,14 @@ prefix:      /opt/local
 	<div class="row">
 		<div class="col-md-10 col-md-offset-1">
 			<p class="lead">
-				Thanks to its cross-platform support, pkgsrc is
-				able to combine the efforts of developers from
-				NetBSD, SmartOS, macOS, Linux, and others, to
-				produce a single package repository containing
-				over 19,500 binary packages, providing regularly
-				updated desktop and server packages to cover a
-				wide range of requirements.  Our package sets
-				are built on SmartOS, but are designed to be
-				portable across all illumos distributions, as
-				the examples below running on Tribblix and
-				OmniOS demonstrate.
+				Thanks to its cross-platform support, pkgsrc is able to combine the
+				efforts of developers from NetBSD, SmartOS, macOS, Linux, and others,
+				to produce a single package repository containing over 24,000 binary
+				packages, providing regularly updated desktop and server packages to
+				cover a wide range of requirements.  Our package sets are built on
+				SmartOS, but are designed to be portable across all illumos
+				distributions, as the examples below running on Tribblix and OmniOS
+				demonstrate.
 			</p>
 		</div>
 	</div>
@@ -70,10 +67,12 @@ prefix:      /opt/local
 	<div class="row">
 		<div class="col-md-10 col-md-offset-1">
 			<p class="lead">
-				Both sets are built on SmartOS 20210826 but should work on any illumos distribution of at least
-				that date, and are updated from pkgsrc trunk every night.  The tools repository is a smaller
-				package set designed specifically to run in the SmartOS GZ, otherwise use the main 64-bit set.
-				Older and LTS bootstrap kits are available from the
+				Our packages are built on SmartOS 20210826 but should work on any illumos
+				distribution of at least that date, and are regularly updated from pkgsrc
+				trunk.  The tools option is a smaller package set designed specifically
+				to run in the SmartOS Global Zone.  The upgrade kits unpack newer configs
+				and PGP keys over the top of an existing install ready for upgrading.
+				Older and LTS kits are in the
                                 <a href="https://pkgsrc.smartos.org/packages/SmartOS/bootstrap/">archive</a>.
 			</p>
 		</div>
@@ -81,15 +80,17 @@ prefix:      /opt/local
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
 			<ul class="nav nav-tabs" role="tablist">
-				<li role="presentation" class="active"><a href="#64bit-install" aria-controls="64bit-install" role="tab" data-toggle="tab">64-bit</a></li>
-				<li role="presentation"><a href="#tools-install" aria-controls="tools-install" role="tab" data-toggle="tab">64-bit tools (SmartOS GZ)</a></li>
+				<li role="presentation" class="active"><a href="#regular-install" aria-controls="regular-install" role="tab" data-toggle="tab">Regular</a></li>
+				<li role="presentation"><a href="#tools-install" aria-controls="tools-install" role="tab" data-toggle="tab">Tools (SmartOS GZ)</a></li>
+				<li role="presentation"><a href="#regular-upgrade" aria-controls="regular-upgrade" role="tab" data-toggle="tab">Regular (upgrade)</a></li>
+				<li role="presentation"><a href="#tools-upgrade" aria-controls="tools-upgrade" role="tab" data-toggle="tab">Tools (SmartOS GZ upgrade)</a></li>
 			</ul>
 			<div class="tab-content">
-				<div role="tabpanel" class="tab-pane active" id="64bit-install">
+				<div role="tabpanel" class="tab-pane active" id="regular-install">
 					<p></p>
 {% highlight bash %}
 #
-# Copy and paste the lines below to install the latest 64-bit set.
+# Copy and paste the lines below to install the latest bootstrap.
 #
 BOOTSTRAP_TAR="bootstrap-trunk-x86_64-20220706.tar.gz"
 BOOTSTRAP_SHA="ea959ea26c50a249d131ab05a553392e9bf5ff8e"
@@ -117,7 +118,7 @@ MANPATH={{ page.prefix }}/man:$MANPATH
 					<p></p>
 {% highlight bash %}
 #
-# Copy and paste the lines below to install the latest 64-bit tools set.
+# Copy and paste the lines below to install the latest tools bootstrap.
 #
 BOOTSTRAP_TAR="bootstrap-trunk-tools-20220706.tar.gz"
 BOOTSTRAP_SHA="c15932a7cc791b8c5f7a0137a7521c28c503b453"
@@ -146,36 +147,11 @@ PATH=/opt/tools/sbin:/opt/tools/bin:$PATH
 MANPATH=/opt/tools/man:$MANPATH
 {% endhighlight %}
 				</div>
-			</div>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-10 col-md-offset-1">
-			<h2 class="text-center">Upgrades</h2>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-10 col-md-offset-1">
-			<p class="lead">
-				To upgrade to the pkgsrc trunk set from a quarterly release, or from
-				the previous pkgsrc.joyent.com site, follow the steps below.  Upgrades
-				are only supported from 2014Q4 onwards, as the packaging tools require
-				support for signed packages.
-			</p>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-8 col-md-offset-2">
-			<ul class="nav nav-tabs" role="tablist">
-				<li role="presentation" class="active"><a href="#64bit-upgrade" aria-controls="64bit-upgrade" role="tab" data-toggle="tab">64-bit</a></li>
-				<li role="presentation"><a href="#tools-upgrade" aria-controls="tools-upgrade" role="tab" data-toggle="tab">64-bit tools (SmartOS GZ)</a></li>
-			</ul>
-			<div class="tab-content">
-				<div role="tabpanel" class="tab-pane active" id="64bit-upgrade">
+				<div role="tabpanel" class="tab-pane" id="regular-upgrade">
 					<p></p>
 {% highlight bash %}
 #
-# Copy and paste the lines below to upgrade to the latest 64-bit set.
+# Copy and paste the lines below to upgrade to the latest bootstrap.
 #
 UPGRADE_TAR="bootstrap-trunk-x86_64-20220706-upgrade.tar.gz"
 UPGRADE_SHA="00d0f99bc91eba353445e5b961b22d35cd0ecfcc"
@@ -208,7 +184,7 @@ pkgin -y upgrade
 					<p></p>
 {% highlight bash %}
 #
-# Copy and paste the lines below to upgrade to the latest 64-bit tools set.
+# Copy and paste the lines below to upgrade to the latest tools bootstrap.
 #
 UPGRADE_TAR="bootstrap-trunk-tools-20220706-upgrade.tar.gz"
 UPGRADE_SHA="6779b158a17600172585406e67adaeb1a147e045"
