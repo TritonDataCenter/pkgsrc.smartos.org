@@ -144,7 +144,7 @@ curl -O https://pkgsrc.smartos.org/packages/SmartOS/bootstrap-upgrade/${UPGRADE_
 tar -zxpf ${UPGRADE_TAR} -C /
 
 # Ensure you are running the latest package tools.
-PKG_PATH=https://pkgsrc.smartos.org/packages/SmartOS/trunk/x86_64/All pkg_add -U pkg_install pkgin libarchive
+pkg_add -U pkg_install pkgin libarchive
 
 # Clean out any old packages signed with the previous key.
 pkgin clean
@@ -217,7 +217,7 @@ curl -kO https://pkgsrc.smartos.org/packages/SmartOS/bootstrap-upgrade/${UPGRADE
 tar -zxpvf ${UPGRADE_TAR} -C /
 
 # Ensure you are running the latest package tools.
-PKG_PATH=https://pkgsrc.smartos.org/packages/SmartOS/trunk/tools/All pkg_add -U pkg_install pkgin libarchive
+pkg_add -U pkg_install pkgin libarchive
 
 # Clean out any old packages signed with the previous key.
 pkgin clean
