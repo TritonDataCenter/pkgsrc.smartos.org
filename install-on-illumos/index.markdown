@@ -91,8 +91,8 @@ prefix:      /opt/local
 #
 # Copy and paste the lines below to install the latest 64-bit set.
 #
-BOOTSTRAP_TAR="bootstrap-trunk-x86_64-20220208.tar.gz"
-BOOTSTRAP_SHA="09743f63dab4254453a41c85916df46519714487"
+BOOTSTRAP_TAR="bootstrap-trunk-x86_64-20220706.tar.gz"
+BOOTSTRAP_SHA="ea959ea26c50a249d131ab05a553392e9bf5ff8e"
 
 # Download the bootstrap kit to the current directory.
 curl -O https://pkgsrc.smartos.org/packages/SmartOS/bootstrap/${BOOTSTRAP_TAR}
@@ -102,7 +102,7 @@ curl -O https://pkgsrc.smartos.org/packages/SmartOS/bootstrap/${BOOTSTRAP_TAR}
 
 # Verify PGP signature.  This step is optional, and requires gpg.
 #curl -O https://pkgsrc.smartos.org/packages/SmartOS/bootstrap/${BOOTSTRAP_TAR}.asc
-#curl -sS https://pkgsrc.smartos.org/pgp/DE817B8E.asc | gpg2 --import
+#curl -sS https://pkgsrc.smartos.org/pgp/8254B861.asc | gpg2 --import
 #gpg2 --verify ${BOOTSTRAP_TAR}{.asc,}
 
 # Install bootstrap kit to {{ page.prefix }}
@@ -119,8 +119,8 @@ MANPATH={{ page.prefix }}/man:$MANPATH
 #
 # Copy and paste the lines below to install the latest 64-bit tools set.
 #
-BOOTSTRAP_TAR="bootstrap-trunk-tools-20220208.tar.gz"
-BOOTSTRAP_SHA="e0b478bbc3a26589c9bb73a02344868f1738542f"
+BOOTSTRAP_TAR="bootstrap-trunk-tools-20220706.tar.gz"
+BOOTSTRAP_SHA="c15932a7cc791b8c5f7a0137a7521c28c503b453"
 
 # Ensure you are in a directory with enough space for the bootstrap download,
 # by default the SmartOS /root directory is limited to the size of the ramdisk.
@@ -135,7 +135,7 @@ curl -kO https://pkgsrc.smartos.org/packages/SmartOS/bootstrap/${BOOTSTRAP_TAR}
 
 # Verify PGP signature.  This step is optional, and requires gpg.
 #curl -kO https://pkgsrc.smartos.org/packages/SmartOS/bootstrap/${BOOTSTRAP_TAR}.asc
-#curl -ksS https://pkgsrc.smartos.org/pgp/DE817B8E.asc | gpg --import
+#curl -ksS https://pkgsrc.smartos.org/pgp/8254B861.asc | gpg --import
 #gpg --verify ${BOOTSTRAP_TAR}{.asc,}
 
 # Install bootstrap kit to /opt/tools
@@ -157,8 +157,10 @@ MANPATH=/opt/tools/man:$MANPATH
 	<div class="row">
 		<div class="col-md-10 col-md-offset-1">
 			<p class="lead">
-				To upgrade to the pkgsrc trunk set from a quarterly release follow the steps below.  Upgrades are
-				only supported from 2014Q4 onwards, as the packaging tools require support for signed packages.
+				To upgrade to the pkgsrc trunk set from a quarterly release, or from
+				the previous pkgsrc.joyent.com site, follow the steps below.  Upgrades
+				are only supported from 2014Q4 onwards, as the packaging tools require
+				support for signed packages.
 			</p>
 		</div>
 	</div>
@@ -175,8 +177,8 @@ MANPATH=/opt/tools/man:$MANPATH
 #
 # Copy and paste the lines below to upgrade to the latest 64-bit set.
 #
-UPGRADE_TAR="bootstrap-trunk-x86_64-20220208-upgrade.tar.gz"
-UPGRADE_SHA="2662aff8a81900a518b7445aefa1015265e27ec2"
+UPGRADE_TAR="bootstrap-trunk-x86_64-20220706-upgrade.tar.gz"
+UPGRADE_SHA="00d0f99bc91eba353445e5b961b22d35cd0ecfcc"
 
 # Download the upgrade kit to the current directory.
 curl -O https://pkgsrc.smartos.org/packages/SmartOS/bootstrap-upgrade/${UPGRADE_TAR}
@@ -186,14 +188,17 @@ curl -O https://pkgsrc.smartos.org/packages/SmartOS/bootstrap-upgrade/${UPGRADE_
 
 # Verify PGP signature.  This step is optional, and requires gpg.
 #curl -O https://pkgsrc.smartos.org/packages/SmartOS/bootstrap-upgrade/${UPGRADE_TAR}.asc
-#curl -sS https://pkgsrc.smartos.org/pgp/DE817B8E.asc | gpg2 --import
+#curl -sS https://pkgsrc.smartos.org/pgp/8254B861.asc | gpg2 --import
 #gpg2 --verify ${UPGRADE_TAR}{.asc,}
-
-# Ensure you are running the latest package tools.
-PKG_PATH=https://pkgsrc.smartos.org/packages/SmartOS/trunk/x86_64/All pkg_add -U pkg_install pkgin
 
 # Unpack upgrade kit to {{ page.prefix }}
 tar -zxpf ${UPGRADE_TAR} -C /
+
+# Ensure you are running the latest package tools.
+PKG_PATH=https://pkgsrc.smartos.org/packages/SmartOS/trunk/x86_64/All pkg_add -U pkg_install pkgin libarchive
+
+# Clean out any old packages signed with the previous key.
+pkgin clean
 
 # Upgrade all packages.
 pkgin -y upgrade
@@ -205,8 +210,8 @@ pkgin -y upgrade
 #
 # Copy and paste the lines below to upgrade to the latest 64-bit tools set.
 #
-UPGRADE_TAR="bootstrap-trunk-tools-20220208-upgrade.tar.gz"
-UPGRADE_SHA="5ef7b802d027f200dba8aaf511a257aa7b3abf6a"
+UPGRADE_TAR="bootstrap-trunk-tools-20220706-upgrade.tar.gz"
+UPGRADE_SHA="6779b158a17600172585406e67adaeb1a147e045"
 
 # Download the upgrade kit to the current directory.  Note that we currently
 # pass "-k" to skip SSL certificate checks as the GZ doesn't install them.
@@ -217,14 +222,17 @@ curl -kO https://pkgsrc.smartos.org/packages/SmartOS/bootstrap-upgrade/${UPGRADE
 
 # Verify PGP signature.  This step is optional, and requires gpg.
 #curl -kO https://pkgsrc.smartos.org/packages/SmartOS/bootstrap-upgrade/${UPGRADE_TAR}.asc
-#curl -sS https://pkgsrc.smartos.org/pgp/DE817B8E.asc | gpg --import
+#curl -sS https://pkgsrc.smartos.org/pgp/8254B861.asc | gpg --import
 #gpg --verify ${UPGRADE_TAR}{.asc,}
 
-# Ensure you are running the latest package tools.
-PKG_PATH=https://pkgsrc.smartos.org/packages/SmartOS/trunk/tools/All pkg_add -U pkg_install pkgin
-
 # Unpack upgrade kit to /opt/tools
-tar -zxpf ${UPGRADE_TAR} -C /
+tar -zxpvf ${UPGRADE_TAR} -C /
+
+# Ensure you are running the latest package tools.
+PKG_PATH=https://pkgsrc.smartos.org/packages/SmartOS/trunk/tools/All pkg_add -U pkg_install pkgin libarchive
+
+# Clean out any old packages signed with the previous key.
+pkgin clean
 
 # Upgrade all packages.
 pkgin -y upgrade
