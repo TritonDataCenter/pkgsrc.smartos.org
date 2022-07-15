@@ -167,24 +167,32 @@ eval $(/usr/libexec/path_helper)
 # Copy and paste the lines below to install the 64-bit Sierra set.
 #
 # These packages are suitable for anyone running Sierra (10.12.6) or newer,
-# however they are no longer updated.
+# however they are no longer updated.  Note that the repository URL has
+# changed since publishing, so a couple of config files need updating.
 #
 BOOTSTRAP_TAR="bootstrap-trunk-x86_64-20190524.tar.gz"
 BOOTSTRAP_SHA="1c554a806fb41dcc382ef33e64841ace13988479"
+REPO_URL="https://us-central.manta.mnx.io/pkgsrc/public/packages/Darwin/10.12"
 
 # Download the bootstrap kit to the current directory.
-curl -O https://us-east.manta.joyent.com/pkgsrc/public/packages/Darwin/10.12/bootstrap/${BOOTSTRAP_TAR}
+curl -O ${REPO_URL}/bootstrap/${BOOTSTRAP_TAR}
 
 # Verify the SHA1 checksum.
 echo "${BOOTSTRAP_SHA}  ${BOOTSTRAP_TAR}" | shasum -c-
 
 # Verify PGP signature.  This step is optional, and requires gpg.
-# curl -O https://pkgsrc.smartos.org/packages/Darwin/bootstrap/${BOOTSTRAP_TAR}.asc
+# curl -O ${REPO_URL}/bootstrap/${BOOTSTRAP_TAR}.asc
 # curl -sS https://pkgsrc.smartos.org/pgp/1F32A9AD.asc | gpg2 --import
 # gpg2 --verify ${BOOTSTRAP_TAR}{.asc,}
 
 # Install bootstrap kit to {{ page.prefix }}
 sudo tar -zxpf ${BOOTSTRAP_TAR} -C /
+
+# Rewrite config file paths for updated repository URL.
+sed -i \
+    -e "s,https://pkgsrc.joyent.*All,${REPO_URL}/trunk/x86_64/All," \
+    {{ page.prefix }}/etc/pkg_install.conf \
+    {{ page.prefix }}/etc/pkgin/repositories.conf
 
 # Reload PATH/MANPATH (pkgsrc installs /etc/paths.d/10-pkgsrc for new sessions)
 eval $(/usr/libexec/path_helper)
@@ -197,24 +205,32 @@ eval $(/usr/libexec/path_helper)
 # Copy and paste the lines below to install the 64-bit Mavericks set.
 #
 # These packages are suitable for anyone running Mavericks (10.9.5) or newer,
-# however they are no longer updated.
+# however they are no longer updated.  Note that the repository URL has
+# changed since publishing, so a couple of config files need updating.
 #
 BOOTSTRAP_TAR="bootstrap-trunk-x86_64-20181001.tar.gz"
 BOOTSTRAP_SHA="7209132a657582cf87897a2ad280c587e3d6bff0"
+REPO_URL="https://us-central.manta.mnx.io/pkgsrc/public/packages/Darwin/10.9"
 
 # Download the bootstrap kit to the current directory.
-curl -O https://us-east.manta.joyent.com/pkgsrc/public/packages/Darwin/10.9/bootstrap/${BOOTSTRAP_TAR}
+curl -O ${REPO_URL}/bootstrap/${BOOTSTRAP_TAR}
 
 # Verify the SHA1 checksum.
 echo "${BOOTSTRAP_SHA}  ${BOOTSTRAP_TAR}" | shasum -c-
 
 # Verify PGP signature.  This step is optional, and requires gpg.
-# curl -O https://us-east.manta.joyent.com/pkgsrc/public/packages/Darwin/10.9/bootstrap/${BOOTSTRAP_TAR}.asc
+# curl -O ${REPO_URL}/bootstrap/${BOOTSTRAP_TAR}.asc
 # curl -sS https://pkgsrc.smartos.org/pgp/1F32A9AD.asc | gpg2 --import
 # gpg2 --verify ${BOOTSTRAP_TAR}{.asc,}
 
 # Install bootstrap kit to {{ page.prefix }}
 sudo tar -zxpf ${BOOTSTRAP_TAR} -C /
+
+# Rewrite config file paths for updated repository URL.
+sed -i \
+    -e "s,https://pkgsrc.joyent.*All,${REPO_URL}/trunk/x86_64/All," \
+    {{ page.prefix }}/etc/pkg_install.conf \
+    {{ page.prefix }}/etc/pkgin/repositories.conf
 
 # Reload PATH/MANPATH (pkgsrc installs /etc/paths.d/10-pkgsrc for new sessions)
 eval $(/usr/libexec/path_helper)
@@ -227,24 +243,32 @@ eval $(/usr/libexec/path_helper)
 # Copy and paste the lines below to install the 32-bit 10.6+ set.
 #
 # These packages are suitable for anyone running Snow Leopard (10.6.8) or
-# newer, however they are no longer updated.
+# newer, however they are no longer updated.  Note that the repository URL
+# has changed since publishing, so a couple of config files need updating.
 #
 BOOTSTRAP_TAR="bootstrap-trunk-i386-20180812.tar.gz"
 BOOTSTRAP_SHA="283b88b13c75e8f92de8376532ccf4f4b9443f9d"
+REPO_URL="https://us-central.manta.mnx.io/pkgsrc/public/packages/Darwin/10.6"
 
 # Download the bootstrap kit to the current directory.
-curl -O https://pkgsrc.smartos.org/packages/Darwin/bootstrap/${BOOTSTRAP_TAR}
+curl -O ${REPO_URL}/bootstrap/${BOOTSTRAP_TAR}
 
 # Verify the SHA1 checksum.
 echo "${BOOTSTRAP_SHA}  ${BOOTSTRAP_TAR}" | shasum -c-
 
 # Verify PGP signature.  This step is optional, and requires gpg.
-# curl -O https://pkgsrc.smartos.org/packages/Darwin/bootstrap/${BOOTSTRAP_TAR}.asc
+# curl -O ${REPO_URL}/bootstrap/${BOOTSTRAP_TAR}.asc
 # curl -sS https://pkgsrc.smartos.org/pgp/1F32A9AD.asc | gpg2 --import
 # gpg2 --verify ${BOOTSTRAP_TAR}{.asc,}
 
 # Install bootstrap kit to {{ page.prefix }}
 sudo tar -zxpf ${BOOTSTRAP_TAR} -C /
+
+# Rewrite config file paths for updated repository URL.
+sed -i \
+    -e "s,https://pkgsrc.joyent.*All,${REPO_URL}/trunk/i386/All," \
+    {{ page.prefix }}/etc/pkg_install.conf \
+    {{ page.prefix }}/etc/pkgin/repositories.conf
 
 # Reload PATH/MANPATH (pkgsrc installs /etc/paths.d/10-pkgsrc for new sessions)
 eval $(/usr/libexec/path_helper)
