@@ -50,6 +50,10 @@ prefix:      /usr/pkg
 	</div>
 	<div class="row">
 		<div class="col-md-10 col-md-offset-1">
+			<ul class="nav nav-tabs" role="tablist">
+				<li role="presentation" class="active"><a href="#netbsd-install" aria-controls="netbsd-install" role="tab" data-toggle="tab">Install</a></li>
+				<li role="presentation"><a href="#netbsd-upgrade" aria-controls="netbsd-upgrade" role="tab" data-toggle="tab">Upgrade</a></li>
+			</ul>
 			<div class="tab-content">
 				<div role="tabpanel" class="tab-pane active" id="netbsd-install">
 					<p></p>
@@ -57,8 +61,8 @@ prefix:      /usr/pkg
 #
 # Copy and paste the lines below to install the NetBSD/amd64 9.99.x set.
 #
-BOOTSTRAP_TAR="bootstrap-netbsd-trunk-x86_64-20201216.tar.gz"
-BOOTSTRAP_SHA="1475d51ab87905e279ac5aa435c09c8ad11ad9c9"
+BOOTSTRAP_TAR="bootstrap-netbsd-trunk-x86_64-20220718.tar.gz"
+BOOTSTRAP_SHA="f21c7f7f4ba547bf922c16ea656a9481c8bcb526"
 
 # Download the bootstrap kit to the current directory.
 ftp https://pkgsrc.smartos.org/packages/NetBSD/bootstrap/${BOOTSTRAP_TAR}
@@ -83,6 +87,45 @@ tar -zxpf ${BOOTSTRAP_TAR} -C /
 
 # Add to PATH if necessary.
 PATH={{ page.prefix }}/sbin:{{ page.prefix }}/bin:$PATH
+{% endhighlight %}
+				</div>
+				<div role="tabpanel" class="tab-pane" id="netbsd-upgrade">
+					<p></p>
+{% highlight bash %}
+#
+# Copy and paste the lines below to upgrade to the latest bootstrap.  This
+# will overwrite the following files:
+#
+#	{{ page.prefix }}/etc/mk.conf
+#	{{ page.prefix }}/etc/pkg_install.conf
+#	{{ page.prefix }}/etc/pkgin/repositories.conf
+#	{{ page.prefix }}/etc/gnupg/pkgsrc.gpg
+#
+UPGRADE_TAR="bootstrap-netbsd-trunk-x86_64-20220718-upgrade.tar.gz"
+UPGRADE_SHA="81220a2ed0b0426886199c8f4fb287b19d934711"
+
+# Download the upgrade kit to the current directory.
+ftp https://pkgsrc.smartos.org/packages/NetBSD/bootstrap-upgrade/${UPGRADE_TAR}
+
+# Verify the SHA1 checksum.
+echo "${UPGRADE_SHA} ${UPGRADE_TAR}" | sha1 -c
+
+# Verify PGP signature.  This step is optional, and requires gpg.
+#ftp https://pkgsrc.smartos.org/packages/NetBSD/bootstrap-upgrade/${UPGRADE_TAR}.asc
+#ftp -Vo - https://pkgsrc.smartos.org/pgp/C72658C9.asc | gpg2 --import
+#gpg2 --verify ${UPGRADE_TAR}.asc ${UPGRADE_TAR}
+
+# Unpack upgrade kit to {{ page.prefix }}
+tar -zxpf ${UPGRADE_TAR} -C /
+
+# Ensure you are running the latest package tools.
+pkg_add -U pkg_install pkgin libarchive
+
+# Clean out any old packages signed with the previous key.
+pkgin clean
+
+# Upgrade all packages.
+pkgin -y upgrade
 {% endhighlight %}
 				</div>
 			</div>
