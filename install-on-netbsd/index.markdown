@@ -15,7 +15,7 @@ prefix:      /usr/pkg
 		<div class="col-md-10 col-md-offset-1">
 			<p class="lead">
 				Packages are built on the latest development
-				version of NetBSD/amd64 (currently 9.99.95)
+				version of NetBSD/amd64 (currently 9.99.98)
 				from pkgsrc trunk and updated every few days.
 				Note some important differences to other NetBSD
 				package repositories:
