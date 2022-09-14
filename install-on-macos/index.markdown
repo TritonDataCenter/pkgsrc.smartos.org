@@ -50,7 +50,7 @@ prefix:      /opt/pkg
 			<p class="lead">
 				Our primary packages for macOS are available for both Apple Silicon and Intel,
 				and thanks to being built against the 11.3 SDK run on all recent versions of
-				macOS.  They are built from pkgsrc trunk and are updated every few days.
+				macOS.  They are built from pkgsrc trunk and are updated every week.
 			</p>
 			<p class="lead">
 				We also provide archives of our previous package sets built on Mojave, Sierra,
@@ -77,7 +77,7 @@ prefix:      /opt/pkg
 # Copy and paste the lines below to install the Apple Silicon set.
 #
 # These packages are suitable for anyone running Big Sur (11.3) or newer on
-# Apple Silicon (ARM) CPUs, and are updated from pkgsrc trunk every few days.
+# Apple Silicon (M1/M2) CPUs, and are updated from pkgsrc trunk every week.
 #
 BOOTSTRAP_TAR="bootstrap-macos11-trunk-arm64-20220913.tar.gz"
 BOOTSTRAP_SHA="97a1ee6b11b30529de6facf27e2042d602ca6af8"
@@ -107,7 +107,7 @@ eval $(/usr/libexec/path_helper)
 # Copy and paste the lines below to install the Intel set.
 #
 # These packages are suitable for anyone running Big Sur (11.3) or newer on
-# Intel x86 CPUs, and are updated from pkgsrc trunk every few days.
+# Intel x86 CPUs, and are updated from pkgsrc trunk every week.
 #
 BOOTSTRAP_TAR="bootstrap-macos11-trunk-x86_64-20211207.tar.gz"
 BOOTSTRAP_SHA="07e323065708223bbac225d556b6aa5921711e0a"
