@@ -49,8 +49,8 @@ prefix:      /opt/pkg
 		<div class="col-md-10 col-md-offset-1">
 			<p class="lead">
 				Our primary packages for macOS are available for both Apple Silicon and Intel,
-				and run on all recent versions of macOS.  They are built from pkgsrc trunk and
-				are updated every few days.
+				and thanks to being built against the 11.3 SDK run on all recent versions of
+				macOS.  They are built from pkgsrc trunk and are updated every few days.
 			</p>
 			<p class="lead">
 				We also provide archives of our previous package sets built on Mojave, Sierra,
@@ -62,25 +62,25 @@ prefix:      /opt/pkg
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
 			<ul class="nav nav-tabs" role="tablist">
-				<li role="presentation" class="active"><a href="#arm64-install" aria-controls="arm64-install" role="tab" data-toggle="tab">Apple Silicon</a></li>
-				<li role="presentation"><a href="#intel-install" aria-controls="intel-install" role="tab" data-toggle="tab">Intel</a></li>
+				<li role="presentation" class="active"><a href="#arm64-install" aria-controls="arm64-install" role="tab" data-toggle="tab">Apple Silicon 11.3+</a></li>
+				<li role="presentation"><a href="#intel-install" aria-controls="intel-install" role="tab" data-toggle="tab">Intel 11.3+</a></li>
 				<li role="presentation"><a href="#mojave-install" aria-controls="mojave-install" role="tab" data-toggle="tab">Mojave</a></li>
 				<li role="presentation"><a href="#sierra-install" aria-controls="sierra-install" role="tab" data-toggle="tab">Sierra</a></li>
 				<li role="presentation"><a href="#mavericks-install" aria-controls="mavericks-install" role="tab" data-toggle="tab">Mavericks</a></li>
 				<li role="presentation"><a href="#snow-leopard-install" aria-controls="snow-leopard-install" role="tab" data-toggle="tab">Snow Leopard</a></li>
 			</ul>
 			<div class="tab-content">
-				<div role="tabpanel" class="tab-pane" id="arm64-install">
+				<div role="tabpanel" class="tab-pane active" id="arm64-install">
 					<p></p>
 {% highlight bash %}
 #
 # Copy and paste the lines below to install the Apple Silicon set.
 #
-# These packages are suitable for anyone running Big Sur (11.x) or newer on
+# These packages are suitable for anyone running Big Sur (11.3) or newer on
 # Apple Silicon (ARM) CPUs, and are updated from pkgsrc trunk every few days.
 #
-BOOTSTRAP_TAR="bootstrap-macos11-trunk-arm64-20211207.tar.gz"
-BOOTSTRAP_SHA="036b7345ebb217cb685e54c919c66350d55d819c"
+BOOTSTRAP_TAR="bootstrap-macos11-trunk-arm64-20220913.tar.gz"
+BOOTSTRAP_SHA="97a1ee6b11b30529de6facf27e2042d602ca6af8"
 
 # Download the bootstrap kit to the current directory.
 curl -O https://pkgsrc.smartos.org/packages/Darwin/bootstrap/${BOOTSTRAP_TAR}
@@ -100,13 +100,13 @@ sudo tar -zxpf ${BOOTSTRAP_TAR} -C /
 eval $(/usr/libexec/path_helper)
 {% endhighlight %}
 				</div>
-				<div role="tabpanel" class="tab-pane active" id="intel-install">
+				<div role="tabpanel" class="tab-pane" id="intel-install">
 					<p></p>
 {% highlight bash %}
 #
 # Copy and paste the lines below to install the Intel set.
 #
-# These packages are suitable for anyone running Big Sur (11.x) or newer on
+# These packages are suitable for anyone running Big Sur (11.3) or newer on
 # Intel x86 CPUs, and are updated from pkgsrc trunk every few days.
 #
 BOOTSTRAP_TAR="bootstrap-macos11-trunk-x86_64-20211207.tar.gz"
@@ -137,7 +137,7 @@ eval $(/usr/libexec/path_helper)
 # Copy and paste the lines below to install the 64-bit Mojave set.
 #
 # These packages are suitable for anyone running Mojave (10.14.6) or Catalina
-# (10.15.x), and are updated from pkgsrc trunk every few days.
+# (10.15.x), however they are no longer updated.
 #
 BOOTSTRAP_TAR="bootstrap-macos14-trunk-x86_64-20210717.tar.gz"
 BOOTSTRAP_SHA="a23fed860e7f515e7405fcfea9595049b9ea6634"
