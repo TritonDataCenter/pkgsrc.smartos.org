@@ -48,39 +48,39 @@ prefix:      /opt/pkg
 	<div class="row">
 		<div class="col-md-10 col-md-offset-1">
 			<p class="lead">
-				Our primary packages for macOS are available for both Apple Silicon and Intel,
-				and thanks to being built against the 11.3 SDK run on all recent versions of
-				macOS.  They are built from pkgsrc trunk and are updated every week.
+				Our primary packages for macOS are available for both Apple Silicon (ARM M1/M2)
+				and Intel x86, running Big Sur or newer.  They are built from pkgsrc trunk and
+				are updated every week.
 			</p>
 			<p class="lead">
-				We also provide archives of our previous package sets built on Mojave, Sierra,
-				Mavericks, and 32-bit Snow Leopard for users who wish to quickly install
-				software on older releases.  These archived sets are no longer updated.
+				Select the upgrade kits to migrate from an existing pkgsrc.joyent.com install
+				to the new pkgsrc.smartos.org repository.
 			</p>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
 			<ul class="nav nav-tabs" role="tablist">
-				<li role="presentation" class="active"><a href="#arm64-install" aria-controls="arm64-install" role="tab" data-toggle="tab">Apple Silicon 11.3+</a></li>
+				<li role="presentation" class="active"><a href="#arm64-install" aria-controls="arm64-install" role="tab" data-toggle="tab">ARM 11.3+</a></li>
 				<li role="presentation"><a href="#intel-install" aria-controls="intel-install" role="tab" data-toggle="tab">Intel 11.3+</a></li>
-				<li role="presentation"><a href="#mojave-install" aria-controls="mojave-install" role="tab" data-toggle="tab">Mojave</a></li>
-				<li role="presentation"><a href="#sierra-install" aria-controls="sierra-install" role="tab" data-toggle="tab">Sierra</a></li>
-				<li role="presentation"><a href="#mavericks-install" aria-controls="mavericks-install" role="tab" data-toggle="tab">Mavericks</a></li>
-				<li role="presentation"><a href="#snow-leopard-install" aria-controls="snow-leopard-install" role="tab" data-toggle="tab">Snow Leopard</a></li>
+				<li role="presentation"><a href="#arm64-upgrade" aria-controls="arm64-upgrade" role="tab" data-toggle="tab">ARM 11.3+ (upgrade)</a></li>
+				<li role="presentation"><a href="#intel-upgrade" aria-controls="intel-upgrade" role="tab" data-toggle="tab">Intel 11.3+ (upgrade)</a></li>
 			</ul>
 			<div class="tab-content">
-				<div role="tabpanel" class="tab-pane active" id="arm64-install">
+				<div role="tabpanel" class="active tab-pane" id="arm64-install">
 					<p></p>
 {% highlight bash %}
 #
-# Copy and paste the lines below to install the Apple Silicon set.
+# Copy and paste the lines below to install the Apple Silicon (M1/M2) set.
 #
 # These packages are suitable for anyone running Big Sur (11.3) or newer on
 # Apple Silicon (M1/M2) CPUs, and are updated from pkgsrc trunk every week.
 #
-BOOTSTRAP_TAR="bootstrap-macos11-trunk-arm64-20220913.tar.gz"
-BOOTSTRAP_SHA="97a1ee6b11b30529de6facf27e2042d602ca6af8"
+# This should only ever be performed once.  Unpacking the bootstrap kit over
+# the top of an existing install will probably break things.
+#
+BOOTSTRAP_TAR="bootstrap-macos11-trunk-arm64-20220928.tar.gz"
+BOOTSTRAP_SHA="a6e3a805eba4b3522b6da0a590bda945a34e49dd"
 
 # Download the bootstrap kit to the current directory.
 curl -O https://pkgsrc.smartos.org/packages/Darwin/bootstrap/${BOOTSTRAP_TAR}
@@ -98,6 +98,49 @@ sudo tar -zxpf ${BOOTSTRAP_TAR} -C /
 
 # Reload PATH/MANPATH (pkgsrc installs /etc/paths.d/10-pkgsrc for new sessions)
 eval $(/usr/libexec/path_helper)
+{% endhighlight %}
+				</div>
+				<div role="tabpanel" class="tab-pane" id="arm64-upgrade">
+					<p></p>
+{% highlight bash %}
+#
+# Copy and paste the lines below to upgrade to the latest bootstrap.  This
+# will overwrite the following files:
+#
+#       {{ page.prefix }}/etc/mk.conf
+#       {{ page.prefix }}/etc/pkg_install.conf
+#       {{ page.prefix }}/etc/pkgin/repositories.conf
+#       {{ page.prefix }}/etc/gnupg/pkgsrc.gpg
+#
+# This only ever needs to be done once when any of the above files change, for
+# example if switching from pkgsrc.joyent.com to pkgsrc.smartos.org.  Under
+# normal operation "pkgin upgrade" is all you need to be up-to-date.
+#
+UPGRADE_TAR="bootstrap-macos11-trunk-arm64-20220928-upgrade.tar.gz"
+UPGRADE_SHA="86c988a33d83932f87edc69c399037680b0a5161"
+
+# Download the upgrade kit to the current directory.
+curl -O https://pkgsrc.smartos.org/packages/Darwin/bootstrap-upgrade/${UPGRADE_TAR}
+
+# Verify the SHA1 checksum.
+echo "${UPGRADE_SHA}  ${UPGRADE_TAR}" | shasum -c-
+
+# Verify PGP signature.  This step is optional, and requires gpg.
+# curl -O https://pkgsrc.smartos.org/packages/Darwin/bootstrap/${UPGRADE_TAR}.asc
+# curl -sS https://pkgsrc.smartos.org/pgp/1F32A9AD.asc | gpg2 --import
+# gpg2 --verify ${UPGRADE_TAR}{.asc,}
+
+# Unpack upgrade kit to {{ page.prefix }}
+sudo tar -zxpf ${UPGRADE_TAR} -C /
+
+# Ensure you are running the latest package tools.
+sudo pkg_add -U pkg_install pkgin libarchive
+
+# Clean out any old packages signed with the previous key.
+sudo pkgin clean
+
+# Upgrade all packages.
+sudo pkgin -y upgrade
 {% endhighlight %}
 				</div>
 				<div role="tabpanel" class="tab-pane" id="intel-install">
@@ -109,8 +152,11 @@ eval $(/usr/libexec/path_helper)
 # These packages are suitable for anyone running Big Sur (11.3) or newer on
 # Intel x86 CPUs, and are updated from pkgsrc trunk every week.
 #
-BOOTSTRAP_TAR="bootstrap-macos11-trunk-x86_64-20211207.tar.gz"
-BOOTSTRAP_SHA="07e323065708223bbac225d556b6aa5921711e0a"
+# This should only ever be performed once.  Unpacking the bootstrap kit over
+# the top of an existing install will probably break things.
+#
+BOOTSTRAP_TAR="bootstrap-macos11-trunk-x86_64-20220928.tar.gz"
+BOOTSTRAP_SHA="cc8b2788b204369ac2d65a9fc413d3b4efa3328f"
 
 # Download the bootstrap kit to the current directory.
 curl -O https://pkgsrc.smartos.org/packages/Darwin/bootstrap/${BOOTSTRAP_TAR}
@@ -130,7 +176,72 @@ sudo tar -zxpf ${BOOTSTRAP_TAR} -C /
 eval $(/usr/libexec/path_helper)
 {% endhighlight %}
 				</div>
-				<div role="tabpanel" class="tab-pane" id="mojave-install">
+				<div role="tabpanel" class="tab-pane" id="intel-upgrade">
+					<p></p>
+{% highlight bash %}
+#
+# Copy and paste the lines below to upgrade to the latest bootstrap.  This
+# will overwrite the following files:
+#
+#       {{ page.prefix }}/etc/mk.conf
+#       {{ page.prefix }}/etc/pkg_install.conf
+#       {{ page.prefix }}/etc/pkgin/repositories.conf
+#       {{ page.prefix }}/etc/gnupg/pkgsrc.gpg
+#
+# This only ever needs to be done once when any of the above files change, for
+# example if switching from pkgsrc.joyent.com to pkgsrc.smartos.org.  Under
+# normal operation "pkgin upgrade" is all you need to be up-to-date.
+#
+UPGRADE_TAR="bootstrap-macos11-trunk-x86_64-20220928-upgrade.tar.gz"
+UPGRADE_SHA="fde0517ce8830b4563907f5c198930e68e0409ee"
+
+# Download the upgrade kit to the current directory.
+curl -O https://pkgsrc.smartos.org/packages/Darwin/bootstrap-upgrade/${UPGRADE_TAR}
+
+# Verify the SHA1 checksum.
+echo "${UPGRADE_SHA}  ${UPGRADE_TAR}" | shasum -c-
+
+# Verify PGP signature.  This step is optional, and requires gpg.
+# curl -O https://pkgsrc.smartos.org/packages/Darwin/bootstrap/${UPGRADE_TAR}.asc
+# curl -sS https://pkgsrc.smartos.org/pgp/1F32A9AD.asc | gpg2 --import
+# gpg2 --verify ${UPGRADE_TAR}{.asc,}
+
+# Unpack upgrade kit to {{ page.prefix }}
+sudo tar -zxpf ${UPGRADE_TAR} -C /
+
+# Ensure you are running the latest package tools.
+sudo pkg_add -U pkg_install pkgin libarchive
+
+# Clean out any old packages signed with the previous key.
+sudo pkgin clean
+
+# Upgrade all packages.
+sudo pkgin -y upgrade
+{% endhighlight %}
+				</div>
+			</div>
+		</div>
+	</div>
+	<p></p>
+	<div class="row">
+		<div class="col-md-10 col-md-offset-1">
+			<p class="lead">
+				We also provide archives of our previous package sets built on Mojave, Sierra,
+				Mavericks, and 32-bit Snow Leopard, for users who wish to quickly install
+				software on older releases.  These archived sets are no longer updated.
+			</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<ul class="nav nav-tabs" role="tablist">
+				<li role="presentation" class="active"><a href="#mojave-install" aria-controls="mojave-install" role="tab" data-toggle="tab">Mojave</a></li>
+				<li role="presentation"><a href="#sierra-install" aria-controls="sierra-install" role="tab" data-toggle="tab">Sierra</a></li>
+				<li role="presentation"><a href="#mavericks-install" aria-controls="mavericks-install" role="tab" data-toggle="tab">Mavericks</a></li>
+				<li role="presentation"><a href="#snow-leopard-install" aria-controls="snow-leopard-install" role="tab" data-toggle="tab">Snow Leopard</a></li>
+			</ul>
+			<div class="tab-content">
+				<div role="tabpanel" class="active tab-pane" id="mojave-install">
 					<p></p>
 {% highlight bash %}
 #
