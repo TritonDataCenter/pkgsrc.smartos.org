@@ -90,7 +90,7 @@ echo "${BOOTSTRAP_SHA}  ${BOOTSTRAP_TAR}" | shasum -c-
 
 # Verify PGP signature.  This step is optional, and requires gpg.
 # curl -O https://pkgsrc.smartos.org/packages/Darwin/bootstrap/${BOOTSTRAP_TAR}.asc
-# curl -sS https://pkgsrc.smartos.org/pgp/1F32A9AD.asc | gpg2 --import
+# curl -sS https://pkgsrc.smartos.org/pgp/ED09C4B0.asc | gpg2 --import
 # gpg2 --verify ${BOOTSTRAP_TAR}{.asc,}
 
 # Install bootstrap kit to {{ page.prefix }}
@@ -127,7 +127,7 @@ echo "${UPGRADE_SHA}  ${UPGRADE_TAR}" | shasum -c-
 
 # Verify PGP signature.  This step is optional, and requires gpg.
 # curl -O https://pkgsrc.smartos.org/packages/Darwin/bootstrap/${UPGRADE_TAR}.asc
-# curl -sS https://pkgsrc.smartos.org/pgp/1F32A9AD.asc | gpg2 --import
+# curl -sS https://pkgsrc.smartos.org/pgp/ED09C4B0.asc | gpg2 --import
 # gpg2 --verify ${UPGRADE_TAR}{.asc,}
 
 # Unpack upgrade kit to {{ page.prefix }}
@@ -166,7 +166,7 @@ echo "${BOOTSTRAP_SHA}  ${BOOTSTRAP_TAR}" | shasum -c-
 
 # Verify PGP signature.  This step is optional, and requires gpg.
 # curl -O https://pkgsrc.smartos.org/packages/Darwin/bootstrap/${BOOTSTRAP_TAR}.asc
-# curl -sS https://pkgsrc.smartos.org/pgp/1F32A9AD.asc | gpg2 --import
+# curl -sS https://pkgsrc.smartos.org/pgp/ED09C4B0.asc | gpg2 --import
 # gpg2 --verify ${BOOTSTRAP_TAR}{.asc,}
 
 # Install bootstrap kit to {{ page.prefix }}
@@ -203,7 +203,7 @@ echo "${UPGRADE_SHA}  ${UPGRADE_TAR}" | shasum -c-
 
 # Verify PGP signature.  This step is optional, and requires gpg.
 # curl -O https://pkgsrc.smartos.org/packages/Darwin/bootstrap/${UPGRADE_TAR}.asc
-# curl -sS https://pkgsrc.smartos.org/pgp/1F32A9AD.asc | gpg2 --import
+# curl -sS https://pkgsrc.smartos.org/pgp/ED09C4B0.asc | gpg2 --import
 # gpg2 --verify ${UPGRADE_TAR}{.asc,}
 
 # Unpack upgrade kit to {{ page.prefix }}
