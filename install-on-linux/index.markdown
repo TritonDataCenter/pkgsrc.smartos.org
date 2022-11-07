@@ -52,8 +52,8 @@ sha1sum -c check-shasum
 sudo tar -zxpf ${BOOTSTRAP_TAR} -C /
 
 # Add paths
-$ PATH={{ page.prefix }}/sbin:{{ page.prefix }}/bin:$PATH
-$ MANPATH={{ page.prefix }}/man:$MANPATH
+PATH={{ page.prefix }}/sbin:{{ page.prefix }}/bin:$PATH
+MANPATH={{ page.prefix }}/man:$MANPATH
 {% endhighlight %}
 				</div>
 				<div role="tabpanel" class="tab-pane" id="el7-upgrade">
