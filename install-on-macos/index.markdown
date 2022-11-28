@@ -126,7 +126,7 @@ curl -O https://pkgsrc.smartos.org/packages/Darwin/bootstrap-upgrade/${UPGRADE_T
 echo "${UPGRADE_SHA}  ${UPGRADE_TAR}" | shasum -c-
 
 # Verify PGP signature.  This step is optional, and requires gpg.
-# curl -O https://pkgsrc.smartos.org/packages/Darwin/bootstrap/${UPGRADE_TAR}.asc
+# curl -O https://pkgsrc.smartos.org/packages/Darwin/bootstrap-upgrade/${UPGRADE_TAR}.asc
 # curl -sS https://pkgsrc.smartos.org/pgp/ED09C4B0.asc | gpg2 --import
 # gpg2 --verify ${UPGRADE_TAR}{.asc,}
 
@@ -202,7 +202,7 @@ curl -O https://pkgsrc.smartos.org/packages/Darwin/bootstrap-upgrade/${UPGRADE_T
 echo "${UPGRADE_SHA}  ${UPGRADE_TAR}" | shasum -c-
 
 # Verify PGP signature.  This step is optional, and requires gpg.
-# curl -O https://pkgsrc.smartos.org/packages/Darwin/bootstrap/${UPGRADE_TAR}.asc
+# curl -O https://pkgsrc.smartos.org/packages/Darwin/bootstrap-upgrade/${UPGRADE_TAR}.asc
 # curl -sS https://pkgsrc.smartos.org/pgp/ED09C4B0.asc | gpg2 --import
 # gpg2 --verify ${UPGRADE_TAR}{.asc,}
 
