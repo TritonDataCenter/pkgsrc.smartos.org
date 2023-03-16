@@ -45,7 +45,7 @@ sha1sum -c check-shasum
 
 # Verify PGP signature.  This step is optional, and requires gpg.
 #curl -O https://pkgsrc.smartos.org/packages/Linux/bootstrap/${BOOTSTRAP_TAR}.asc
-#curl -sS https://pkgsrc.smartos.org/pgp/56AAACAF.asc | gpg2 --import
+#curl -sS https://pkgsrc.smartos.org/pgp/5FE35E6E.asc | gpg2 --import
 #gpg2 --verify ${BOOTSTRAP_TAR}{.asc,}
 
 # Install bootstrap kit to {{ page.prefix }}
@@ -80,7 +80,7 @@ sha1sum -c check-shasum
 
 # Verify PGP signature.  This step is optional, and requires gpg.
 #curl -O https://pkgsrc.smartos.org/packages/Linux/bootstrap-upgrade/${UPGRADE_TAR}.asc
-#curl -sS https://pkgsrc.smartos.org/pgp/56AAACAF.asc | gpg2 --import
+#curl -sS https://pkgsrc.smartos.org/pgp/5FE35E6E.asc | gpg2 --import
 #gpg2 --verify ${UPGRADE_TAR}{.asc,}
 
 # Install bootstrap kit to {{ page.prefix }}
