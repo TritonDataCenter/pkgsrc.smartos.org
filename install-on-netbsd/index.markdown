@@ -14,11 +14,10 @@ prefix:      /usr/pkg
 	<div class="row">
 		<div class="col-md-10 col-md-offset-1">
 			<p class="lead">
-				Packages are built on the latest development
-				version of NetBSD/amd64 (currently 9.99.98)
-				from pkgsrc trunk and updated every few days.
-				Note some important differences to other NetBSD
-				package repositories:
+				Packages are built on the latest stable version of NetBSD/amd64
+				(currently 10.0_BETA) from pkgsrc trunk and updated every few
+				days.  Note some important differences to other NetBSD package
+				repositories:
 			</p>
 			<ul class="lead">
 				<li class="lead">
@@ -59,10 +58,10 @@ prefix:      /usr/pkg
 					<p></p>
 {% highlight bash %}
 #
-# Copy and paste the lines below to install the NetBSD/amd64 9.99.x set.
+# Copy and paste the lines below to install the NetBSD/amd64 set.
 #
-BOOTSTRAP_TAR="bootstrap-netbsd-trunk-x86_64-20220718.tar.gz"
-BOOTSTRAP_SHA="f21c7f7f4ba547bf922c16ea656a9481c8bcb526"
+BOOTSTRAP_TAR="bootstrap-netbsd-trunk-x86_64-20230710.tar.gz"
+BOOTSTRAP_SHA="86aed1031713e15e7f411d3622124673797cce0c"
 
 # Download the bootstrap kit to the current directory.
 ftp https://pkgsrc.smartos.org/packages/NetBSD/bootstrap/${BOOTSTRAP_TAR}
@@ -101,8 +100,8 @@ PATH={{ page.prefix }}/sbin:{{ page.prefix }}/bin:$PATH
 #	{{ page.prefix }}/etc/pkgin/repositories.conf
 #	{{ page.prefix }}/etc/gnupg/pkgsrc.gpg
 #
-UPGRADE_TAR="bootstrap-netbsd-trunk-x86_64-20220718-upgrade.tar.gz"
-UPGRADE_SHA="81220a2ed0b0426886199c8f4fb287b19d934711"
+UPGRADE_TAR="bootstrap-netbsd-trunk-x86_64-20230710-upgrade.tar.gz"
+UPGRADE_SHA="a4c9ae2f7be88734d11c339ddd70d06b56d28a20"
 
 # Download the upgrade kit to the current directory.
 ftp https://pkgsrc.smartos.org/packages/NetBSD/bootstrap-upgrade/${UPGRADE_TAR}
