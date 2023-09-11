@@ -92,8 +92,8 @@ prefix:      /opt/local
 #
 # Copy and paste the lines below to install the latest bootstrap.
 #
-BOOTSTRAP_TAR="bootstrap-trunk-x86_64-20230313.tar.gz"
-BOOTSTRAP_SHA="9cbd71b08358d1acf66eb44faacc78bc2abc77df"
+BOOTSTRAP_TAR="bootstrap-trunk-x86_64-20230910.tar.gz"
+BOOTSTRAP_SHA="e21ff6c284ab17a4a0af65e08b4b5be892d3f69f"
 
 # Download the bootstrap kit to the current directory.
 curl -O https://pkgsrc.smartos.org/packages/SmartOS/bootstrap/${BOOTSTRAP_TAR}
@@ -126,8 +126,8 @@ MANPATH={{ page.prefix }}/man:$MANPATH
 #	{{ page.prefix }}/etc/pkgin/repositories.conf
 #	{{ page.prefix }}/etc/gnupg/pkgsrc.gpg
 #
-UPGRADE_TAR="bootstrap-trunk-x86_64-20230313-upgrade.tar.gz"
-UPGRADE_SHA="13a31cab4787e2c45ed645872971d2ad46fe66ad"
+UPGRADE_TAR="bootstrap-trunk-x86_64-20230910-upgrade.tar.gz"
+UPGRADE_SHA="dd568c728d014367bce1018959ab1c06c9d283a0"
 
 # Download the upgrade kit to the current directory.
 curl -O https://pkgsrc.smartos.org/packages/SmartOS/bootstrap-upgrade/${UPGRADE_TAR}
@@ -159,8 +159,8 @@ pkgin -y upgrade
 #
 # Copy and paste the lines below to install the latest tools bootstrap.
 #
-BOOTSTRAP_TAR="bootstrap-trunk-tools-20230313.tar.gz"
-BOOTSTRAP_SHA="facd7be71574af6e11561203138577eed108969f"
+BOOTSTRAP_TAR="bootstrap-trunk-tools-20230910.tar.gz"
+BOOTSTRAP_SHA="23169c6b462526799a009c76c13f2be783c86851"
 
 # Ensure you are in a directory with enough space for the bootstrap download,
 # by default the SmartOS /root directory is limited to the size of the ramdisk.
@@ -198,8 +198,8 @@ MANPATH=/opt/tools/man:$MANPATH
 #	/opt/tools/etc/pkgin/repositories.conf
 #	/opt/tools/etc/gnupg/pkgsrc.gpg
 #
-UPGRADE_TAR="bootstrap-trunk-tools-20230313-upgrade.tar.gz"
-UPGRADE_SHA="d226e8ad9d729ad435116512e93c209ef5486845"
+UPGRADE_TAR="bootstrap-trunk-tools-20230910-upgrade.tar.gz"
+UPGRADE_SHA="4f21a035d652494ee4028efd92e3f200638bf85e"
 
 # Download the upgrade kit to the current directory.  Note that we currently
 # pass "-k" to skip SSL certificate checks as the GZ doesn't install them.
