@@ -1,5 +1,5 @@
 RSYNC_ARGS=	-acv --delete --exclude Makefile --exclude packages
-RSYNC_DEST=	pkgsrc-www0:/nfs/www/pkgsrc.smartos.org/
+RSYNC_DEST=	pkgsrc-www0:/data/www/pkgsrc.smartos.org/
 
 build:
 	jekyll build
