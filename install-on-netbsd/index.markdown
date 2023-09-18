@@ -26,11 +26,6 @@ prefix:      /usr/pkg
 					<code>/usr/pkg/etc/pkg_install.conf</code>).
 				</li>
 				<li class="lead">
-					The bootstrap kit bundles <code>/etc/openssl/certs/</code> containing certificates installed
-					from the security/mozilla-rootcerts package, ensuring HTTPS will work without requiring any
-					manual configuration.
-				</li>
-				<li class="lead">
 					Both <code>CHECK_OSABI</code> and <code>CHECK_OS_VERSION</code> are set to <code>no</code>,
 					improving compatibility of the packages across minor releases of NetBSD-current.
 				</li>
@@ -60,8 +55,8 @@ prefix:      /usr/pkg
 #
 # Copy and paste the lines below to install the NetBSD/amd64 set.
 #
-BOOTSTRAP_TAR="bootstrap-netbsd-trunk-x86_64-20230710.tar.gz"
-BOOTSTRAP_SHA="86aed1031713e15e7f411d3622124673797cce0c"
+BOOTSTRAP_TAR="bootstrap-netbsd-trunk-x86_64-20230918.tar.gz"
+BOOTSTRAP_SHA="493161aa5dd4c91c99e77187fa9fc3498fd2560b"
 
 # Download the bootstrap kit to the current directory.
 ftp https://pkgsrc.smartos.org/packages/NetBSD/bootstrap/${BOOTSTRAP_TAR}
@@ -100,8 +95,8 @@ PATH={{ page.prefix }}/sbin:{{ page.prefix }}/bin:$PATH
 #	{{ page.prefix }}/etc/pkgin/repositories.conf
 #	{{ page.prefix }}/etc/gnupg/pkgsrc.gpg
 #
-UPGRADE_TAR="bootstrap-netbsd-trunk-x86_64-20230710-upgrade.tar.gz"
-UPGRADE_SHA="a4c9ae2f7be88734d11c339ddd70d06b56d28a20"
+UPGRADE_TAR="bootstrap-netbsd-trunk-x86_64-20230918-upgrade.tar.gz"
+UPGRADE_SHA="2af0899b2c77b59703b85a9c3ef52d31a84d2e41"
 
 # Download the upgrade kit to the current directory.
 ftp https://pkgsrc.smartos.org/packages/NetBSD/bootstrap-upgrade/${UPGRADE_TAR}
