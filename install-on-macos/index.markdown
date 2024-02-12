@@ -79,8 +79,8 @@ prefix:      /opt/pkg
 # This should only ever be performed once.  Unpacking the bootstrap kit over
 # the top of an existing install will probably break things.
 #
-BOOTSTRAP_TAR="bootstrap-macos11-trunk-arm64-20230911.tar.gz"
-BOOTSTRAP_SHA="31db22c73cfe4e11d6de66bc526124e739d067ab"
+BOOTSTRAP_TAR="bootstrap-macos11-trunk-arm64-20240212.tar.gz"
+BOOTSTRAP_SHA="3d2a31e1f3eb026bb9ed0b3a63787355ad73a958"
 
 # Download the bootstrap kit to the current directory.
 curl -O https://pkgsrc.smartos.org/packages/Darwin/bootstrap/${BOOTSTRAP_TAR}
@@ -116,8 +116,8 @@ eval $(/usr/libexec/path_helper)
 # example if switching from pkgsrc.joyent.com to pkgsrc.smartos.org.  Under
 # normal operation "pkgin upgrade" is all you need to be up-to-date.
 #
-UPGRADE_TAR="bootstrap-macos11-trunk-arm64-20230911-upgrade.tar.gz"
-UPGRADE_SHA="911a2a7120518a2ebd6459049689081ccee02417"
+UPGRADE_TAR="bootstrap-macos11-trunk-arm64-20240212-upgrade.tar.gz"
+UPGRADE_SHA="e7040b560020e81976ddb6993e16ca61774cde1d"
 
 # Download the upgrade kit to the current directory.
 curl -O https://pkgsrc.smartos.org/packages/Darwin/bootstrap-upgrade/${UPGRADE_TAR}
@@ -155,8 +155,8 @@ sudo pkgin -y upgrade
 # This should only ever be performed once.  Unpacking the bootstrap kit over
 # the top of an existing install will probably break things.
 #
-BOOTSTRAP_TAR="bootstrap-macos11-trunk-x86_64-20230911.tar.gz"
-BOOTSTRAP_SHA="abdb2ce184eec30546ff3708b5e38abc63d740b1"
+BOOTSTRAP_TAR="bootstrap-macos11-trunk-x86_64-20240212.tar.gz"
+BOOTSTRAP_SHA="c4b71fe9bf0ef89cc8d38909496a75693050cd96"
 
 # Download the bootstrap kit to the current directory.
 curl -O https://pkgsrc.smartos.org/packages/Darwin/bootstrap/${BOOTSTRAP_TAR}
@@ -192,8 +192,8 @@ eval $(/usr/libexec/path_helper)
 # example if switching from pkgsrc.joyent.com to pkgsrc.smartos.org.  Under
 # normal operation "pkgin upgrade" is all you need to be up-to-date.
 #
-UPGRADE_TAR="bootstrap-macos11-trunk-x86_64-20230911-upgrade.tar.gz"
-UPGRADE_SHA="3ad9ffc0a8a224f429a14ba499244e36674976d4"
+UPGRADE_TAR="bootstrap-macos11-trunk-x86_64-20240212-upgrade.tar.gz"
+UPGRADE_SHA="8adff442e8e0ec9de6da87543bc2a3b7eb432bd3"
 
 # Download the upgrade kit to the current directory.
 curl -O https://pkgsrc.smartos.org/packages/Darwin/bootstrap-upgrade/${UPGRADE_TAR}
