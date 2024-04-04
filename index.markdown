@@ -67,7 +67,7 @@ CFLAGS+=                -O3
 		</div>
 		<div class="col-md-3">
 			<h3>macOS</h3>
-			<p>For macOS we offer the latest packages built on Big Sur and Mojave.  For those on older releases we have archived package sets built on Sierra, Mavericks, and 32-bit Snow Leopard.</p>
+			<p>For macOS we offer the latest packages built for Big Sur or newer.  For those on older releases we have archived package sets built for Sierra, Mavericks, and 32-bit Snow Leopard.</p>
 		</div>
 		<div class="col-md-3">
 			<h3>Linux</h3>
