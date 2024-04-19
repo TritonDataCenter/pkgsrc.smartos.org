@@ -48,39 +48,36 @@ prefix:      /opt/pkg
 	<div class="row">
 		<div class="col-md-10 col-md-offset-1">
 			<p class="lead">
-				Our primary packages for macOS are available for both Apple Silicon (ARM M1/M2)
-				and Intel x86, running Big Sur or newer.  They are built from pkgsrc trunk and
-				are updated every week.
-			</p>
-			<p class="lead">
-				Select the upgrade kits to migrate from an existing pkgsrc.joyent.com install
-				to the new pkgsrc.smartos.org repository.
+				Our primary packages for macOS are available for both Apple
+				Silicon (arm64) and Intel (x86_64), running Monterey
+				(MacOSX12.3.sdk) or newer.
+				Built from pkgsrc trunk, they are updated every week.
 			</p>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
 			<ul class="nav nav-tabs" role="tablist">
-				<li role="presentation" class="active"><a href="#arm64-install" aria-controls="arm64-install" role="tab" data-toggle="tab">ARM 11.3+</a></li>
-				<li role="presentation"><a href="#intel-install" aria-controls="intel-install" role="tab" data-toggle="tab">Intel 11.3+</a></li>
-				<li role="presentation"><a href="#arm64-upgrade" aria-controls="arm64-upgrade" role="tab" data-toggle="tab">ARM 11.3+ (upgrade)</a></li>
-				<li role="presentation"><a href="#intel-upgrade" aria-controls="intel-upgrade" role="tab" data-toggle="tab">Intel 11.3+ (upgrade)</a></li>
+				<li role="presentation" class="active"><a href="#arm64-install" aria-controls="arm64-install" role="tab" data-toggle="tab">ARM 12.3+</a></li>
+				<li role="presentation"><a href="#intel-install" aria-controls="intel-install" role="tab" data-toggle="tab">Intel 12.3+</a></li>
+				<li role="presentation"><a href="#arm64-upgrade" aria-controls="arm64-upgrade" role="tab" data-toggle="tab">ARM 12.3+ (upgrade)</a></li>
+				<li role="presentation"><a href="#intel-upgrade" aria-controls="intel-upgrade" role="tab" data-toggle="tab">Intel 12.3+ (upgrade)</a></li>
 			</ul>
 			<div class="tab-content">
 				<div role="tabpanel" class="active tab-pane" id="arm64-install">
 					<p></p>
 {% highlight bash %}
 #
-# Copy and paste the lines below to install the Apple Silicon (M1/M2) set.
+# Copy and paste the lines below to install the Apple Silicon (arm64) set.
 #
-# These packages are suitable for anyone running Big Sur (11.3) or newer on
-# Apple Silicon (M1/M2) CPUs, and are updated from pkgsrc trunk every week.
+# These packages are suitable for anyone running Monterey (12.3) or newer on
+# Apple Silicon CPUs, and are updated from pkgsrc trunk every week.
 #
 # This should only ever be performed once.  Unpacking the bootstrap kit over
-# the top of an existing install will probably break things.
+# the top of an existing install will corrupt your package database.
 #
-BOOTSTRAP_TAR="bootstrap-macos11-trunk-arm64-20240212.tar.gz"
-BOOTSTRAP_SHA="3d2a31e1f3eb026bb9ed0b3a63787355ad73a958"
+BOOTSTRAP_TAR="bootstrap-macos12.3-trunk-arm64-20240418.tar.gz"
+BOOTSTRAP_SHA="6c48ec850dffca60ae887797b117671de66e0193"
 
 # Download the bootstrap kit to the current directory.
 curl -O https://pkgsrc.smartos.org/packages/Darwin/bootstrap/${BOOTSTRAP_TAR}
@@ -112,12 +109,14 @@ eval $(/usr/libexec/path_helper)
 #       {{ page.prefix }}/etc/pkgin/repositories.conf
 #       {{ page.prefix }}/etc/gnupg/pkgsrc.gpg
 #
-# This only ever needs to be done once when any of the above files change, for
-# example if switching from pkgsrc.joyent.com to pkgsrc.smartos.org.  Under
-# normal operation "pkgin upgrade" is all you need to be up-to-date.
+# This only ever needs to be done if any of the above files change, for example
+# if switching from pkgsrc.joyent.com to pkgsrc.smartos.org, or upgrading to a
+# newer OS package set.
 #
-UPGRADE_TAR="bootstrap-macos11-trunk-arm64-20240212-upgrade.tar.gz"
-UPGRADE_SHA="e7040b560020e81976ddb6993e16ca61774cde1d"
+# Under normal operations "pkgin upgrade" is all you need to be up-to-date.
+#
+UPGRADE_TAR="bootstrap-macos12.3-trunk-arm64-20240418-upgrade.tar.gz"
+UPGRADE_SHA="386c6c27f3761916ec8848c3532baf8bcf26229f"
 
 # Download the upgrade kit to the current directory.
 curl -O https://pkgsrc.smartos.org/packages/Darwin/bootstrap-upgrade/${UPGRADE_TAR}
@@ -134,7 +133,7 @@ echo "${UPGRADE_SHA}  ${UPGRADE_TAR}" | shasum -c-
 sudo tar -zxpf ${UPGRADE_TAR} -C /
 
 # Ensure you are running the latest package tools.
-sudo pkg_add -U pkg_install pkgin libarchive
+sudo pkg_add -U pkg_install pkgin
 
 # Clean out any old packages signed with the previous key.
 sudo pkgin clean
@@ -149,14 +148,14 @@ sudo pkgin -y upgrade
 #
 # Copy and paste the lines below to install the Intel set.
 #
-# These packages are suitable for anyone running Big Sur (11.3) or newer on
+# These packages are suitable for anyone running Monterey (12.3) or newer on
 # Intel x86 CPUs, and are updated from pkgsrc trunk every week.
 #
 # This should only ever be performed once.  Unpacking the bootstrap kit over
-# the top of an existing install will probably break things.
+# the top of an existing install will corrupt your package database.
 #
-BOOTSTRAP_TAR="bootstrap-macos11-trunk-x86_64-20240212.tar.gz"
-BOOTSTRAP_SHA="c4b71fe9bf0ef89cc8d38909496a75693050cd96"
+BOOTSTRAP_TAR="bootstrap-macos12.3-trunk-x86_64-20240418.tar.gz"
+BOOTSTRAP_SHA="82f819b260dcdd63fea92b4e967a8992471f795f"
 
 # Download the bootstrap kit to the current directory.
 curl -O https://pkgsrc.smartos.org/packages/Darwin/bootstrap/${BOOTSTRAP_TAR}
@@ -188,12 +187,14 @@ eval $(/usr/libexec/path_helper)
 #       {{ page.prefix }}/etc/pkgin/repositories.conf
 #       {{ page.prefix }}/etc/gnupg/pkgsrc.gpg
 #
-# This only ever needs to be done once when any of the above files change, for
-# example if switching from pkgsrc.joyent.com to pkgsrc.smartos.org.  Under
-# normal operation "pkgin upgrade" is all you need to be up-to-date.
+# This only ever needs to be done if any of the above files change, for example
+# if switching from pkgsrc.joyent.com to pkgsrc.smartos.org, or upgrading to a
+# newer OS package set.
 #
-UPGRADE_TAR="bootstrap-macos11-trunk-x86_64-20240212-upgrade.tar.gz"
-UPGRADE_SHA="8adff442e8e0ec9de6da87543bc2a3b7eb432bd3"
+# Under normal operations "pkgin upgrade" is all you need to be up-to-date.
+#
+UPGRADE_TAR="bootstrap-macos12.3-trunk-x86_64-20240418-upgrade.tar.gz"
+UPGRADE_SHA="4f1dacbafe6a8969008e59ac4689ec2695d9f43d"
 
 # Download the upgrade kit to the current directory.
 curl -O https://pkgsrc.smartos.org/packages/Darwin/bootstrap-upgrade/${UPGRADE_TAR}
@@ -210,7 +211,7 @@ echo "${UPGRADE_SHA}  ${UPGRADE_TAR}" | shasum -c-
 sudo tar -zxpf ${UPGRADE_TAR} -C /
 
 # Ensure you are running the latest package tools.
-sudo pkg_add -U pkg_install pkgin libarchive
+sudo pkg_add -U pkg_install pkgin
 
 # Clean out any old packages signed with the previous key.
 sudo pkgin clean
@@ -226,22 +227,61 @@ sudo pkgin -y upgrade
 	<div class="row">
 		<div class="col-md-10 col-md-offset-1">
 			<p class="lead">
-				We also provide archives of our previous package sets built on Mojave, Sierra,
-				Mavericks, and 32-bit Snow Leopard, for users who wish to quickly install
-				software on older releases.  These archived sets are no longer updated.
+				We also provide archives of our previous package sets built on
+				Big Sur, Mojave, Sierra, Mavericks, and 32-bit Snow Leopard,
+				for users who wish to quickly install software on older
+				releases.  These archived sets are no longer updated.
 			</p>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
 			<ul class="nav nav-tabs" role="tablist">
-				<li role="presentation" class="active"><a href="#mojave-install" aria-controls="mojave-install" role="tab" data-toggle="tab">Mojave</a></li>
+				<li role="presentation" class="active"><a href="#bigsur-install" aria-controls="bigsur-install" role="tab" data-toggle="tab">Big Sur</a></li>
+				<li role="presentation"><a href="#mojave-install" aria-controls="mojave-install" role="tab" data-toggle="tab">Mojave</a></li>
 				<li role="presentation"><a href="#sierra-install" aria-controls="sierra-install" role="tab" data-toggle="tab">Sierra</a></li>
 				<li role="presentation"><a href="#mavericks-install" aria-controls="mavericks-install" role="tab" data-toggle="tab">Mavericks</a></li>
 				<li role="presentation"><a href="#snow-leopard-install" aria-controls="snow-leopard-install" role="tab" data-toggle="tab">Snow Leopard</a></li>
 			</ul>
 			<div class="tab-content">
-				<div role="tabpanel" class="active tab-pane" id="mojave-install">
+				<div role="tabpanel" class="active tab-pane" id="bigsur-install">
+					<p></p>
+{% highlight bash %}
+#
+# Copy and paste the lines below to install a Big Sur (11.3) set.
+#
+# Make sure to only paste the lines for either the arm64 or x86_64 set!  These
+# packages are no longer updated.
+#
+# Select the ARM64 set:
+#
+BOOTSTRAP_TAR="bootstrap-macos11-trunk-arm64-20240212.tar.gz"
+BOOTSTRAP_SHA="3d2a31e1f3eb026bb9ed0b3a63787355ad73a958"
+#
+# OR select the x86_64 set:
+#
+BOOTSTRAP_TAR="bootstrap-macos11-trunk-x86_64-20240212.tar.gz"
+BOOTSTRAP_SHA="c4b71fe9bf0ef89cc8d38909496a75693050cd96"
+
+# Download the bootstrap kit to the current directory.
+curl -O https://pkgsrc.smartos.org/packages/Darwin/bootstrap/${BOOTSTRAP_TAR}
+
+# Verify the SHA1 checksum.
+echo "${BOOTSTRAP_SHA}  ${BOOTSTRAP_TAR}" | shasum -c-
+
+# Verify PGP signature.  This step is optional, and requires gpg.
+# curl -O https://pkgsrc.smartos.org/packages/Darwin/bootstrap/${BOOTSTRAP_TAR}.asc
+# curl -sS https://pkgsrc.smartos.org/pgp/1F32A9AD.asc | gpg2 --import
+# gpg2 --verify ${BOOTSTRAP_TAR}{.asc,}
+
+# Install bootstrap kit to {{ page.prefix }}
+sudo tar -zxpf ${BOOTSTRAP_TAR} -C /
+
+# Reload PATH/MANPATH (pkgsrc installs /etc/paths.d/10-pkgsrc for new sessions)
+eval $(/usr/libexec/path_helper)
+{% endhighlight %}
+				</div>
+				<div role="tabpanel" class="tab-pane" id="mojave-install">
 					<p></p>
 {% highlight bash %}
 #
