@@ -49,8 +49,8 @@ prefix:      /opt/pkg
 		<div class="col-md-10 col-md-offset-1">
 			<p class="lead">
 				Our primary packages for macOS are available for both Apple
-				Silicon (arm64) and Intel (x86_64), running Monterey
-				(MacOSX12.3.sdk) or newer.
+				Silicon (arm64) and Intel (x86_64), running Monterey (12.3)
+				or newer.
 				Built from pkgsrc trunk, they are updated every week.
 			</p>
 		</div>
