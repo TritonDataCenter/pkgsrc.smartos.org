@@ -36,17 +36,17 @@ metacontent: Binary pkgsrc package sets for SmartOS/illumos, macOS, Linux, and N
 {% highlight console %}
 # pkgin -y upgrade
 # pkgin search ffmpeg
-ffmpeg4-4.1.1   Decoding, encoding and streaming software (v4.x)
-ffmpeg3-3.4.5   Decoding, encoding and streaming software (v3.x)
-# pkgin install ffmpeg4
+ffmpeg6-6.1.1   Decoding, encoding and streaming software (v6.x)
+ffmpeg7-7.0     Decoding, encoding and streaming software (v7.x)
+# pkgin install ffmpeg7
 {% endhighlight %}
 		</div>
 		<div class="col-md-4">
 {% highlight console %}
 # vi /opt/pkg/etc/mk.conf.local
-PKG_OPTIONS.ffmpeg4+=   faac x265
+PKG_OPTIONS.ffmpeg7+=   fdk-aac x265
 CFLAGS+=                -O3
-# cd pkgsrc/multimedia/ffmpeg4
+# cd pkgsrc/multimedia/ffmpeg7
 # bmake install
 {% endhighlight %}
 		</div>
@@ -67,7 +67,7 @@ CFLAGS+=                -O3
 		</div>
 		<div class="col-md-3">
 			<h3>macOS</h3>
-			<p>For macOS we offer the latest packages built for Big Sur or newer.  For those on older releases we have archived package sets built for Sierra, Mavericks, and 32-bit Snow Leopard.</p>
+			<p>For macOS we offer the latest packages built for Monterey or newer.  For those on older releases we have archived package sets built for Big Sur, Sierra, Mavericks, and 32-bit Snow Leopard.</p>
 		</div>
 		<div class="col-md-3">
 			<h3>Linux</h3>
@@ -75,7 +75,7 @@ CFLAGS+=                -O3
 		</div>
 		<div class="col-md-3">
 			<h3>NetBSD</h3>
-			<p>We also offer daily builds for the latest NetBSD/amd64 development version.  They are provided for developers working on the operating system, and for testing pkgsrc changes.</p>
+			<p>We also offer daily builds of pkgsrc trunk for NetBSD 10.0/amd64.  They are provided for users and developers to run the latest packages without having to wait for the next branch.</p>
 		</div>
 	</div>
 	<div class="row">
