@@ -76,8 +76,8 @@ prefix:      /opt/pkg
 # This should only ever be performed once.  Unpacking the bootstrap kit over
 # the top of an existing install will corrupt your package database.
 #
-BOOTSTRAP_TAR="bootstrap-macos12.3-trunk-arm64-20240418.tar.gz"
-BOOTSTRAP_SHA="6c48ec850dffca60ae887797b117671de66e0193"
+BOOTSTRAP_TAR="bootstrap-macos12.3-trunk-arm64-20240426.tar.gz"
+BOOTSTRAP_SHA="97cbb189458ff2765dbacbbaa691460a1d658e7c"
 
 # Download the bootstrap kit to the current directory.
 curl -O https://pkgsrc.smartos.org/packages/Darwin/bootstrap/${BOOTSTRAP_TAR}
@@ -115,8 +115,8 @@ eval $(/usr/libexec/path_helper)
 #
 # Under normal operations "pkgin upgrade" is all you need to be up-to-date.
 #
-UPGRADE_TAR="bootstrap-macos12.3-trunk-arm64-20240418-upgrade.tar.gz"
-UPGRADE_SHA="386c6c27f3761916ec8848c3532baf8bcf26229f"
+UPGRADE_TAR="bootstrap-macos12.3-trunk-arm64-20240426-upgrade.tar.gz"
+UPGRADE_SHA="aea829f75459dddefa724c1ba062a95242640a41"
 
 # Download the upgrade kit to the current directory.
 curl -O https://pkgsrc.smartos.org/packages/Darwin/bootstrap-upgrade/${UPGRADE_TAR}
@@ -154,8 +154,8 @@ sudo pkgin -y upgrade
 # This should only ever be performed once.  Unpacking the bootstrap kit over
 # the top of an existing install will corrupt your package database.
 #
-BOOTSTRAP_TAR="bootstrap-macos12.3-trunk-x86_64-20240418.tar.gz"
-BOOTSTRAP_SHA="82f819b260dcdd63fea92b4e967a8992471f795f"
+BOOTSTRAP_TAR="bootstrap-macos12.3-trunk-x86_64-20240426.tar.gz"
+BOOTSTRAP_SHA="2b151d12576befd85312ddb5261307998f16df2f"
 
 # Download the bootstrap kit to the current directory.
 curl -O https://pkgsrc.smartos.org/packages/Darwin/bootstrap/${BOOTSTRAP_TAR}
@@ -193,8 +193,8 @@ eval $(/usr/libexec/path_helper)
 #
 # Under normal operations "pkgin upgrade" is all you need to be up-to-date.
 #
-UPGRADE_TAR="bootstrap-macos12.3-trunk-x86_64-20240418-upgrade.tar.gz"
-UPGRADE_SHA="4f1dacbafe6a8969008e59ac4689ec2695d9f43d"
+UPGRADE_TAR="bootstrap-macos12.3-trunk-x86_64-20240426-upgrade.tar.gz"
+UPGRADE_SHA="bcbd41547216ec5a2f59ba460c3f7eef7a900eed"
 
 # Download the upgrade kit to the current directory.
 curl -O https://pkgsrc.smartos.org/packages/Darwin/bootstrap-upgrade/${UPGRADE_TAR}
