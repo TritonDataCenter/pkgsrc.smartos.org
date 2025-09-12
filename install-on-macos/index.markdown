@@ -48,19 +48,18 @@ prefix:      /opt/pkg
 	<div class="row">
 		<div class="col-md-10 col-md-offset-1">
 			<p class="lead">
-				Our primary packages for macOS are available for both Apple
-				Silicon (arm64) and Intel (x86_64), running Monterey (12.3)
-				or newer.
-				Built from pkgsrc trunk, they are updated every week.
+				Our primary packages for macOS are available for Apple Silicon
+				(arm64) running Sonoma (14.5) or newer.
+				Built from pkgsrc trunk, they are updated every few days.
 			</p>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
 			<ul class="nav nav-tabs" role="tablist">
-				<li role="presentation" class="active"><a href="#arm64-install" aria-controls="arm64-install" role="tab" data-toggle="tab">ARM 12.3+</a></li>
+				<li role="presentation" class="active"><a href="#arm64-install" aria-controls="arm64-install" role="tab" data-toggle="tab">ARM 14.5+</a></li>
+				<li role="presentation"><a href="#arm64-upgrade" aria-controls="arm64-upgrade" role="tab" data-toggle="tab">ARM 14.5+ (upgrade)</a></li>
 				<li role="presentation"><a href="#intel-install" aria-controls="intel-install" role="tab" data-toggle="tab">Intel 12.3+</a></li>
-				<li role="presentation"><a href="#arm64-upgrade" aria-controls="arm64-upgrade" role="tab" data-toggle="tab">ARM 12.3+ (upgrade)</a></li>
 				<li role="presentation"><a href="#intel-upgrade" aria-controls="intel-upgrade" role="tab" data-toggle="tab">Intel 12.3+ (upgrade)</a></li>
 			</ul>
 			<div class="tab-content">
@@ -70,14 +69,14 @@ prefix:      /opt/pkg
 #
 # Copy and paste the lines below to install the Apple Silicon (arm64) set.
 #
-# These packages are suitable for anyone running Monterey (12.3) or newer on
-# Apple Silicon CPUs, and are updated from pkgsrc trunk every week.
+# These packages are suitable for anyone running Monterey (14.5) or newer on
+# Apple Silicon CPUs, and are updated from pkgsrc trunk every few days.
 #
 # This should only ever be performed once.  Unpacking the bootstrap kit over
 # the top of an existing install will corrupt your package database.
 #
-BOOTSTRAP_TAR="bootstrap-macos12.3-trunk-arm64-20240426.tar.gz"
-BOOTSTRAP_SHA="97cbb189458ff2765dbacbbaa691460a1d658e7c"
+BOOTSTRAP_TAR="bootstrap-macos14.5-trunk-arm64-20250905.tar.gz"
+BOOTSTRAP_SHA="30565b8e6a6af562d4585055938addc443c0dcda"
 
 # Download the bootstrap kit to the current directory.
 curl -O https://pkgsrc.smartos.org/packages/Darwin/bootstrap/${BOOTSTRAP_TAR}
@@ -115,8 +114,8 @@ eval $(/usr/libexec/path_helper)
 #
 # Under normal operations "pkgin upgrade" is all you need to be up-to-date.
 #
-UPGRADE_TAR="bootstrap-macos12.3-trunk-arm64-20240426-upgrade.tar.gz"
-UPGRADE_SHA="aea829f75459dddefa724c1ba062a95242640a41"
+UPGRADE_TAR="bootstrap-macos14.5-trunk-arm64-20250905-upgrade.tar.gz"
+UPGRADE_SHA="c47624f7a238d32e591470214b534a19428ddd56"
 
 # Download the upgrade kit to the current directory.
 curl -O https://pkgsrc.smartos.org/packages/Darwin/bootstrap-upgrade/${UPGRADE_TAR}
