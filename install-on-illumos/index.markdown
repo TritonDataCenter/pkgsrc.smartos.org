@@ -159,8 +159,8 @@ pkgin -y upgrade
 #
 # Copy and paste the lines below to install the latest tools bootstrap.
 #
-BOOTSTRAP_TAR="bootstrap-trunk-tools-20240116.tar.gz"
-BOOTSTRAP_SHA="8c104974605e7404edd9d10b9429bdf1d9b3bb60"
+BOOTSTRAP_TAR="bootstrap-trunk-tools-20260804.tar.gz"
+BOOTSTRAP_SHA="703e6b381320e1176ee84587a1430e0994aeff71"
 
 # Ensure you are in a directory with enough space for the bootstrap download,
 # by default the SmartOS /root directory is limited to the size of the ramdisk.
@@ -198,8 +198,8 @@ MANPATH=/opt/tools/man:$MANPATH
 #	/opt/tools/etc/pkgin/repositories.conf
 #	/opt/tools/etc/gnupg/pkgsrc.gpg
 #
-UPGRADE_TAR="bootstrap-trunk-tools-20240116-upgrade.tar.gz"
-UPGRADE_SHA="d64fa27ec8a97eb69f1494d6b0843e6529ded67e"
+UPGRADE_TAR="bootstrap-trunk-tools-20260804-upgrade.tar.gz"
+UPGRADE_SHA="3707bcbcf83187d871fdc020d4a4c964e343c9cc"
 
 # Download the upgrade kit to the current directory.  Note that we currently
 # pass "-k" to skip SSL certificate checks as the GZ doesn't install them.
@@ -217,7 +217,7 @@ curl -kO https://pkgsrc.smartos.org/packages/SmartOS/bootstrap-upgrade/${UPGRADE
 tar -zxpvf ${UPGRADE_TAR} -C /
 
 # Ensure you are running the latest package tools.
-pkg_add -U pkg_install pkgin libarchive
+pkg_add -U pkg_install pkgin
 
 # Clean out any old packages signed with the previous key.
 pkgin clean
