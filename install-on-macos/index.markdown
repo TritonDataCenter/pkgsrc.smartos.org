@@ -75,8 +75,8 @@ prefix:      /opt/pkg
 # This should only ever be performed once.  Unpacking the bootstrap kit over
 # the top of an existing install will corrupt your package database.
 #
-BOOTSTRAP_TAR="bootstrap-macos14.5-trunk-arm64-20250905.tar.gz"
-BOOTSTRAP_SHA="30565b8e6a6af562d4585055938addc443c0dcda"
+BOOTSTRAP_TAR="bootstrap-macos14.5-trunk-arm64-20251114.tar.gz"
+BOOTSTRAP_SHA="512a3c209fa0e83b4f614bc6ce11928c10b75cd0"
 
 # Download the bootstrap kit to the current directory.
 curl -O https://pkgsrc.smartos.org/packages/Darwin/bootstrap/${BOOTSTRAP_TAR}
@@ -114,8 +114,8 @@ eval $(/usr/libexec/path_helper)
 #
 # Under normal operations "pkgin upgrade" is all you need to be up-to-date.
 #
-UPGRADE_TAR="bootstrap-macos14.5-trunk-arm64-20250905-upgrade.tar.gz"
-UPGRADE_SHA="c47624f7a238d32e591470214b534a19428ddd56"
+UPGRADE_TAR="bootstrap-macos14.5-trunk-arm64-20251114-upgrade.tar.gz"
+UPGRADE_SHA="3a1a211baba328513c7d59194c1b5cc199848644"
 
 # Download the upgrade kit to the current directory.
 curl -O https://pkgsrc.smartos.org/packages/Darwin/bootstrap-upgrade/${UPGRADE_TAR}
