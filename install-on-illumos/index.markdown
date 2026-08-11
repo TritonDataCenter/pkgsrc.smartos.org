@@ -92,8 +92,8 @@ prefix:      /opt/local
 #
 # Copy and paste the lines below to install the latest bootstrap.
 #
-BOOTSTRAP_TAR="bootstrap-trunk-x86_64-20240116.tar.gz"
-BOOTSTRAP_SHA="4d92a333587d9dcc669ff64264451ca65da701b7"
+BOOTSTRAP_TAR="bootstrap-trunk-x86_64-20260811.tar.gz"
+BOOTSTRAP_SHA="e5e620ade4b45695aa385aea25227e94f49f078f"
 
 # Download the bootstrap kit to the current directory.
 curl -O https://pkgsrc.smartos.org/packages/SmartOS/bootstrap/${BOOTSTRAP_TAR}
@@ -126,8 +126,8 @@ MANPATH={{ page.prefix }}/man:$MANPATH
 #	{{ page.prefix }}/etc/pkgin/repositories.conf
 #	{{ page.prefix }}/etc/gnupg/pkgsrc.gpg
 #
-UPGRADE_TAR="bootstrap-trunk-x86_64-20240116-upgrade.tar.gz"
-UPGRADE_SHA="3099211460e84c34b9f558c8f7354a871187be41"
+UPGRADE_TAR="bootstrap-trunk-x86_64-20260811-upgrade.tar.gz"
+UPGRADE_SHA="d94e31661b3ba5a69cfd1f49b5c0c8e8aa27e92f"
 
 # Download the upgrade kit to the current directory.
 curl -O https://pkgsrc.smartos.org/packages/SmartOS/bootstrap-upgrade/${UPGRADE_TAR}
